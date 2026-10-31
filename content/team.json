@@ -1,6 +1,42 @@
 {
-  "intro": "Travel plans, visa paperwork and a move abroad involve different questions. Get to know the work behind your enquiry and the support to discuss with Rusetat.",
-  "people": [],
+  "intro": "Meet the people supporting Rusetat’s travel, migration and client services, from the first enquiry to the digital tools behind your experience.",
+  "people": [
+    {
+      "name": "Carol",
+      "role": "Director",
+      "portrait": "/images/team/carol.webp",
+      "portraitAlt": "Illustrative portrait representing Carol",
+      "bio": "Leads Rusetat’s direction and brings its travel, migration and client services together around the people it serves."
+    },
+    {
+      "name": "Alettar",
+      "role": "Admin",
+      "portrait": "/images/team/alettar.webp",
+      "portraitAlt": "Illustrative portrait representing Alettar",
+      "bio": "Helps with enquiries, coordination and the day-to-day administration around client requests."
+    },
+    {
+      "name": "Antony",
+      "role": "Admin",
+      "portrait": "/images/team/antony.webp",
+      "portraitAlt": "Illustrative portrait representing Antony",
+      "bio": "Supports client communication, organised records and practical follow-up as enquiries move through the team."
+    },
+    {
+      "name": "Alaska",
+      "role": "Legal Consultant",
+      "portrait": "/images/team/alaska.webp",
+      "portraitAlt": "Illustrative portrait representing Alaska",
+      "bio": "Provides legal consultation and helps bring the legal questions around individual migration circumstances into focus."
+    },
+    {
+      "name": "TK",
+      "role": "Software Developer",
+      "portrait": "/images/team/tk.webp",
+      "portraitAlt": "Illustrative portrait representing TK",
+      "bio": "Develops the software behind Rusetat’s digital experience, with a focus on useful, reliable tools for clients and the team."
+    }
+  ],
   "roles": [
     {
       "title": "Visa & migration support",
@@ -14,5 +50,6 @@
       "title": "Client communication",
       "text": "Ask what happens next, what information is needed and how the agreed service will be coordinated. Confirm the right contact for your request before sharing sensitive documents."
     }
-  ]
+  ],
+  "portraitNote": "Portraits are AI-generated illustrations for this website preview."
 }

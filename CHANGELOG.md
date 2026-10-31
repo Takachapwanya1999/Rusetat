@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-10-31
+
+- Added the five supplied team members and roles with short role-focused biographies.
+- Added a coordinated set of generated African professional portraits, served locally with illustrative-image disclosure.
+- Moved the named profiles ahead of the general team information and improved tablet/mobile grid behaviour.
+
 ## 0.3.0 — 2026-10-31
 
 - Added Meet the Team and Contact Us as About Rusetat subpages, with About body links, navigation and breadcrumbs.

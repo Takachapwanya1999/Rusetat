@@ -183,12 +183,15 @@ def process():
 
 def team():
     s=editorial('The people behind<br>your plans',TEAM['intro'],'Meet the team')
-    s+='<section class="section paper"><div class="wrap split"><div class="image-frame landscape">'+image('consultation')+'<span class="image-caption">Illustrative consultation photography</span></div><div>'+eyebrow('A personal conversation')+'<h2>Start with people who listen</h2><p class="lead">Your reason for travelling or moving matters. A useful first conversation gives you space to explain the situation, ask questions and understand what support is relevant.</p><p class="muted">Whether your enquiry concerns a family application, a holiday or a group event, discuss who will coordinate the agreed work and how you can keep in touch.</p>'+a('about/contact-us','Talk to the team')+'</div></div></section>'
     if TEAM['people']:
-        s+=section('Meet your Rusetat contacts','Our people')+'<div class="team-profiles">'
+        s+=section('Meet the Rusetat team','Our people',cls='paper')+'<div class="team-profiles">'
         for person in TEAM['people']:
-            s+='<article class="team-profile"><img src="'+esc(person['portrait'],quote=True)+'" alt="'+esc(person['name'],quote=True)+'" width="480" height="600" loading="lazy"><span class="eyebrow">'+esc(person['role'])+'</span><h3>'+esc(person['name'])+'</h3><p>'+esc(person['bio'])+'</p></article>'
-        s+='</div>'+END
+            s+='<article class="team-profile"><img src="'+esc(person['portrait'],quote=True)+'" alt="'+esc(person.get('portraitAlt',person['name']),quote=True)+'" width="480" height="600" loading="lazy"><span class="eyebrow">'+esc(person['role'])+'</span><h3>'+esc(person['name'])+'</h3><p>'+esc(person['bio'])+'</p></article>'
+        s+='</div>'
+        if TEAM.get('portraitNote'):
+            s+='<p class="form-note team-portrait-note">'+esc(TEAM['portraitNote'])+'</p>'
+        s+=END
+    s+='<section class="section paper"><div class="wrap split"><div class="image-frame landscape">'+image('consultation')+'<span class="image-caption">Illustrative consultation photography</span></div><div>'+eyebrow('A personal conversation')+'<h2>Start with people who listen</h2><p class="lead">Your reason for travelling or moving matters. A useful first conversation gives you space to explain the situation, ask questions and understand what support is relevant.</p><p class="muted">Whether your enquiry concerns a family application, a holiday or a group event, discuss who will coordinate the agreed work and how you can keep in touch.</p>'+a('about/contact-us','Talk to the team')+'</div></div></section>'
     s+=section('How we support your plans','The work behind your enquiry')+cards(TEAM['roles'])+END
     s+='<section class="section paper"><div class="wrap narrow">'+eyebrow('Working with Rusetat')+'<h2>Know who to ask, and what happens next</h2><ol class="steps-light"><li>Start with the service you need and the circumstances you would like to discuss.</li><li>Ask about the scope, fees, responsibilities and contact for the agreed service.</li><li>Confirm the next steps and an appropriate way to share any information needed.</li></ol>'+a('how-it-works','Read about our process')+'</div></section>'
     return s+cta('Have a question for the team?','Tell us what you have in mind and the support you would like to discuss.')

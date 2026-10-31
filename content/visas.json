@@ -1,0 +1,750 @@
+[
+  {
+    "slug": "visas/south-africa/work/general-work",
+    "group": "work",
+    "title": "General Work Visa",
+    "eyebrow": "South Africa · Work",
+    "headline": "General Work Visa preparation",
+    "intro": "Bring your South African employment plans into focus with application-preparation support shaped around your role, employer and circumstances.",
+    "imageKey": "recruitment",
+    "overview": "An employment opportunity brings more than a change of workplace. Before planning your move, understand which work route fits the proposed role and what you and your employer may need to prepare. We help organise the questions, paperwork and next steps so you can approach the process with a clearer plan.",
+    "highlights": [
+      {
+        "title": "Start with the role",
+        "text": "Discuss the position, employer, intended start date and your current circumstances before choosing an application path."
+      },
+      {
+        "title": "Coordinate both sides",
+        "text": "Keep applicant and employer preparation connected, with a clear view of who needs to provide each part of the file."
+      },
+      {
+        "title": "Prepare with purpose",
+        "text": "Work through an individual preparation plan rather than relying on a generic checklist found online."
+      }
+    ],
+    "preparation": [
+      "Outline your proposed role and employer.",
+      "Share your nationality, current country and broad immigration circumstances.",
+      "Identify the employment and qualification information available for review.",
+      "Discuss the applicable process and quotation before service begins."
+    ],
+    "faqs": [
+      {
+        "question": "Is this the same as a critical skills visa?",
+        "answer": "No. These are separate routes. The proposed role, your qualifications and the current requirements need to be considered before deciding which route to explore."
+      },
+      {
+        "question": "Can my employer take part in the discussion?",
+        "answer": "Yes. An employer contact can help clarify the role and the supporting information needed. Tell us who should be included when you enquire."
+      },
+      {
+        "question": "Should I confirm my start date before applying?",
+        "answer": "Discuss timing with the employer and your consultant before making commitments. An application does not itself establish permission to begin work, and the authorities determine the outcome."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/work/critical-skills",
+    "group": "work",
+    "title": "Critical Skills Visa",
+    "eyebrow": "South Africa · Skilled professionals",
+    "headline": "Critical Skills Visa preparation",
+    "intro": "Explore the preparation involved in a critical skills enquiry, from understanding your professional background to organising the information that supports it.",
+    "imageKey": "recruitment",
+    "overview": "Your job title is only the starting point. A useful critical skills discussion considers your actual work, qualifications, professional standing and the current official framework together. Rusetat helps turn those details into a structured preparation conversation, with the applicable requirements checked for your circumstances.",
+    "highlights": [
+      {
+        "title": "Look beyond a job title",
+        "text": "Describe the work you do, your experience and your intended role so the enquiry begins with meaningful detail."
+      },
+      {
+        "title": "Map your evidence",
+        "text": "Identify qualifications, professional registrations and employment information that may be relevant to the review."
+      },
+      {
+        "title": "Keep the route current",
+        "text": "Check current official requirements rather than assuming an old list or social post still applies."
+      }
+    ],
+    "preparation": [
+      "Summarise your occupation, experience and intended work.",
+      "Make an inventory of qualifications and professional memberships.",
+      "Note any qualification-evaluation or registration steps already completed.",
+      "Discuss the current route and an individual document-preparation plan."
+    ],
+    "faqs": [
+      {
+        "question": "Does my occupation automatically qualify?",
+        "answer": "An occupation name alone is not enough to establish eligibility. Current official requirements and your supporting circumstances need to be reviewed."
+      },
+      {
+        "question": "Do I need a qualification evaluation?",
+        "answer": "Qualification evaluation and professional-registration requirements depend on the route and circumstances. We can help identify what needs to be verified for your enquiry."
+      },
+      {
+        "question": "Can you guarantee that my application will succeed?",
+        "answer": "No. Preparation support helps you understand and organise the process; the relevant authorities make the immigration decision."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/work/intra-company-transfer",
+    "group": "work",
+    "title": "Intra-company Transfer Visa",
+    "eyebrow": "South Africa · International teams",
+    "headline": "Intra-company Transfer Visa preparation",
+    "intro": "Prepare for a proposed transfer to South Africa with a clear brief covering the employee, the organisations and the purpose of the assignment.",
+    "imageKey": "recruitment",
+    "overview": "Moving within an international business calls for coordination across people, documents and timelines. Start by explaining the relationship between the organisations and the proposed assignment. We help structure the enquiry and preparation so the employee and business contacts can work from the same plan.",
+    "highlights": [
+      {
+        "title": "Understand the assignment",
+        "text": "Set out what the employee will do in South Africa and how the proposed transfer fits the organisation."
+      },
+      {
+        "title": "Connect the contacts",
+        "text": "Bring relevant HR or business representatives into the preparation conversation."
+      },
+      {
+        "title": "Plan the move carefully",
+        "text": "Consider work preparation alongside travel and family logistics without treating them as the same approval process."
+      }
+    ],
+    "preparation": [
+      "Describe the proposed assignment and its timeframe.",
+      "Identify the sending and receiving organisations and their relationship.",
+      "Nominate an employee and an HR or business contact.",
+      "Discuss route requirements before finalising relocation commitments."
+    ],
+    "faqs": [
+      {
+        "question": "Is any move between two companies an intra-company transfer?",
+        "answer": "Not necessarily. The relationship between the organisations and the proposed assignment must be considered against the applicable requirements."
+      },
+      {
+        "question": "Can you coordinate with our HR team?",
+        "answer": "Tell us who handles the assignment and we can discuss a preparation process involving the relevant contacts."
+      },
+      {
+        "question": "Can family members be included in the same discussion?",
+        "answer": "Yes, you can raise family travel plans. Each family member’s immigration arrangements need their own consideration and should not be assumed to follow automatically."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/work/corporate",
+    "group": "work",
+    "title": "Corporate Visa Enquiries",
+    "eyebrow": "South Africa · Employer enquiries",
+    "headline": "Corporate Visa Enquiries assistance",
+    "intro": "Start a business-led conversation about corporate visa preparation, workforce requirements and the distinction between an employer process and individual permissions.",
+    "imageKey": "recruitment",
+    "overview": "Corporate immigration planning begins with the business need. A useful first brief explains the organisation, the positions involved and the intended workforce plan. We help organise that discussion and identify what requires further review before an application-preparation scope is agreed.",
+    "highlights": [
+      {
+        "title": "Build the employer brief",
+        "text": "Outline the organisation, proposed roles and operational context in one coherent starting document."
+      },
+      {
+        "title": "Separate the processes",
+        "text": "Understand that corporate arrangements and the permissions affecting individual workers are not interchangeable."
+      },
+      {
+        "title": "Agree a practical scope",
+        "text": "Clarify contacts, information needs and the assistance required before work begins."
+      }
+    ],
+    "preparation": [
+      "Introduce the business and its South African operations.",
+      "Outline the roles and workforce requirement you want to discuss.",
+      "Identify your authorised HR or management contact.",
+      "Request a scope discussion and tailored quotation."
+    ],
+    "faqs": [
+      {
+        "question": "Is a corporate visa for ordinary business travel?",
+        "answer": "No. A corporate visa enquiry concerns an employer-related immigration process. Tell us if you instead need help with a meeting, conference or short business visit."
+      },
+      {
+        "question": "Does a corporate arrangement give every employee permission to work?",
+        "answer": "Individual arrangements must be reviewed separately. Do not assume an employer-level process establishes every worker’s permission."
+      },
+      {
+        "question": "Can you quote for a group of employees?",
+        "answer": "Share the proposed workforce brief and we can discuss the relevant scope. Charges depend on the agreed work and are confirmed in a quotation."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/family/spousal",
+    "group": "family",
+    "title": "Spousal Visa Enquiries",
+    "eyebrow": "South Africa · Family",
+    "headline": "Spousal Visa Enquiries assistance",
+    "intro": "Discuss a spouse-related immigration enquiry with support that starts with your family’s circumstances and the life you are planning in South Africa.",
+    "imageKey": "family",
+    "overview": "When your plans involve joining or remaining with a spouse, the practical and personal details matter. We help you organise the initial discussion, understand which questions need review and prepare for the next steps without assuming one family’s route will fit another.",
+    "highlights": [
+      {
+        "title": "Start with your circumstances",
+        "text": "Explain your spouse’s status, where you are now and what you hope to do next."
+      },
+      {
+        "title": "Prepare a coherent file",
+        "text": "Discuss the relationship and supporting information relevant to your particular enquiry."
+      },
+      {
+        "title": "Think beyond arrival",
+        "text": "Raise future work, study or family plans early so they can be considered separately where needed."
+      }
+    ],
+    "preparation": [
+      "Outline your relationship and your spouse’s broad status in South Africa.",
+      "Explain your current location and intended plans.",
+      "Note any existing application or immigration documents for a private review.",
+      "Discuss the preparation scope and next steps with the team."
+    ],
+    "faqs": [
+      {
+        "question": "Does being married automatically give me permission to work?",
+        "answer": "Do not assume so. Work, study and other activities need to be considered against the permission and requirements that apply to your circumstances."
+      },
+      {
+        "question": "Can we enquire as a couple?",
+        "answer": "Yes. A shared conversation can help clarify your plans and the information each person may need to prepare."
+      },
+      {
+        "question": "Should I send relationship documents in my first message?",
+        "answer": "No. Start with a short overview. The team can discuss an appropriate way to share supporting documents when a review is arranged."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/family/life-partner",
+    "group": "family",
+    "title": "Life Partner Visa Enquiries",
+    "eyebrow": "South Africa · Family",
+    "headline": "Life Partner Visa Enquiries assistance",
+    "intro": "Explore a life-partner enquiry through a private, practical discussion about your relationship, current circumstances and plans in South Africa.",
+    "imageKey": "family",
+    "overview": "No relationship can be reduced to a form. A life-partner enquiry needs an honest account of your circumstances and careful attention to the applicable process. We help structure the preparation conversation so you understand the questions to address and the information that may need to be reviewed.",
+    "highlights": [
+      {
+        "title": "Tell your own story",
+        "text": "Begin with your genuine relationship and shared plans rather than another applicant’s checklist."
+      },
+      {
+        "title": "Organise the details",
+        "text": "Build a clearer picture of the relevant history and supporting information for review."
+      },
+      {
+        "title": "Keep activity rights separate",
+        "text": "Discuss intended work, study or business activity instead of assuming it is automatically covered."
+      }
+    ],
+    "preparation": [
+      "Provide a short overview of your relationship and shared plans.",
+      "Explain each partner’s current location and broad immigration circumstances.",
+      "Identify existing supporting information without sending it in public chat.",
+      "Discuss an individual preparation plan and quotation."
+    ],
+    "faqs": [
+      {
+        "question": "Is this the same as a spousal enquiry?",
+        "answer": "They concern different circumstances. Tell us about your actual relationship so the appropriate process can be discussed."
+      },
+      {
+        "question": "Can I use a checklist from a friend’s application?",
+        "answer": "Use it only as a starting point for questions. Requirements and circumstances can differ, and your preparation should be reviewed individually."
+      },
+      {
+        "question": "Can you help if we are unsure which family route applies?",
+        "answer": "Start with a family enquiry and describe your plans. The team can help identify the questions that need to be considered before you choose a preparation route."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/family/relative",
+    "group": "family",
+    "title": "Relative Visa Enquiries",
+    "eyebrow": "South Africa · Family connections",
+    "headline": "Relative Visa Enquiries assistance",
+    "intro": "Discuss joining family in South Africa with a clearer understanding of the relationship, intended stay and preparation that may be involved.",
+    "imageKey": "family",
+    "overview": "Family connections are an important starting point, but the applicable route depends on more than the wish to live close to one another. We help organise an enquiry around your relationship, the family member’s status and your intended plans, so the right questions can be reviewed before you proceed.",
+    "highlights": [
+      {
+        "title": "Clarify the connection",
+        "text": "Explain who you plan to join and the relevant family relationship."
+      },
+      {
+        "title": "Define the intended stay",
+        "text": "Describe whether you are planning a visit or a longer-term stay so the enquiry can be directed appropriately."
+      },
+      {
+        "title": "Consider individual needs",
+        "text": "Discuss each person’s plans rather than treating an entire family as one identical application."
+      }
+    ],
+    "preparation": [
+      "Identify the family relationship relevant to your enquiry.",
+      "Outline your family member’s broad status in South Africa.",
+      "Describe your intended stay and any work or study plans.",
+      "Arrange a discussion before choosing an application route."
+    ],
+    "faqs": [
+      {
+        "question": "Does every family relationship support this route?",
+        "answer": "Do not assume so. The relationship and current requirements need to be considered for your circumstances."
+      },
+      {
+        "question": "Is this suitable for a short family holiday?",
+        "answer": "A short visit may involve a different route. Tell us the purpose and intended duration so your enquiry can be directed correctly."
+      },
+      {
+        "question": "Can several relatives enquire together?",
+        "answer": "Yes, but each person’s circumstances and preparation needs may differ. Share the family plan and the number of people involved."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/study",
+    "group": "study",
+    "title": "Study Visa",
+    "eyebrow": "South Africa · Education",
+    "headline": "Study Visa preparation",
+    "intro": "Bring your study plans together with preparation support organised around your institution, intended dates and individual circumstances.",
+    "imageKey": "study",
+    "overview": "Preparing to study abroad means coordinating more than an application. Your course, institution, dates, accommodation plans and immigration arrangements all need attention. We help you approach the visa-preparation side with a structured plan while keeping institutional admission and immigration decisions clearly separate.",
+    "highlights": [
+      {
+        "title": "Start with the programme",
+        "text": "Share the institution, course and intended study period to give the enquiry a clear direction."
+      },
+      {
+        "title": "Coordinate your preparation",
+        "text": "Identify what is already available and what questions need to be taken back to the institution or relevant authority."
+      },
+      {
+        "title": "Plan realistic next steps",
+        "text": "Discuss your timing before committing to travel or assuming an academic offer settles immigration arrangements."
+      }
+    ],
+    "preparation": [
+      "Identify the institution and course you intend to attend.",
+      "Note your intended start date and study period.",
+      "Explain your current location and any existing admission correspondence.",
+      "Discuss the visa-preparation process before confirming travel."
+    ],
+    "faqs": [
+      {
+        "question": "Does an admission offer guarantee a study visa?",
+        "answer": "No. Admission and immigration approval are separate decisions. Your visa preparation must be considered on its own terms."
+      },
+      {
+        "question": "Can a parent enquire for a learner?",
+        "answer": "Yes. Tell us the learner’s broad circumstances without sharing identity documents or sensitive personal information in the first message."
+      },
+      {
+        "question": "Can I work while studying?",
+        "answer": "Activity rights depend on the applicable conditions and circumstances. Ask for the current position to be checked rather than relying on a general answer."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/visit/tourism",
+    "group": "visit",
+    "title": "Tourism & Visitor Visa Enquiries",
+    "eyebrow": "South Africa · Visits",
+    "headline": "Tourism & Visitor Visa Enquiries assistance",
+    "intro": "Discuss the entry preparation relevant to your nationality and travel plans, with practical support for a well-organised visit.",
+    "imageKey": "travel",
+    "overview": "A South African visit might be a holiday, time with family or the beginning of a wider journey. The first step is to understand the purpose and intended stay alongside your nationality and current circumstances. We help you identify what to verify and how to organise preparation for the route that applies.",
+    "highlights": [
+      {
+        "title": "Check the starting point",
+        "text": "Nationality and the purpose of travel matter; do not assume every visitor follows the same process."
+      },
+      {
+        "title": "Connect the travel details",
+        "text": "Bring proposed dates, accommodation plans and your wider itinerary into the preparation discussion."
+      },
+      {
+        "title": "Keep plans flexible",
+        "text": "Discuss immigration preparation before making non-refundable travel commitments."
+      }
+    ],
+    "preparation": [
+      "Tell us your nationality and current country of residence.",
+      "Outline the purpose and intended dates of your visit.",
+      "Describe the broad itinerary and who is travelling.",
+      "Discuss applicable preparation before confirming bookings."
+    ],
+    "faqs": [
+      {
+        "question": "Does every nationality need the same visa?",
+        "answer": "No. Requirements vary. Your nationality, travel purpose and circumstances need to be checked against current official information."
+      },
+      {
+        "question": "Can you help with travel planning too?",
+        "answer": "You can include travel-planning needs in your enquiry. Visa assistance and travel arrangements are scoped separately so you can see what is included."
+      },
+      {
+        "question": "Can a visitor visa be used to start a job?",
+        "answer": "Do not assume permission to work from permission to visit. Raise any intended employment so the relevant route can be considered separately."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/visit/medical",
+    "group": "visit",
+    "title": "Medical Visa Enquiries",
+    "eyebrow": "South Africa · Treatment-related travel",
+    "headline": "Medical Visa Enquiries assistance",
+    "intro": "Discuss the immigration preparation around treatment-related travel without sharing private medical information in your first enquiry.",
+    "imageKey": "consultation",
+    "overview": "Travelling for medical care can involve coordination between the traveller, a care provider and accompanying family. We help structure the immigration-preparation discussion and identify which information should be considered privately. Medical advice, clinical arrangements and immigration decisions remain with the relevant professionals and authorities.",
+    "highlights": [
+      {
+        "title": "Keep the first enquiry simple",
+        "text": "Share your travel purpose and broad timeframe; there is no need to describe your diagnosis in an initial message."
+      },
+      {
+        "title": "Coordinate the practical details",
+        "text": "Discuss the intended provider, travel dates and any accompanying person’s separate arrangements."
+      },
+      {
+        "title": "Protect sensitive information",
+        "text": "Agree an appropriate document-sharing process before sending medical or identity records."
+      }
+    ],
+    "preparation": [
+      "Provide your nationality, current country and broad travel timeframe.",
+      "Indicate whether a South African care provider is already identified.",
+      "Mention whether someone intends to accompany you.",
+      "Arrange a private discussion about relevant preparation and document handling."
+    ],
+    "faqs": [
+      {
+        "question": "Should I upload medical records with my enquiry?",
+        "answer": "No. Keep the first enquiry to practical travel details. Discuss an appropriate private review process before sharing sensitive records."
+      },
+      {
+        "question": "Can an accompanying relative use the same arrangements?",
+        "answer": "An accompanying person’s immigration needs must be considered separately. Include their broad plans when you enquire."
+      },
+      {
+        "question": "Do you provide medical advice or arrange treatment?",
+        "answer": "This page concerns immigration-preparation enquiries. Clinical advice and treatment decisions belong with appropriately qualified healthcare providers."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/visit/volunteer",
+    "group": "visit",
+    "title": "Volunteer Visa Enquiries",
+    "eyebrow": "South Africa · Purposeful stays",
+    "headline": "Volunteer Visa Enquiries assistance",
+    "intro": "Explore the immigration questions around a proposed volunteer stay, with the host organisation, activities and intended period at the centre of the discussion.",
+    "imageKey": "travel",
+    "overview": "A meaningful volunteer experience starts with a clear understanding of the arrangement. The activities, host organisation and terms of the stay all matter when considering the relevant immigration preparation. We help you turn the proposal into a focused enquiry rather than assuming that unpaid activity requires no permission.",
+    "highlights": [
+      {
+        "title": "Understand the activity",
+        "text": "Describe what you will actually do and where the proposed volunteering will take place."
+      },
+      {
+        "title": "Connect with the host",
+        "text": "Identify the organisation and the information it can provide about the arrangement."
+      },
+      {
+        "title": "Separate volunteering from work",
+        "text": "Have the actual activities and terms considered rather than relying only on the label given to the opportunity."
+      }
+    ],
+    "preparation": [
+      "Identify the proposed host organisation and contact.",
+      "Describe the activities, location and intended duration.",
+      "Note any accommodation or support included in the arrangement.",
+      "Discuss the applicable process before accepting travel commitments."
+    ],
+    "faqs": [
+      {
+        "question": "Does unpaid activity mean I can enter as a tourist?",
+        "answer": "Do not assume that. The actual activities and arrangement need to be considered against the applicable immigration requirements."
+      },
+      {
+        "question": "Do you provide volunteer placements?",
+        "answer": "This page is for immigration-preparation enquiries around a proposed arrangement. Tell us if you need help identifying what to ask a potential host."
+      },
+      {
+        "question": "What should I ask the host organisation?",
+        "answer": "Start with the activity description, intended dates, location, contact person and terms of the arrangement. More specific preparation can be discussed once the route is reviewed."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/visit/treaty",
+    "group": "visit",
+    "title": "Treaty Visa Enquiries",
+    "eyebrow": "South Africa · Specific arrangements",
+    "headline": "Treaty Visa Enquiries assistance",
+    "intro": "Discuss a treaty-related enquiry through the context of the specific agreement, participating organisation and proposed activity.",
+    "imageKey": "consultation",
+    "overview": "A treaty-related enquiry is specialised. It should begin with the agreement or programme involved, not a general travel assumption. We help organise the initial brief and the questions that need to be checked with the relevant organisations and authorities before an application-preparation scope is agreed.",
+    "highlights": [
+      {
+        "title": "Identify the basis",
+        "text": "Explain the specific agreement or programme you believe is relevant to the proposed stay."
+      },
+      {
+        "title": "Include the right contacts",
+        "text": "Identify the responsible organisation and any official correspondence already available."
+      },
+      {
+        "title": "Verify before proceeding",
+        "text": "Establish what needs confirmation before treating this as the appropriate route."
+      }
+    ],
+    "preparation": [
+      "Identify the agreement or programme relevant to your enquiry.",
+      "Describe the proposed activity and intended stay.",
+      "Name the participating organisation and appropriate contact.",
+      "Discuss what must be verified before application preparation begins."
+    ],
+    "faqs": [
+      {
+        "question": "Is this a general option for international travel?",
+        "answer": "No. A treaty-related enquiry depends on specific circumstances and an applicable arrangement. It should not be treated as a general visitor route."
+      },
+      {
+        "question": "What if I am unsure whether the agreement applies?",
+        "answer": "Share a brief description and identify the organisation involved. The first step is to clarify which questions require authoritative confirmation."
+      },
+      {
+        "question": "Can you confirm the route from a programme name alone?",
+        "answer": "A name alone is not enough. The relevant agreement, proposed activity and individual circumstances need to be considered."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/permanent-residence",
+    "group": "permanent-residence",
+    "title": "Permanent Residence Enquiries",
+    "eyebrow": "South Africa · Longer-term plans",
+    "headline": "Permanent Residence Enquiries assistance",
+    "intro": "Explore your longer-term plans in South Africa through an individual discussion about your circumstances, history and preparation needs.",
+    "imageKey": "family",
+    "overview": "A long-term future deserves a considered starting point. Permanent residence is not one identical route for every applicant, and temporary immigration history should not be treated as automatic qualification. We help you organise the information for a focused discussion about the possible basis of an enquiry and the steps requiring review.",
+    "highlights": [
+      {
+        "title": "Consider the full picture",
+        "text": "Bring together your broad immigration history, family or professional circumstances and future plans."
+      },
+      {
+        "title": "Identify a potential basis",
+        "text": "Discuss the route that may be relevant rather than starting with a one-size-fits-all form."
+      },
+      {
+        "title": "Prepare for the longer view",
+        "text": "Keep present permissions and future residence plans distinct while your enquiry is considered."
+      }
+    ],
+    "preparation": [
+      "Summarise your immigration history and current circumstances.",
+      "Explain the basis you wish to discuss, if known.",
+      "Identify existing records for an appropriate private review.",
+      "Agree a preparation scope without assuming an outcome or timeline."
+    ],
+    "faqs": [
+      {
+        "question": "Does holding a temporary visa automatically lead to permanent residence?",
+        "answer": "No automatic conclusion should be drawn. The applicable basis and your individual circumstances need review."
+      },
+      {
+        "question": "Can I enquire before knowing which category applies?",
+        "answer": "Yes. Start with your circumstances and longer-term plans. The team can help organise the questions that need to be considered."
+      },
+      {
+        "question": "Will this enquiry replace my current immigration obligations?",
+        "answer": "No. Your present permission and any ongoing obligations need separate attention while longer-term options are explored."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/extensions-and-waivers/extension",
+    "group": "extensions-and-waivers",
+    "title": "Visa Extension Enquiries",
+    "eyebrow": "South Africa · Continuing your stay",
+    "headline": "Visa Extension Enquiries assistance",
+    "intro": "Discuss a proposed continuation of your stay with your current permission, expiry date and intended plans clearly in view.",
+    "imageKey": "consultation",
+    "overview": "When your plans change or you need more time, start by reviewing the permission you currently hold and the reason for your intended stay. An extension enquiry is not a substitute for checking your present position. We help structure the preparation discussion and identify the timing and route questions that require attention.",
+    "highlights": [
+      {
+        "title": "Begin with the current position",
+        "text": "Know the type of permission you hold and the relevant dates before deciding what to do next."
+      },
+      {
+        "title": "Explain what has changed",
+        "text": "Describe why you wish to remain and whether your intended activities are changing."
+      },
+      {
+        "title": "Treat timing carefully",
+        "text": "Raise the enquiry promptly and avoid assuming that preparing or submitting an application preserves every right."
+      }
+    ],
+    "preparation": [
+      "Identify your current visa or permission and relevant expiry date.",
+      "Explain the reason and proposed duration of your continued stay.",
+      "Mention any application already submitted, without sharing sensitive records publicly.",
+      "Arrange a discussion about the current process and your circumstances."
+    ],
+    "faqs": [
+      {
+        "question": "Can every visa be extended in the same way?",
+        "answer": "No. The available process depends on the permission and circumstances. Your current position needs to be considered individually."
+      },
+      {
+        "question": "Does an application receipt mean I can keep doing everything as before?",
+        "answer": "Do not assume so. The effect of a pending application and any conditions must be checked for your circumstances."
+      },
+      {
+        "question": "What if my permission is close to expiry?",
+        "answer": "Contact the team promptly and state the relevant date. The enquiry itself does not change your status or guarantee that a route is available."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/extensions-and-waivers/waiver",
+    "group": "extensions-and-waivers",
+    "title": "Waiver Enquiries",
+    "eyebrow": "South Africa · Individual circumstances",
+    "headline": "Waiver Enquiries assistance",
+    "intro": "Discuss a specific waiver enquiry with a focused account of the requirement involved, the issue you face and the preparation that may be relevant.",
+    "imageKey": "consultation",
+    "overview": "A waiver is a distinct request, not a visa or a general shortcut through the application process. Start by identifying the requirement and your genuine circumstances. We help organise the enquiry and supporting preparation while keeping the waiver decision separate from any related immigration application.",
+    "highlights": [
+      {
+        "title": "Define the issue",
+        "text": "Identify the particular requirement or circumstance you want to discuss."
+      },
+      {
+        "title": "Build a clear account",
+        "text": "Organise relevant facts and supporting information in a coherent, honest way."
+      },
+      {
+        "title": "Keep decisions distinct",
+        "text": "Understand that a waiver request and a visa application are not the same process or outcome."
+      }
+    ],
+    "preparation": [
+      "Explain the requirement or issue relevant to your enquiry.",
+      "Summarise your circumstances and any related application.",
+      "Identify supporting information available for private review.",
+      "Discuss whether a preparation scope can be offered and what it includes."
+    ],
+    "faqs": [
+      {
+        "question": "Is a waiver a visa?",
+        "answer": "No. A waiver enquiry concerns a particular request relating to a requirement. It should not be described as a visa or permission to remain."
+      },
+      {
+        "question": "Does an approved waiver guarantee a visa?",
+        "answer": "No. Related immigration decisions remain separate and are determined by the relevant authorities."
+      },
+      {
+        "question": "Can I use someone else’s motivation letter?",
+        "answer": "Your account should reflect your genuine circumstances. A copied explanation can overlook the facts and questions relevant to your own enquiry."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/business",
+    "group": "business",
+    "title": "Business Visa Enquiries",
+    "eyebrow": "South Africa · Entrepreneurs",
+    "headline": "Business Visa Enquiries assistance",
+    "intro": "Explore the immigration preparation around a proposed business venture, with the intended activity and your role in the business clearly defined.",
+    "imageKey": "recruitment",
+    "overview": "Planning to establish or participate in a business is different from travelling for a meeting. The nature of the activity, your intended role and the relevant circumstances all need attention. We help organise the initial immigration enquiry so business registration, operational planning and immigration permission are not mistaken for the same thing.",
+    "highlights": [
+      {
+        "title": "Define the venture",
+        "text": "Describe the proposed business, its location and the activity you intend to carry out."
+      },
+      {
+        "title": "Clarify your role",
+        "text": "Explain whether you plan to own, manage, invest in or otherwise participate in the business."
+      },
+      {
+        "title": "Separate the workstreams",
+        "text": "Keep incorporation, commercial readiness and immigration preparation connected but distinct."
+      }
+    ],
+    "preparation": [
+      "Summarise the business idea or existing venture.",
+      "Describe your proposed role and intended activities in South Africa.",
+      "Note the business-planning information already available.",
+      "Discuss the applicable immigration questions before making commitments."
+    ],
+    "faqs": [
+      {
+        "question": "Is this the route for attending a business meeting?",
+        "answer": "A short meeting or conference may involve different considerations. Describe the activity and intended stay so the enquiry can be directed appropriately."
+      },
+      {
+        "question": "Does company registration give me permission to work in South Africa?",
+        "answer": "Do not assume that. A company’s registration and an individual’s immigration permission are separate matters."
+      },
+      {
+        "question": "Can I enquire while the venture is still being planned?",
+        "answer": "Yes. A concise description of the proposed business and your intended role is a useful starting point for identifying the questions to review."
+      }
+    ]
+  },
+  {
+    "slug": "visas/south-africa/retirement",
+    "group": "retirement",
+    "title": "Retirement Visa Enquiries",
+    "eyebrow": "South Africa · A different pace",
+    "headline": "Retirement Visa Enquiries assistance",
+    "intro": "Discuss retirement-related plans in South Africa with an individual preparation conversation about your intended stay, household and circumstances.",
+    "imageKey": "family",
+    "overview": "A retirement move is a personal decision with practical details behind it. Start with how you hope to spend your time, who will move with you and whether you are considering a temporary or longer-term arrangement. We help organise the immigration-preparation questions without assuming that one route or checklist fits every household.",
+    "highlights": [
+      {
+        "title": "Describe the life you plan",
+        "text": "Explain your intended stay, preferred location and the people included in your plans."
+      },
+      {
+        "title": "Prepare privately",
+        "text": "Discuss how relevant supporting information should be reviewed without sending financial records through the initial enquiry."
+      },
+      {
+        "title": "Look at the whole move",
+        "text": "Consider immigration preparation alongside travel and settling-in questions, with each service scoped clearly."
+      }
+    ],
+    "preparation": [
+      "Outline your intended stay and broad retirement plans.",
+      "Mention any partner or family members who may accompany you.",
+      "Identify questions about temporary and longer-term arrangements.",
+      "Arrange a private discussion before sharing financial or identity documents."
+    ],
+    "faqs": [
+      {
+        "question": "Is this automatically a permanent residence route?",
+        "answer": "No automatic conclusion should be drawn. Temporary permission and permanent residence need to be considered separately against your circumstances."
+      },
+      {
+        "question": "Should I send bank statements with my first enquiry?",
+        "answer": "No. Start with a short overview and discuss an appropriate private document-review process with the team."
+      },
+      {
+        "question": "Can we discuss the move as a couple?",
+        "answer": "Yes. Share your household plans, while recognising that each person’s immigration arrangements may need individual consideration."
+      }
+    ]
+  }
+]

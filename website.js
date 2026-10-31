@@ -1,0 +1,267 @@
+'use strict';
+
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#main-nav');
+menuButton?.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('open', open);
+  document.body.classList.toggle('menu-open', open);
+});
+const dockToggle = document.querySelector('.dock-toggle');
+const dockPanel = document.querySelector('#dock-panel');
+dockToggle?.addEventListener('click', () => {
+  const open = dockToggle.getAttribute('aria-expanded') !== 'true';
+  dockToggle.setAttribute('aria-expanded', String(open));
+  dockPanel.hidden = !open;
+  if (open) dockPanel.querySelector('a')?.focus();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Tab' && menuButton?.getAttribute('aria-expanded') === 'true') {
+    const items = [menuButton, ...navigation.querySelectorAll('a[href]')];
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+  if (event.key !== 'Escape') return;
+  if (menuButton?.getAttribute('aria-expanded') === 'true') {
+    menuButton.click();
+    menuButton.focus();
+  }
+  if (dockToggle?.getAttribute('aria-expanded') === 'true') {
+    dockToggle.click();
+    dockToggle.focus();
+  }
+});
+matchMedia('(min-width: 901px)').addEventListener('change', event => {
+  if (event.matches && menuButton?.getAttribute('aria-expanded') === 'true') menuButton.click();
+});
+document.addEventListener('click', event => {
+  if (dockPanel && !dockPanel.hidden && !event.target.closest('.contact-dock')) {
+    dockPanel.hidden = true;
+    dockToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+document.querySelectorAll('[data-filter]').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(control => control.setAttribute('aria-pressed', String(control === button)));
+    document.querySelectorAll('[data-region]').forEach(card => {
+      card.hidden = button.dataset.filter !== 'All destinations' && card.dataset.region !== button.dataset.filter;
+    });
+    const count = [...document.querySelectorAll('[data-region]')].filter(card => !card.hidden).length;
+    document.querySelector('#destination-count').textContent = `${count} ${count === 1 ? 'destination' : 'destinations'}`;
+  });
+});
+
+const search = document.querySelector('#sitemap-search');
+search?.addEventListener('input', () => {
+  const query = search.value.toLowerCase().trim();
+  document.querySelectorAll('.tree-list li').forEach(item => {
+    item.hidden = Boolean(query) && !item.textContent.toLowerCase().includes(query);
+  });
+  document.querySelector('#sitemap-empty').hidden = [...document.querySelectorAll('.tree-list li')].some(item => !item.hidden);
+});
+
+async function copyText(text, status) {
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = 'Copied to clipboard';
+  } catch {
+    status.textContent = 'Copy is unavailable in this browser. Open the email draft to review your message.';
+  }
+}
+
+function downloadText(text, name) {
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const blobUrl = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = blobUrl;
+  link.download = name;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+}
+
+function value(form, name) {
+  const control = form.elements.namedItem(name);
+  return control && 'value' in control ? control.value.trim() : '';
+}
+
+const quoteForm = document.querySelector('#quote-form');
+if (quoteForm) {
+  const steps = [...quoteForm.querySelectorAll('.quote-step')];
+  const progress = [...quoteForm.querySelectorAll('.quote-progress span')];
+  const back = document.querySelector('#quote-back');
+  const next = document.querySelector('#quote-next');
+  const prepare = document.querySelector('#quote-prepare');
+  const error = quoteForm.querySelector('.form-error');
+  const result = document.querySelector('#quote-result');
+  const summary = document.querySelector('#quote-review');
+  let step = 0;
+  let brief = '';
+
+  function selectedArrangements() {
+    return [...quoteForm.querySelectorAll('[name="arrangements"]:checked')].map(control => control.value);
+  }
+
+  function briefRows(includeContact = false) {
+    const rows = [
+      ['Event', value(quoteForm, 'event')],
+      ['Organisation', value(quoteForm, 'organisation')],
+      ['Event goals', value(quoteForm, 'goals')],
+      ['Destination', value(quoteForm, 'destination')],
+      ['Destination notes', value(quoteForm, 'destinationNotes')],
+      ['Attendees', value(quoteForm, 'attendees')],
+      ['Nights', value(quoteForm, 'nights')],
+      ['Dates / flexibility', value(quoteForm, 'dates')],
+      ['Arrangements', selectedArrangements().join(', ') || 'To discuss'],
+      ['Other arrangements', value(quoteForm, 'arrangementNotes')],
+      ['Budget', [value(quoteForm, 'currency'), value(quoteForm, 'budget'), value(quoteForm, 'budgetBasis')].filter(Boolean).join(' · ') || 'To discuss'],
+      ['Priority', value(quoteForm, 'priority')],
+      ['Other priorities', value(quoteForm, 'priorities')]
+    ];
+    if (selectedArrangements().includes('Flights')) rows.push(['Departure groups', value(quoteForm, 'departures')]);
+    if (selectedArrangements().includes('Accommodation')) rows.push(['Room preferences', value(quoteForm, 'rooms')]);
+    if (selectedArrangements().includes('Meeting venue')) rows.push(['Meeting setup', value(quoteForm, 'venue')]);
+    if (includeContact) rows.push(['Contact', value(quoteForm, 'name')], ['Email', value(quoteForm, 'email')], ['Phone', value(quoteForm, 'phone')], ['Preferred reply', value(quoteForm, 'reply')]);
+    return rows.filter(([, answer]) => answer);
+  }
+
+  function updateReview() {
+    summary.replaceChildren();
+    briefRows().forEach(([label, answer]) => {
+      const row = document.createElement('div');
+      const term = document.createElement('dt');
+      const definition = document.createElement('dd');
+      term.textContent = label;
+      definition.textContent = answer;
+      row.append(term, definition);
+      summary.append(row);
+    });
+  }
+
+  function showStep(number, focus = true) {
+    step = number;
+    steps.forEach((panel, index) => { panel.hidden = index !== step; });
+    progress.forEach((bar, index) => bar.classList.toggle('active', index <= step));
+    back.hidden = step === 0;
+    next.hidden = step === steps.length - 1;
+    prepare.hidden = step !== steps.length - 1;
+    error.hidden = true;
+    if (step === steps.length - 1) updateReview();
+    if (focus) {
+      const heading = steps[step].querySelector('h3');
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      quoteForm.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+    }
+  }
+
+  function validStep(number) {
+    const invalid = [...steps[number].querySelectorAll('input,select,textarea')].find(control => !control.checkValidity());
+    if (!invalid) return true;
+    error.textContent = 'Please complete the required details before continuing.';
+    error.hidden = false;
+    invalid.focus();
+    invalid.reportValidity();
+    return false;
+  }
+
+  next.addEventListener('click', () => { if (validStep(step)) showStep(step + 1); });
+  back.addEventListener('click', () => showStep(Math.max(0, step - 1)));
+  quoteForm.addEventListener('change', () => {
+    const selected = selectedArrangements();
+    quoteForm.querySelectorAll('[data-followup]').forEach(panel => { panel.hidden = !selected.includes(panel.dataset.followup); });
+    result.hidden = true;
+    document.querySelector('#quote-status').textContent = '';
+  });
+  quoteForm.addEventListener('input', () => { result.hidden = true;
+    document.querySelector('#quote-status').textContent = ''; });
+  quoteForm.addEventListener('submit', event => {
+    event.preventDefault();
+    for (let index = 0; index < steps.length; index++) {
+      if (index !== step) {
+        const invalid = [...steps[index].querySelectorAll('input,select,textarea')].find(control => !control.checkValidity());
+        if (invalid) { showStep(index); validStep(index); return; }
+      }
+    }
+    if (!validStep(step)) return;
+    brief = 'Rusetat corporate travel & event brief\n\n' + briefRows(true).map(([label, answer]) => `${label}: ${answer}`).join('\n') + '\n\nPlease discuss available options and a tailored quotation. This is an enquiry, not a booking.';
+    document.querySelector('#quote-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Corporate event quote request — ' + value(quoteForm, 'organisation'))}&body=${encodeURIComponent(brief)}`;
+    result.hidden = false;
+    document.querySelector('#quote-status').textContent = '';
+    result.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' });
+  });
+  document.querySelector('#quote-copy').addEventListener('click', () => copyText(brief, document.querySelector('#quote-status')));
+  document.querySelector('#quote-download').addEventListener('click', () => downloadText(brief, 'Rusetat-Corporate-Event-Brief.txt'));
+  const destination = new URLSearchParams(location.search).get('destination');
+  if (destination) {
+    const labels = { 'cape-town': 'Cape Town', kariba: 'Lake Kariba', 'victoria-falls': 'Victoria Falls', kruger: 'Kruger & safari', zanzibar: 'Zanzibar', mauritius: 'Mauritius', dubai: 'Dubai', bali: 'Bali' };
+    const option = labels[destination] || destination;
+    if ([...quoteForm.elements.destination.options].some(item => item.value === option)) quoteForm.elements.destination.value = option;
+  }
+}
+
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+  let message = '';
+  const service = contactForm.elements.service;
+  const params = new URLSearchParams(location.search);
+  const requested = params.get('service') || '';
+  const dest = params.get('destination') || '';
+  if (requested) {
+    const lower = requested.toLowerCase();
+    const match = [...service.options].find(option => option.value.toLowerCase() === lower);
+    if (match) service.value = match.value;
+    else if (lower.includes('international')) service.value = 'International visa';
+    else if (/visa|residence|waiver|extension/.test(lower)) service.value = 'South African visa';
+    else if (lower.includes('travel')) service.value = 'Travel';
+    else service.add(new Option(requested, requested, true, true));
+  }
+  contactForm.elements.contactDestination.value = dest;
+  const audience = params.get('audience');
+  if (audience) contactForm.elements.audience.value = audience.includes('host') ? 'Host family' : audience === 'employer' ? 'Employer' : 'Candidate';
+  if (requested && ![...service.options].some(option => option.value === requested)) contactForm.elements.message.value = 'I would like to discuss ' + requested + '.';
+  function updateFields() {
+    const lower = service.value.toLowerCase();
+    contactForm.querySelector('[data-contact-group="visa"]').hidden = !lower.includes('visa');
+    contactForm.querySelector('[data-contact-group="travel"]').hidden = lower !== 'travel';
+    contactForm.querySelector('[data-contact-group="audience"]').hidden = !['au pair', 'recruitment'].includes(lower);
+    document.querySelector('#contact-result').hidden = true;
+    document.querySelector('#contact-status').textContent = '';
+  }
+  service.addEventListener('change', updateFields);
+  updateFields();
+  contactForm.addEventListener('input', () => { document.querySelector('#contact-result').hidden = true;
+    document.querySelector('#contact-status').textContent = ''; });
+  contactForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const fields = [['Enquiry', service.value], ['Name', value(contactForm, 'contactName')], ['Email', value(contactForm, 'contactEmail')], ['Destination', value(contactForm, 'contactDestination')]];
+    if (!contactForm.querySelector('[data-contact-group="visa"]').hidden) fields.push(['Nationality', value(contactForm, 'nationality')], ['Current country', value(contactForm, 'currentCountry')]);
+    if (!contactForm.querySelector('[data-contact-group="travel"]').hidden) fields.push(['Dates', value(contactForm, 'travelDates')]);
+    if (!contactForm.querySelector('[data-contact-group="audience"]').hidden) fields.push(['Enquiring as', value(contactForm, 'audience')]);
+    fields.push(['Message', value(contactForm, 'message')]);
+    message = 'Hello Rusetat,\n\n' + fields.filter(([, answer]) => answer).map(([label, answer]) => `${label}: ${answer}`).join('\n');
+    document.querySelector('#contact-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Website enquiry — ' + service.value)}&body=${encodeURIComponent(message)}`;
+    document.querySelector('#contact-result').hidden = false;
+    document.querySelector('#contact-status').textContent = '';
+  });
+  document.querySelector('#contact-copy').addEventListener('click', () => copyText(message, document.querySelector('#contact-status')));
+}
+
+document.querySelector('#load-map')?.addEventListener('click', () => {
+  const frame = document.createElement('iframe');
+  frame.title = 'Rusetat office area in Centurion';
+  frame.loading = 'lazy';
+  frame.referrerPolicy = 'no-referrer-when-downgrade';
+  frame.src = 'https://maps.google.com/maps?q=269%20Von%20Willich%20Avenue%20Centurion&t=&z=15&ie=UTF8&iwloc=&output=embed';
+  document.querySelector('#map-panel').replaceChildren(frame);
+});

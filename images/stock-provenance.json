@@ -1,0 +1,15 @@
+{
+  "provider": "Unsplash",
+  "note": "Curated stock photography, downloaded for this presentation build. Confirm selected images and rights/provenance before public release. Supplied Kariba and Victoria images remain client-provided.",
+  "files": [
+    "cape.webp",
+    "beach.webp",
+    "dubai.webp",
+    "bali.webp",
+    "safari.webp",
+    "study.webp",
+    "recruitment.webp",
+    "corporate.webp"
+  ],
+  "studySource": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=85"
+}

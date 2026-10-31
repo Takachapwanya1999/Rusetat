@@ -1,0 +1,33 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "generated": "2026-10-31",
+  "status": "Illustrative AI-generated destination photography. Geographic character was visually reviewed; not evidence of a bookable property.",
+  "assets": [
+    {
+      "files": [
+        "zanzibar.png",
+        "zanzibar.webp"
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alt": "A traditional dhow sailing beside a white-sand palm-lined Indian Ocean beach.",
+      "source": "C:/Users/sewar/.codex/generated_images/01a19318-e02d-71d2-9065-d1c8d12b1165/exec-ac201774-f225-49ac-bcf9-5913495b214f.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide professional editorial destination photograph for Zanzibar travel website, landscape 3:2. A beautiful geographically plausible Zanzibar coastline: brilliant turquoise Indian Ocean, white coral-sand beach, traditional wooden dhow with triangular lateen sail offshore, swaying palms along shore. Natural late-morning sunlight, believable tropical atmosphere and authentic coastal character, subtle warm neutral and blue colour grading, magazine-quality full-frame travel photography. Composition with strong shoreline perspective and room for responsive cropping. No named hotel, property branding, text, watermark, logos, collage or impossible geography. Illustrative destination photography, not evidence of a bookable property."
+    },
+    {
+      "files": [
+        "mauritius.png",
+        "mauritius.webp"
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alt": "A dramatic green volcanic mountain behind a turquoise Mauritius-style lagoon and pale beach.",
+      "source": "C:/Users/sewar/.codex/generated_images/01a19318-e02d-71d2-9065-d1c8d12b1165/exec-089b238d-2297-4a89-accf-2a5b383c4499.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide professional editorial destination photograph for Mauritius travel website, landscape 3:2. Geographically plausible Mauritius island landscape: dramatic green volcanic mountain rising behind a calm turquoise lagoon and gently curving pale sand beach, characteristic Mauritian coastal scenery, a few palms along the shore, no buildings required. Clear natural morning sunlight, realistic water depth colours, believable island scale, refined blue-neutral travel-magazine grading, professional full-frame photography. Composition with lagoon in foreground, mountain as focal point, adaptable wide responsive crop. No named hotel, text, watermark, logos, collage, invented landmarks or branded property. Illustrative destination photography, not a claim of booked accommodation."
+    }
+  ]
+}

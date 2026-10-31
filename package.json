@@ -1,0 +1,10 @@
+{
+  "name": "rusetat-consolidated-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "python scripts/build.py",
+    "dev": "python -m http.server 4173 --bind 127.0.0.1 --directory dist",
+    "test": "python scripts/check.py"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "generated": "2026-10-31",
+  "status": "Illustrative AI-generated photography; not actual Rusetat staff, clients or programme participants.",
+  "assets": [
+    {
+      "files": [
+        "consultation.png",
+        "consultation.webp"
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alt": "Two women discussing generic paperwork at a blue-neutral office desk.",
+      "source": "C:/Users/sewar/.codex/generated_images/01a19318-e02d-71d2-9065-d1c8d12b1165/exec-1c926374-9b53-4d62-b66d-7dd5c0d057be.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide editorial website photograph, landscape 3:2. Professional candid consultation scene: an adult African woman client and an adult African woman adviser at an elegant but modest blue-neutral office desk, talking thoughtfully while reviewing generic blank folders. Natural window light, authentic skin texture, understated contemporary clothing, realistic anatomy and hands, professional full-frame editorial photography, warm human connection with understated blue and cream palette. Generous composition with room around subjects for adaptable crop. No text, readable documents, passports, government insignia, visible logos, watermark, approval gestures or handshakes. Illustrative scene, not actual Rusetat staff or clients."
+    },
+    {
+      "files": [
+        "people.png",
+        "people.webp"
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alt": "An adult woman in conversation with two adult hosts in a welcoming home.",
+      "source": "C:/Users/sewar/.codex/generated_images/01a19318-e02d-71d2-9065-d1c8d12b1165/exec-af234306-beb1-4ffe-abd1-caaafffe4e24.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide editorial website photograph, landscape 3:2. Adult African woman au pair candidate meeting two adult host parents in a welcoming contemporary home, candid relaxed conversation at a comfortable living room sofa, all adults, no children required. Professional editorial photography, believable natural warm window light, authentic skin texture, realistic anatomy and hands, understated modern clothing, cream and neutral interiors with subtle blue accents. Welcoming yet professional mood, no posed handshake, no implication of completed placement. Generous composition for responsive crop. No text, logos, watermark, visible private documents or borders. Illustrative fictional scene, not actual staff, clients or programme participants."
+    }
+  ]
+}

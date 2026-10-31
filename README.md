@@ -1,6 +1,6 @@
 # Rusetat · Travel & New Beginnings
 
-A responsive 68-page presentation website for Rusetat Migration International. The supplied draft establishes the palette, logo and editorial direction; its original root HTML/CSS/JS files remain as reference. The new site is generated into `dist/`.
+A responsive 69-page presentation website for Rusetat Migration International. The supplied draft establishes the palette, logo and editorial direction; its original root HTML/CSS/JS files remain as reference. The new site is generated into `dist/`.
 
 ## Run locally
 
@@ -52,3 +52,12 @@ The private Sites identity is in `.openai/hosting.json`. Publication snapshots a
 The website was audited and refined with Unslop by Damir Sokolovsky: https://github.com/heydamir/unslop (CC BY 4.0). See `docs/unslop-audit.md` for direction and the nine-pass report, and `THIRD_PARTY_NOTICES.md` for attribution. The existing brand, photography, routes and service interactions remain the foundation.
 
 Icons are a locally vendored Lucide SVG subset, with upstream license at `assets/icons/LICENSE.txt`; no browser library or package install is required. `scripts/presentation.py` applies shared short-label and icon conventions during generation. `images/dimensions.json` records actual photo dimensions. Styles and scripts receive content-versioned URLs so edits refresh after deployment.
+
+
+## About subpages and country flags
+
+About Rusetat links from its body and navigation to `/about/meet-the-team/`, `/about/contact-us/` and the existing process page. Contact Us reuses the enquiry form, phone/email and office information. `/contact/` remains as a redirect and preserves query parameters and fragments, so older service/destination enquiries still work.
+
+`content/team.json` holds the team introduction, support-role copy and an optional `people` array. Named staff and portraits have not been supplied, so the demo presents support roles and clearly labelled illustrative consultation photography. To add approved real profiles, populate `people` with objects containing `name`, `role`, `portrait` (a locally served image path) and `bio`.
+
+The international visa directory uses 12 real 4:3 SVG flag assets served from `images/flags/`. They come from one MIT-licensed flag-icons collection, with a pinned upstream revision, source URLs and hashes recorded in `images/flags/provenance.json`. Each international record has its ISO country code in `countryCode`. No emoji, CDN or runtime flag dependency is used.

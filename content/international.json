@@ -32,7 +32,8 @@
         "question": "Does a job or course offer settle the visa question?",
         "answer": "No. Employment or admission arrangements and immigration permission are separate matters. The applicable process needs its own review."
       }
-    ]
+    ],
+    "countryCode": "au"
   },
   {
     "slug": "visas/international/canada",
@@ -67,7 +68,8 @@
         "question": "Can I rely on a friend’s Canadian checklist?",
         "answer": "Use it to help form questions, not as proof of what applies to you. Current requirements and individual circumstances need to be considered."
       }
-    ]
+    ],
+    "countryCode": "ca"
   },
   {
     "slug": "visas/international/czech-republic",
@@ -102,7 +104,8 @@
         "question": "Do I need confirmed bookings before enquiring?",
         "answer": "No. Proposed dates and a sensible outline are enough to begin a conversation. Discuss preparation before making non-refundable commitments."
       }
-    ]
+    ],
+    "countryCode": "cz"
   },
   {
     "slug": "visas/international/denmark",
@@ -137,7 +140,8 @@
         "question": "Does this page mean every Danish visa route is offered?",
         "answer": "No. The team confirms available assistance after reviewing the purpose and broad circumstances of your enquiry."
       }
-    ]
+    ],
+    "countryCode": "dk"
   },
   {
     "slug": "visas/international/united-arab-emirates",
@@ -172,7 +176,8 @@
         "question": "What if my itinerary includes a stopover?",
         "answer": "Mention the complete itinerary and intended time in the UAE. The circumstances of a stopover and a stay should be considered before you make assumptions."
       }
-    ]
+    ],
+    "countryCode": "ae"
   },
   {
     "slug": "visas/international/finland",
@@ -207,7 +212,8 @@
         "question": "Will the same preparation apply to a holiday and a longer stay?",
         "answer": "Do not assume so. The purpose and intended stay need to be reviewed before the relevant preparation process is discussed."
       }
-    ]
+    ],
+    "countryCode": "fi"
   },
   {
     "slug": "visas/international/hungary",
@@ -242,7 +248,8 @@
         "question": "Is a quotation the same as an application decision?",
         "answer": "No. A quotation defines the offered service and charges. Immigration decisions remain with the relevant authorities."
       }
-    ]
+    ],
+    "countryCode": "hu"
   },
   {
     "slug": "visas/international/lithuania",
@@ -277,7 +284,8 @@
         "question": "Can a course or employer invitation guarantee permission?",
         "answer": "No. Those arrangements and the relevant immigration decision are separate matters and need their own consideration."
       }
-    ]
+    ],
+    "countryCode": "lt"
   },
   {
     "slug": "visas/international/new-zealand",
@@ -312,7 +320,8 @@
         "question": "Should I book flights before the enquiry?",
         "answer": "You can begin with proposed dates. Discuss the preparation process before taking on non-refundable travel commitments."
       }
-    ]
+    ],
+    "countryCode": "nz"
   },
   {
     "slug": "visas/international/poland",
@@ -347,7 +356,8 @@
         "question": "Can I include other European destinations?",
         "answer": "Yes. Share your full intended itinerary and activities so the enquiry can be considered in context."
       }
-    ]
+    ],
+    "countryCode": "pl"
   },
   {
     "slug": "visas/international/united-kingdom",
@@ -382,7 +392,8 @@
         "question": "Does a previous UK visit determine what I need now?",
         "answer": "Not on its own. Current circumstances, purpose and official requirements need to be considered for the new journey."
       }
-    ]
+    ],
+    "countryCode": "gb"
   },
   {
     "slug": "visas/international/united-states",
@@ -417,6 +428,7 @@
         "question": "Does this page advertise US jobs or programmes?",
         "answer": "No. It is an enquiry page for discussing travel purposes and available visa-preparation support. Actual programmes or recruitment opportunities need separate confirmation."
       }
-    ]
+    ],
+    "countryCode": "us"
   }
 ]

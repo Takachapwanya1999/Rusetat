@@ -16,3 +16,7 @@ Local SVG subset from https://github.com/lucide-icons/lucide. Upstream copyright
 ## Website photography
 
 Existing AI-generated and stock photography provenance remains in `images/generated/*provenance.json` and `images/stock-provenance.json`. No new imagery was generated for this cleanup.
+
+## Country flags
+
+The international visa directory uses SVG flags from [flag-icons by lipis and contributors](https://github.com/lipis/flag-icons), licensed under MIT. The 12 required 4:3 flags are stored locally in `images/flags/`; the pinned upstream revision, original URLs and checksums are recorded in `images/flags/provenance.json`. The upstream license is retained as `images/flags/LICENSE.txt`. No CDN or flag package is required at runtime.

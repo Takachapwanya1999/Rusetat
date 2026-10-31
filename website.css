@@ -301,6 +301,13 @@ body:has(input:focus, textarea:focus, select:focus) .contact-dock { visibility: 
 .link-directory { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; }
 .link-directory a { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--line); font: 28px/1.25 var(--serif); }
 .link-directory a:hover { color: var(--blue); }
+.country-directory > a { display: grid; grid-template-columns: 48px minmax(0, 1fr) 16px; gap: 16px; min-height: 112px; font-size: 24px; }
+.country-flag { width: 48px; height: 36px; object-fit: contain; border: 1px solid var(--line); background: #fff; }
+.country-name { min-width: 0; }
+.team-profiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.team-profile img { width: 100%; aspect-ratio: 4/5; margin-bottom: 24px; }
+.team-profile .eyebrow { margin-bottom: 12px; }
+.team-profile p { color: var(--secondary); }
 .no-results { padding: 24px; border: 1px solid var(--line); color: var(--muted); }
 .content-start { padding-top: 24px; }
 .section-actions { margin-top: 32px; }
@@ -439,6 +446,8 @@ body:has(input:focus, textarea:focus, select:focus) .contact-dock { visibility: 
   .dock-toggle { padding-inline: 16px; font-size: 14px; }
   .dock-panel { width: 304px; max-width: calc(100vw - 32px); }
   .link-directory { grid-template-columns: 1fr; }
+  .country-directory > a { min-height: 96px; }
+  .team-profiles { grid-template-columns: 1fr; }
   .guide-grid { grid-template-columns: 1fr; gap: 48px; }
   .guide-card img { aspect-ratio: 5/3; }
   .tree-list { padding-left: 12px; }

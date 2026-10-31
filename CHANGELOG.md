@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 — 2026-10-31
+
+- Added Meet the Team and Contact Us as About Rusetat subpages, with About body links, navigation and breadcrumbs.
+- Moved the existing contact experience under About and preserved older enquiry URLs and context through a redirect.
+- Added 12 locally served SVG country flags from the pinned, MIT-licensed flag-icons source.
+- Updated the generated 69-page sitemap and added editable role-based team content for the demo.
+
 ## 0.2.0 — 2026-10-31
 
 - Applied an Unslop audit and all nine craft passes across shared templates and all 68 pages.

@@ -45,3 +45,10 @@ Final images are served locally as WebP with explicit dimensions. `images/genera
 The demo uses noindex/nofollow and disallows crawling. Public release needs approved contacts, final service/visa copy, supplier/placement terms, asset rights and actual hosting/privacy details. If a submission backend is added, define access, retention, spam controls and honest receipt/failure states first. No database, payments or existing private-portal changes are included.
 
 The private Sites identity is in `.openai/hosting.json`. Publication snapshots are prepared separately from this feature branch; the supplied repository main branch is not pushed directly.
+
+
+## Design cleanup
+
+The website was audited and refined with Unslop by Damir Sokolovsky: https://github.com/heydamir/unslop (CC BY 4.0). See `docs/unslop-audit.md` for direction and the nine-pass report, and `THIRD_PARTY_NOTICES.md` for attribution. The existing brand, photography, routes and service interactions remain the foundation.
+
+Icons are a locally vendored Lucide SVG subset, with upstream license at `assets/icons/LICENSE.txt`; no browser library or package install is required. `scripts/presentation.py` applies shared short-label and icon conventions during generation. `images/dimensions.json` records actual photo dimensions. Styles and scripts receive content-versioned URLs so edits refresh after deployment.

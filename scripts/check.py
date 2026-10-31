@@ -9,12 +9,15 @@ OUT=ROOT/'dist'
 
 class Page(HTMLParser):
     def __init__(self,text):
-        super().__init__();self.links=[];self.assets=[];self.ids=set();self.h1=0;self.main=False;self.body_links=[];self.missing_alt=0;self.feed(text)
+        super().__init__();self.links=[];self.assets=[];self.ids=set();self.h1=0;self.main=False;self.body_links=[];self.missing_alt=0;self.markup_errors=[];self.feed(text)
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
+        if len(a)!=len(attrs):self.markup_errors.append('duplicate attribute on '+tag)
         if tag=='main':self.main=True
         if tag=='h1':self.h1+=1
-        if 'id' in a:self.ids.add(a['id'])
+        if 'id' in a:
+            if a['id'] in self.ids:self.markup_errors.append('duplicate id '+a['id'])
+            self.ids.add(a['id'])
         if tag=='a' and a.get('href'):
             self.links.append(a['href'])
             if self.main:self.body_links.append(a['href'])
@@ -32,6 +35,9 @@ for slug,title,parent,kind in PAGES:
     p=Page(file.read_text(encoding='utf-8'));parsed[slug]=p
     if p.h1!=1:errors.append(f'{slug}: expected one h1; found {p.h1}')
     if p.missing_alt:errors.append(f'{slug}: missing image alt')
+    errors.extend(f'{slug}: {message}' for message in p.markup_errors)
+    for marker in ['\u00c2\u00b7','\u00e2\u20ac','\ufffd']:
+        if marker in file.read_text(encoding='utf-8'):errors.append(f'{slug}: corrupted text encoding')
 for slug,p in parsed.items():
     for href in p.links+p.assets:
         u=urlsplit(href)

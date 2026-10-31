@@ -14,8 +14,21 @@ dockToggle?.addEventListener('click', () => {
   const open = dockToggle.getAttribute('aria-expanded') !== 'true';
   dockToggle.setAttribute('aria-expanded', String(open));
   dockPanel.hidden = !open;
+  if (open) dockPanel.querySelector('a')?.focus();
 });
 document.addEventListener('keydown', event => {
+  if (event.key === 'Tab' && menuButton?.getAttribute('aria-expanded') === 'true') {
+    const items = [menuButton, ...navigation.querySelectorAll('a[href]')];
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
   if (event.key !== 'Escape') return;
   if (menuButton?.getAttribute('aria-expanded') === 'true') {
     menuButton.click();
@@ -25,6 +38,9 @@ document.addEventListener('keydown', event => {
     dockToggle.click();
     dockToggle.focus();
   }
+});
+matchMedia('(min-width: 901px)').addEventListener('change', event => {
+  if (event.matches && menuButton?.getAttribute('aria-expanded') === 'true') menuButton.click();
 });
 document.addEventListener('click', event => {
   if (dockPanel && !dockPanel.hidden && !event.target.closest('.contact-dock')) {
@@ -39,6 +55,8 @@ document.querySelectorAll('[data-filter]').forEach(button => {
     document.querySelectorAll('[data-region]').forEach(card => {
       card.hidden = button.dataset.filter !== 'All destinations' && card.dataset.region !== button.dataset.filter;
     });
+    const count = [...document.querySelectorAll('[data-region]')].filter(card => !card.hidden).length;
+    document.querySelector('#destination-count').textContent = `${count} ${count === 1 ? 'destination' : 'destinations'}`;
   });
 });
 
@@ -48,14 +66,15 @@ search?.addEventListener('input', () => {
   document.querySelectorAll('.tree-list li').forEach(item => {
     item.hidden = Boolean(query) && !item.textContent.toLowerCase().includes(query);
   });
+  document.querySelector('#sitemap-empty').hidden = [...document.querySelectorAll('.tree-list li')].some(item => !item.hidden);
 });
 
 async function copyText(text, status) {
   try {
     await navigator.clipboard.writeText(text);
-    status.textContent = 'Copied. Paste only where you choose to share it.';
+    status.textContent = 'Copied to clipboard';
   } catch {
-    status.textContent = 'Copy is unavailable in this browser. Use the email draft or download the brief instead.';
+    status.textContent = 'Copy is unavailable in this browser. Open the email draft to review your message.';
   }
 }
 
@@ -105,7 +124,7 @@ if (quoteForm) {
       ['Dates / flexibility', value(quoteForm, 'dates')],
       ['Arrangements', selectedArrangements().join(', ') || 'To discuss'],
       ['Other arrangements', value(quoteForm, 'arrangementNotes')],
-      ['Budget', [value(quoteForm, 'currency'), value(quoteForm, 'budget'), value(quoteForm, 'budgetBasis')].filter(Boolean).join(' Â· ') || 'To discuss'],
+      ['Budget', [value(quoteForm, 'currency'), value(quoteForm, 'budget'), value(quoteForm, 'budgetBasis')].filter(Boolean).join(' · ') || 'To discuss'],
       ['Priority', value(quoteForm, 'priority')],
       ['Other priorities', value(quoteForm, 'priorities')]
     ];
@@ -162,8 +181,10 @@ if (quoteForm) {
     const selected = selectedArrangements();
     quoteForm.querySelectorAll('[data-followup]').forEach(panel => { panel.hidden = !selected.includes(panel.dataset.followup); });
     result.hidden = true;
+    document.querySelector('#quote-status').textContent = '';
   });
-  quoteForm.addEventListener('input', () => { result.hidden = true; });
+  quoteForm.addEventListener('input', () => { result.hidden = true;
+    document.querySelector('#quote-status').textContent = ''; });
   quoteForm.addEventListener('submit', event => {
     event.preventDefault();
     for (let index = 0; index < steps.length; index++) {
@@ -173,11 +194,11 @@ if (quoteForm) {
       }
     }
     if (!validStep(step)) return;
-    brief = 'RUSETAT Â· CORPORATE TRAVEL & EVENT QUOTE REQUEST\n\n' + briefRows(true).map(([label, answer]) => `${label}: ${answer}`).join('\n') + '\n\nPlease discuss available options and a tailored quotation. This is an enquiry, not a booking.';
-    document.querySelector('#quote-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Corporate event quote request â€” ' + value(quoteForm, 'organisation'))}&body=${encodeURIComponent(brief)}`;
+    brief = 'Rusetat corporate travel & event brief\n\n' + briefRows(true).map(([label, answer]) => `${label}: ${answer}`).join('\n') + '\n\nPlease discuss available options and a tailored quotation. This is an enquiry, not a booking.';
+    document.querySelector('#quote-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Corporate event quote request — ' + value(quoteForm, 'organisation'))}&body=${encodeURIComponent(brief)}`;
     result.hidden = false;
     document.querySelector('#quote-status').textContent = '';
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    result.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' });
   });
   document.querySelector('#quote-copy').addEventListener('click', () => copyText(brief, document.querySelector('#quote-status')));
   document.querySelector('#quote-download').addEventListener('click', () => downloadText(brief, 'Rusetat-Corporate-Event-Brief.txt'));
@@ -215,10 +236,12 @@ if (contactForm) {
     contactForm.querySelector('[data-contact-group="travel"]').hidden = lower !== 'travel';
     contactForm.querySelector('[data-contact-group="audience"]').hidden = !['au pair', 'recruitment'].includes(lower);
     document.querySelector('#contact-result').hidden = true;
+    document.querySelector('#contact-status').textContent = '';
   }
   service.addEventListener('change', updateFields);
   updateFields();
-  contactForm.addEventListener('input', () => { document.querySelector('#contact-result').hidden = true; });
+  contactForm.addEventListener('input', () => { document.querySelector('#contact-result').hidden = true;
+    document.querySelector('#contact-status').textContent = ''; });
   contactForm.addEventListener('submit', event => {
     event.preventDefault();
     const fields = [['Enquiry', service.value], ['Name', value(contactForm, 'contactName')], ['Email', value(contactForm, 'contactEmail')], ['Destination', value(contactForm, 'contactDestination')]];
@@ -227,7 +250,7 @@ if (contactForm) {
     if (!contactForm.querySelector('[data-contact-group="audience"]').hidden) fields.push(['Enquiring as', value(contactForm, 'audience')]);
     fields.push(['Message', value(contactForm, 'message')]);
     message = 'Hello Rusetat,\n\n' + fields.filter(([, answer]) => answer).map(([label, answer]) => `${label}: ${answer}`).join('\n');
-    document.querySelector('#contact-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Website enquiry â€” ' + service.value)}&body=${encodeURIComponent(message)}`;
+    document.querySelector('#contact-email').href = `mailto:admin@rusetatmigration.com?subject=${encodeURIComponent('Website enquiry — ' + service.value)}&body=${encodeURIComponent(message)}`;
     document.querySelector('#contact-result').hidden = false;
     document.querySelector('#contact-status').textContent = '';
   });

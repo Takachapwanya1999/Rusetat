@@ -2,205 +2,421 @@
   {
     "slug": "visas/international/australia",
     "title": "Australia",
-    "headline": "Your Australian chapter starts with a clearer plan.",
+    "headline": "Visa assistance for Australia",
     "intro": "A long-awaited holiday, time with family or a new direction for study or work: begin by telling us what is taking you to Australia.",
     "overview": "Australia can mean a city break, a family reunion or a much bigger change of pace. Your purpose matters, and so do your nationality, current location and proposed dates. Rusetat helps you organise the initial enquiry and discuss the assistance available for your circumstances before you commit to a preparation route.",
     "highlights": [
-      {"title": "Make the purpose clear", "text": "Tell us whether the plan centres on a visit, family, education or a professional opportunity. These are discussion topics, not interchangeable permissions."},
-      {"title": "Bring the timeline together", "text": "Share proposed dates and any school, family or employer milestones that shape your plans."},
-      {"title": "Prepare before you commit", "text": "Discuss the relevant process before treating travel arrangements or an opportunity abroad as confirmed."}
+      {
+        "title": "Make the purpose clear",
+        "text": "Tell us whether the plan centres on a visit, family, education or a professional opportunity. These are discussion topics, not interchangeable permissions."
+      },
+      {
+        "title": "Bring the timeline together",
+        "text": "Share proposed dates and any school, family or employer milestones that shape your plans."
+      },
+      {
+        "title": "Prepare before you commit",
+        "text": "Discuss the relevant process before treating travel arrangements or an opportunity abroad as confirmed."
+      }
     ],
     "faqs": [
-      {"question": "Can I enquire before deciding on exact travel dates?", "answer": "Yes. A rough timeframe and clear reason for travel are useful starting points. Let us know which dates are flexible."},
-      {"question": "Can you discuss a family visit and a longer-term move?", "answer": "You can raise either plan, but they need different consideration. Available assistance is confirmed after the team understands your circumstances."},
-      {"question": "Does a job or course offer settle the visa question?", "answer": "No. Employment or admission arrangements and immigration permission are separate matters. The applicable process needs its own review."}
+      {
+        "question": "Can I enquire before deciding on exact travel dates?",
+        "answer": "Yes. A rough timeframe and clear reason for travel are useful starting points. Let us know which dates are flexible."
+      },
+      {
+        "question": "Can you discuss a family visit and a longer-term move?",
+        "answer": "You can raise either plan, but they need different consideration. Available assistance is confirmed after the team understands your circumstances."
+      },
+      {
+        "question": "Does a job or course offer settle the visa question?",
+        "answer": "No. Employment or admission arrangements and immigration permission are separate matters. The applicable process needs its own review."
+      }
     ]
   },
   {
     "slug": "visas/international/canada",
     "title": "Canada",
-    "headline": "Big possibilities. A considered first step.",
+    "headline": "Visa assistance for Canada",
     "intro": "Bring your Canadian plans into focus, whether you are hoping to visit loved ones, explore a new place or discuss a study or work-related journey.",
     "overview": "The most useful starting point is your own plan, not someone else’s application story. Explain what you hope to do in Canada, who will travel and where you are applying from. We help structure the enquiry and clarify the preparation support that can be offered, with the actual route reviewed for your circumstances.",
     "highlights": [
-      {"title": "Start with your story", "text": "A family connection, a holiday and an education plan call for different conversations. Tell us what matters to you."},
-      {"title": "Include the whole journey", "text": "Mention companions, intended dates and any onward travel so the discussion reflects the trip you are planning."},
-      {"title": "Keep the options distinct", "text": "Discuss visiting, studying, working or longer-term plans separately rather than assuming one application covers them all."}
+      {
+        "title": "Start with your story",
+        "text": "A family connection, a holiday and an education plan call for different conversations. Tell us what matters to you."
+      },
+      {
+        "title": "Include the whole journey",
+        "text": "Mention companions, intended dates and any onward travel so the discussion reflects the trip you are planning."
+      },
+      {
+        "title": "Keep the options distinct",
+        "text": "Discuss visiting, studying, working or longer-term plans separately rather than assuming one application covers them all."
+      }
     ],
     "faqs": [
-      {"question": "Can my family make one enquiry?", "answer": "Yes. Share a short overview of the family plan and who intends to travel. Individual circumstances may still need separate consideration."},
-      {"question": "Should I choose a route before contacting you?", "answer": "You do not need to arrive with every answer. Describe your purpose and circumstances so the team can identify the questions that need review."},
-      {"question": "Can I rely on a friend’s Canadian checklist?", "answer": "Use it to help form questions, not as proof of what applies to you. Current requirements and individual circumstances need to be considered."}
+      {
+        "question": "Can my family make one enquiry?",
+        "answer": "Yes. Share a short overview of the family plan and who intends to travel. Individual circumstances may still need separate consideration."
+      },
+      {
+        "question": "Should I choose a route before contacting you?",
+        "answer": "You do not need to arrive with every answer. Describe your purpose and circumstances so the team can identify the questions that need review."
+      },
+      {
+        "question": "Can I rely on a friend’s Canadian checklist?",
+        "answer": "Use it to help form questions, not as proof of what applies to you. Current requirements and individual circumstances need to be considered."
+      }
     ]
   },
   {
     "slug": "visas/international/czech-republic",
     "title": "Czech Republic",
-    "headline": "A new perspective, thoughtfully prepared.",
+    "headline": "Visa assistance for Czech Republic",
     "intro": "From time in Prague to an education or professional plan, start your Czech Republic enquiry with the purpose and practical details of your journey.",
     "overview": "A short cultural break and a longer stay are different plans. Tell us where the Czech Republic fits into your itinerary, whether other countries are involved and what you intend to do. We help organise an enquiry around those details and discuss the assistance available without assuming every purpose follows the same route.",
     "highlights": [
-      {"title": "Map the actual itinerary", "text": "Explain where you will stay, the broad dates and whether the Czech Republic is one part of a wider trip."},
-      {"title": "Separate short and long stays", "text": "A holiday, a course and an employment plan require different questions to be considered."},
-      {"title": "Give your plans context", "text": "Share your nationality and current country alongside your travel purpose so the enquiry can be directed appropriately."}
+      {
+        "title": "Map the actual itinerary",
+        "text": "Explain where you will stay, the broad dates and whether the Czech Republic is one part of a wider trip."
+      },
+      {
+        "title": "Separate short and long stays",
+        "text": "A holiday, a course and an employment plan require different questions to be considered."
+      },
+      {
+        "title": "Give your plans context",
+        "text": "Share your nationality and current country alongside your travel purpose so the enquiry can be directed appropriately."
+      }
     ],
     "faqs": [
-      {"question": "What if I am visiting several European countries?", "answer": "Tell us the full itinerary, including your main destinations and intended dates. Do not assume that a single country page establishes the process for your whole trip."},
-      {"question": "Can I ask about studying or working in the Czech Republic?", "answer": "Yes. Describe the proposed activity and any institution or employer involved. The team will confirm what assistance can be discussed."},
-      {"question": "Do I need confirmed bookings before enquiring?", "answer": "No. Proposed dates and a sensible outline are enough to begin a conversation. Discuss preparation before making non-refundable commitments."}
+      {
+        "question": "What if I am visiting several European countries?",
+        "answer": "Tell us the full itinerary, including your main destinations and intended dates. Do not assume that a single country page establishes the process for your whole trip."
+      },
+      {
+        "question": "Can I ask about studying or working in the Czech Republic?",
+        "answer": "Yes. Describe the proposed activity and any institution or employer involved. The team will confirm what assistance can be discussed."
+      },
+      {
+        "question": "Do I need confirmed bookings before enquiring?",
+        "answer": "No. Proposed dates and a sensible outline are enough to begin a conversation. Discuss preparation before making non-refundable commitments."
+      }
     ]
   },
   {
     "slug": "visas/international/denmark",
     "title": "Denmark",
-    "headline": "Make space for a different kind of journey.",
+    "headline": "Visa assistance for Denmark",
     "intro": "A Scandinavian visit, a family connection or plans for learning and work: let us understand what brings Denmark into your next chapter.",
     "overview": "Thoughtful preparation starts by separating inspiration from the arrangements needed to travel. Share your proposed activity in Denmark, your intended stay and any organisation or family contact involved. We help give the enquiry a clear shape and discuss the available preparation support before any route is assumed.",
     "highlights": [
-      {"title": "Choose the right conversation", "text": "Explain whether this is a visit, family journey, study plan or professional enquiry so the starting point is clear."},
-      {"title": "Connect the practical details", "text": "Mention dates, companions and any wider Nordic or European travel you are considering."},
-      {"title": "Plan with clarity", "text": "Keep accommodation, institutional or employer arrangements separate from the immigration decision."}
+      {
+        "title": "Choose the right conversation",
+        "text": "Explain whether this is a visit, family journey, study plan or professional enquiry so the starting point is clear."
+      },
+      {
+        "title": "Connect the practical details",
+        "text": "Mention dates, companions and any wider Nordic or European travel you are considering."
+      },
+      {
+        "title": "Plan with clarity",
+        "text": "Keep accommodation, institutional or employer arrangements separate from the immigration decision."
+      }
     ],
     "faqs": [
-      {"question": "Can I include other Nordic countries in the enquiry?", "answer": "Yes. Describe the full proposed journey so the countries, purposes and dates can be considered together."},
-      {"question": "Can I discuss a family-related stay?", "answer": "Yes. Explain the family connection and intended plans without sending identity or relationship documents in your first message."},
-      {"question": "Does this page mean every Danish visa route is offered?", "answer": "No. The team confirms available assistance after reviewing the purpose and broad circumstances of your enquiry."}
+      {
+        "question": "Can I include other Nordic countries in the enquiry?",
+        "answer": "Yes. Describe the full proposed journey so the countries, purposes and dates can be considered together."
+      },
+      {
+        "question": "Can I discuss a family-related stay?",
+        "answer": "Yes. Explain the family connection and intended plans without sending identity or relationship documents in your first message."
+      },
+      {
+        "question": "Does this page mean every Danish visa route is offered?",
+        "answer": "No. The team confirms available assistance after reviewing the purpose and broad circumstances of your enquiry."
+      }
     ]
   },
   {
     "slug": "visas/international/united-arab-emirates",
     "title": "United Arab Emirates",
-    "headline": "From a city escape to a bigger opportunity.",
+    "headline": "Visa assistance for United Arab Emirates",
     "intro": "Tell us whether your UAE plans involve a holiday, a business event, family time or a professional opportunity, and we will help frame the next conversation.",
     "overview": "Dubai, Abu Dhabi and the wider UAE attract very different kinds of journeys. A short visit, a conference and plans to take up work should not be treated as the same arrangement. We help organise an enquiry around the actual purpose, itinerary and any employer or host involved, then confirm what preparation support is available.",
     "highlights": [
-      {"title": "Go beyond the city name", "text": "Share where you intend to go in the UAE and what you will be doing there."},
-      {"title": "Connect travel and events", "text": "Mention a conference, team event or group itinerary so related travel-planning needs can be discussed separately."},
-      {"title": "Clarify professional plans", "text": "If employment is part of the picture, explain the proposed role and employer rather than describing it as an ordinary visit."}
+      {
+        "title": "Go beyond the city name",
+        "text": "Share where you intend to go in the UAE and what you will be doing there."
+      },
+      {
+        "title": "Connect travel and events",
+        "text": "Mention a conference, team event or group itinerary so related travel-planning needs can be discussed separately."
+      },
+      {
+        "title": "Clarify professional plans",
+        "text": "If employment is part of the picture, explain the proposed role and employer rather than describing it as an ordinary visit."
+      }
     ],
     "faqs": [
-      {"question": "Can I ask about travel planning as well as visa preparation?", "answer": "Yes. Include the travel arrangements you want to discuss. The team will distinguish the services and confirm the available scope."},
-      {"question": "Is a business event the same as taking up employment?", "answer": "No. Explain the actual activity so the appropriate questions can be reviewed. Do not assume a visit arrangement permits employment."},
-      {"question": "What if my itinerary includes a stopover?", "answer": "Mention the complete itinerary and intended time in the UAE. The circumstances of a stopover and a stay should be considered before you make assumptions."}
+      {
+        "question": "Can I ask about travel planning as well as visa preparation?",
+        "answer": "Yes. Include the travel arrangements you want to discuss. The team will distinguish the services and confirm the available scope."
+      },
+      {
+        "question": "Is a business event the same as taking up employment?",
+        "answer": "No. Explain the actual activity so the appropriate questions can be reviewed. Do not assume a visit arrangement permits employment."
+      },
+      {
+        "question": "What if my itinerary includes a stopover?",
+        "answer": "Mention the complete itinerary and intended time in the UAE. The circumstances of a stopover and a stay should be considered before you make assumptions."
+      }
     ]
   },
   {
     "slug": "visas/international/finland",
     "title": "Finland",
-    "headline": "A fresh outlook begins with thoughtful preparation.",
+    "headline": "Visa assistance for Finland",
     "intro": "Explore a Finnish journey with your purpose in focus, whether it is a holiday, family visit or a proposed study or professional chapter.",
     "overview": "Finland might be the setting for a quiet escape or a significant life change. Begin with what you actually plan to do, the intended length of stay and the people or organisations involved. We help organise that first discussion and identify the preparation questions relevant to the assistance available.",
     "highlights": [
-      {"title": "Put purpose before paperwork", "text": "Explain the journey you are planning before choosing a form or following a generic checklist."},
-      {"title": "Consider the timing", "text": "Share your intended season, dates and any academic or professional milestones shaping the plan."},
-      {"title": "Look at the whole household", "text": "If others will accompany you, include their broad plans so individual arrangements can be considered."}
+      {
+        "title": "Put purpose before paperwork",
+        "text": "Explain the journey you are planning before choosing a form or following a generic checklist."
+      },
+      {
+        "title": "Consider the timing",
+        "text": "Share your intended season, dates and any academic or professional milestones shaping the plan."
+      },
+      {
+        "title": "Look at the whole household",
+        "text": "If others will accompany you, include their broad plans so individual arrangements can be considered."
+      }
     ],
     "faqs": [
-      {"question": "Can I enquire about a study plan before travelling?", "answer": "Yes. Tell us the institution, proposed programme and intended dates if known. Admission and immigration arrangements need separate attention."},
-      {"question": "Can family members join the discussion?", "answer": "Yes. Share who hopes to travel and why. Each person’s circumstances may require individual consideration."},
-      {"question": "Will the same preparation apply to a holiday and a longer stay?", "answer": "Do not assume so. The purpose and intended stay need to be reviewed before the relevant preparation process is discussed."}
+      {
+        "question": "Can I enquire about a study plan before travelling?",
+        "answer": "Yes. Tell us the institution, proposed programme and intended dates if known. Admission and immigration arrangements need separate attention."
+      },
+      {
+        "question": "Can family members join the discussion?",
+        "answer": "Yes. Share who hopes to travel and why. Each person’s circumstances may require individual consideration."
+      },
+      {
+        "question": "Will the same preparation apply to a holiday and a longer stay?",
+        "answer": "Do not assume so. The purpose and intended stay need to be reviewed before the relevant preparation process is discussed."
+      }
     ]
   },
   {
     "slug": "visas/international/hungary",
     "title": "Hungary",
-    "headline": "Bring your Hungarian plans into focus.",
+    "headline": "Visa assistance for Hungary",
     "intro": "From discovering Budapest to discussing an education or work-related stay, a useful first step is a clear account of what you hope to do.",
     "overview": "Start with the journey behind the enquiry. Tell us whether Hungary is your main destination, part of a wider European itinerary or the setting for a longer-term plan. Rusetat helps structure the discussion around your purpose, nationality and current circumstances, with available assistance confirmed before preparation begins.",
     "highlights": [
-      {"title": "Describe the whole trip", "text": "Include other destinations and intended dates when Hungary forms part of a wider itinerary."},
-      {"title": "Make longer-term plans clear", "text": "If an institution, employer or family connection is involved, explain that context from the start."},
-      {"title": "Build a relevant brief", "text": "A focused enquiry makes it easier to identify the questions that need review and the support that can be offered."}
+      {
+        "title": "Describe the whole trip",
+        "text": "Include other destinations and intended dates when Hungary forms part of a wider itinerary."
+      },
+      {
+        "title": "Make longer-term plans clear",
+        "text": "If an institution, employer or family connection is involved, explain that context from the start."
+      },
+      {
+        "title": "Build a relevant brief",
+        "text": "A focused enquiry makes it easier to identify the questions that need review and the support that can be offered."
+      }
     ],
     "faqs": [
-      {"question": "Should I enquire under Hungary if I am visiting several countries?", "answer": "You can start here, but include the complete itinerary. The relevant process needs to be considered using the actual journey rather than a single destination name."},
-      {"question": "Can I ask about study or employment plans?", "answer": "Yes. Share a brief description of the proposed course or role. The team will confirm what assistance is available for that enquiry."},
-      {"question": "Is a quotation the same as an application decision?", "answer": "No. A quotation defines the offered service and charges. Immigration decisions remain with the relevant authorities."}
+      {
+        "question": "Should I enquire under Hungary if I am visiting several countries?",
+        "answer": "You can start here, but include the complete itinerary. The relevant process needs to be considered using the actual journey rather than a single destination name."
+      },
+      {
+        "question": "Can I ask about study or employment plans?",
+        "answer": "Yes. Share a brief description of the proposed course or role. The team will confirm what assistance is available for that enquiry."
+      },
+      {
+        "question": "Is a quotation the same as an application decision?",
+        "answer": "No. A quotation defines the offered service and charges. Immigration decisions remain with the relevant authorities."
+      }
     ]
   },
   {
     "slug": "visas/international/lithuania",
     "title": "Lithuania",
-    "headline": "A Baltic beginning, with a clearer next step.",
+    "headline": "Visa assistance for Lithuania",
     "intro": "Tell us what is drawing you to Lithuania: a visit, a family connection or a proposed learning or professional opportunity.",
     "overview": "A smaller destination does not make the preparation less personal. Your nationality, location, intended activity and proposed dates still shape the enquiry. We help organise those details and discuss the assistance available, without turning a destination listing into a promise of a visa route, course or job.",
     "highlights": [
-      {"title": "Explain the opportunity", "text": "If a course, role or host organisation is part of the plan, describe it clearly without assuming the immigration arrangements are settled."},
-      {"title": "Keep the itinerary connected", "text": "Mention any wider Baltic or European travel alongside your time in Lithuania."},
-      {"title": "Ask the right questions early", "text": "Discuss the preparation process before accepting travel or relocation commitments."}
+      {
+        "title": "Explain the opportunity",
+        "text": "If a course, role or host organisation is part of the plan, describe it clearly without assuming the immigration arrangements are settled."
+      },
+      {
+        "title": "Keep the itinerary connected",
+        "text": "Mention any wider Baltic or European travel alongside your time in Lithuania."
+      },
+      {
+        "title": "Ask the right questions early",
+        "text": "Discuss the preparation process before accepting travel or relocation commitments."
+      }
     ],
     "faqs": [
-      {"question": "Does this page advertise jobs in Lithuania?", "answer": "No. This is a destination-specific visa enquiry page. Any recruitment request should be discussed separately, with actual opportunities confirmed by the team."},
-      {"question": "Can I enquire if I do not yet know the route?", "answer": "Yes. Describe your purpose, nationality, current country and intended timeframe so the enquiry has a useful starting point."},
-      {"question": "Can a course or employer invitation guarantee permission?", "answer": "No. Those arrangements and the relevant immigration decision are separate matters and need their own consideration."}
+      {
+        "question": "Does this page advertise jobs in Lithuania?",
+        "answer": "No. This is a destination-specific visa enquiry page. Any recruitment request should be discussed separately, with actual opportunities confirmed by the team."
+      },
+      {
+        "question": "Can I enquire if I do not yet know the route?",
+        "answer": "Yes. Describe your purpose, nationality, current country and intended timeframe so the enquiry has a useful starting point."
+      },
+      {
+        "question": "Can a course or employer invitation guarantee permission?",
+        "answer": "No. Those arrangements and the relevant immigration decision are separate matters and need their own consideration."
+      }
     ]
   },
   {
     "slug": "visas/international/new-zealand",
     "title": "New Zealand",
-    "headline": "A new horizon, considered from the start.",
+    "headline": "Visa assistance for New Zealand",
     "intro": "Whether New Zealand means a memorable visit or a bigger family, study or professional plan, start with a conversation about the journey you have in mind.",
     "overview": "A journey this far deserves time and care before the bookings begin. Explain your purpose, who is travelling and the dates or milestones guiding the plan. We help organise the enquiry and discuss available assistance while keeping travel arrangements, opportunities and immigration decisions distinct.",
     "highlights": [
-      {"title": "Plan the bigger picture", "text": "Describe the intended stay and any family, academic or employer commitments that shape it."},
-      {"title": "Allow room for preparation", "text": "Bring timing questions into the first discussion rather than building the plan around an assumed approval date."},
-      {"title": "Consider everyone travelling", "text": "Include companions and their individual purposes so the enquiry reflects the whole journey."}
+      {
+        "title": "Plan the bigger picture",
+        "text": "Describe the intended stay and any family, academic or employer commitments that shape it."
+      },
+      {
+        "title": "Allow room for preparation",
+        "text": "Bring timing questions into the first discussion rather than building the plan around an assumed approval date."
+      },
+      {
+        "title": "Consider everyone travelling",
+        "text": "Include companions and their individual purposes so the enquiry reflects the whole journey."
+      }
     ],
     "faqs": [
-      {"question": "Can I enquire about both a visit and a possible future move?", "answer": "Yes. Make the two plans clear so they can be discussed separately. A visitor enquiry should not be treated as permission for a later activity."},
-      {"question": "Can we discuss the plan as a family?", "answer": "Yes. A shared overview is helpful, while individual circumstances and preparation needs may differ."},
-      {"question": "Should I book flights before the enquiry?", "answer": "You can begin with proposed dates. Discuss the preparation process before taking on non-refundable travel commitments."}
+      {
+        "question": "Can I enquire about both a visit and a possible future move?",
+        "answer": "Yes. Make the two plans clear so they can be discussed separately. A visitor enquiry should not be treated as permission for a later activity."
+      },
+      {
+        "question": "Can we discuss the plan as a family?",
+        "answer": "Yes. A shared overview is helpful, while individual circumstances and preparation needs may differ."
+      },
+      {
+        "question": "Should I book flights before the enquiry?",
+        "answer": "You can begin with proposed dates. Discuss the preparation process before taking on non-refundable travel commitments."
+      }
     ]
   },
   {
     "slug": "visas/international/poland",
     "title": "Poland",
-    "headline": "Give your next opportunity a clear starting point.",
+    "headline": "Visa assistance for Poland",
     "intro": "Bring your Polish travel, study, family or work-related plans into a focused enquiry, with the actual purpose and any organisation involved clearly explained.",
     "overview": "Poland enquiries often begin with very different ambitions: a European holiday, time with family, an education plan or a professional proposal. We help organise the first conversation around the facts of your plan and confirm what assistance can be offered. A destination page is not a promise of employment, sponsorship or immigration approval.",
     "highlights": [
-      {"title": "Understand what is proposed", "text": "Describe the visit, programme or role and identify any institution, host or employer involved."},
-      {"title": "Keep recruitment separate", "text": "A job opportunity and immigration permission require different checks. Do not assume either is confirmed by the other."},
-      {"title": "Prepare around your circumstances", "text": "Nationality, current location and intended dates belong in the enquiry alongside the destination."}
+      {
+        "title": "Understand what is proposed",
+        "text": "Describe the visit, programme or role and identify any institution, host or employer involved."
+      },
+      {
+        "title": "Keep recruitment separate",
+        "text": "A job opportunity and immigration permission require different checks. Do not assume either is confirmed by the other."
+      },
+      {
+        "title": "Prepare around your circumstances",
+        "text": "Nationality, current location and intended dates belong in the enquiry alongside the destination."
+      }
     ],
     "faqs": [
-      {"question": "Does Rusetat guarantee work in Poland?", "answer": "No. This page invites a visa-related enquiry. Any recruitment assistance and actual vacancy must be discussed and confirmed separately."},
-      {"question": "Can I enquire with an employer proposal already in hand?", "answer": "Yes. Describe the proposed role and employer at a high level. Do not send identity documents or private contracts in the first message."},
-      {"question": "Can I include other European destinations?", "answer": "Yes. Share your full intended itinerary and activities so the enquiry can be considered in context."}
+      {
+        "question": "Does Rusetat guarantee work in Poland?",
+        "answer": "No. This page invites a visa-related enquiry. Any recruitment assistance and actual vacancy must be discussed and confirmed separately."
+      },
+      {
+        "question": "Can I enquire with an employer proposal already in hand?",
+        "answer": "Yes. Describe the proposed role and employer at a high level. Do not send identity documents or private contracts in the first message."
+      },
+      {
+        "question": "Can I include other European destinations?",
+        "answer": "Yes. Share your full intended itinerary and activities so the enquiry can be considered in context."
+      }
     ]
   },
   {
     "slug": "visas/international/united-kingdom",
     "title": "United Kingdom",
-    "headline": "A familiar connection. A thoughtfully prepared journey.",
+    "headline": "Visa assistance for United Kingdom",
     "intro": "Family visits, city breaks, education and professional plans all start somewhere. Tell us what is bringing the United Kingdom into your next chapter.",
     "overview": "A visit to loved ones and a move for a new opportunity are different journeys. Start by explaining your purpose, intended stay and the people or organisations involved. We help organise the initial enquiry and discuss available preparation support, with the relevant process reviewed for your nationality and circumstances.",
     "highlights": [
-      {"title": "Make the connection clear", "text": "Explain whether the journey centres on family, tourism, an institution or a professional arrangement."},
-      {"title": "Bring your dates into view", "text": "Mention events, course dates or proposed commitments that help frame your timeframe."},
-      {"title": "Separate the decisions", "text": "An invitation, admission or employment arrangement does not replace the immigration process."}
+      {
+        "title": "Make the connection clear",
+        "text": "Explain whether the journey centres on family, tourism, an institution or a professional arrangement."
+      },
+      {
+        "title": "Bring your dates into view",
+        "text": "Mention events, course dates or proposed commitments that help frame your timeframe."
+      },
+      {
+        "title": "Separate the decisions",
+        "text": "An invitation, admission or employment arrangement does not replace the immigration process."
+      }
     ],
     "faqs": [
-      {"question": "Can I enquire about visiting relatives?", "answer": "Yes. Explain the purpose, intended dates and who is travelling. There is no need to send private family documents in your first message."},
-      {"question": "Can I ask about study or work-related plans?", "answer": "Yes. Describe the proposed activity and any institution or employer involved. The team will confirm the assistance available for that enquiry."},
-      {"question": "Does a previous UK visit determine what I need now?", "answer": "Not on its own. Current circumstances, purpose and official requirements need to be considered for the new journey."}
+      {
+        "question": "Can I enquire about visiting relatives?",
+        "answer": "Yes. Explain the purpose, intended dates and who is travelling. There is no need to send private family documents in your first message."
+      },
+      {
+        "question": "Can I ask about study or work-related plans?",
+        "answer": "Yes. Describe the proposed activity and any institution or employer involved. The team will confirm the assistance available for that enquiry."
+      },
+      {
+        "question": "Does a previous UK visit determine what I need now?",
+        "answer": "Not on its own. Current circumstances, purpose and official requirements need to be considered for the new journey."
+      }
     ]
   },
   {
     "slug": "visas/international/united-states",
     "title": "United States",
-    "headline": "An ambitious journey deserves a considered plan.",
+    "headline": "Visa assistance for United States",
     "intro": "From a long-awaited holiday to a family visit, conference or proposed study plan, begin your United States enquiry with the purpose behind the trip.",
     "overview": "The United States offers many reasons to travel, but those reasons should not be folded into one generic application story. Tell us what you intend to do, where you are now and the dates you have in mind. We help structure the enquiry and discuss the preparation support available without promising a particular outcome or appointment.",
     "highlights": [
-      {"title": "Define the purpose", "text": "Explain the actual activity, whether that is tourism, family time, an event or an education or professional proposal."},
-      {"title": "Prepare a coherent brief", "text": "Bring your intended itinerary and any relevant organisation or host into the first conversation."},
-      {"title": "Keep expectations grounded", "text": "Discuss timing and preparation without treating a consultation as a reserved appointment or immigration approval."}
+      {
+        "title": "Define the purpose",
+        "text": "Explain the actual activity, whether that is tourism, family time, an event or an education or professional proposal."
+      },
+      {
+        "title": "Prepare a coherent brief",
+        "text": "Bring your intended itinerary and any relevant organisation or host into the first conversation."
+      },
+      {
+        "title": "Keep expectations grounded",
+        "text": "Discuss timing and preparation without treating a consultation as a reserved appointment or immigration approval."
+      }
     ],
     "faqs": [
-      {"question": "Can you guarantee an appointment or visa approval?", "answer": "No. Appointment availability and immigration decisions are controlled by the relevant authorities. Available preparation support is confirmed separately."},
-      {"question": "Can I ask about attending a conference?", "answer": "Yes. Share the event, intended activities and dates. Taking part in an event and taking up employment should not be treated as the same purpose."},
-      {"question": "Does this page advertise US jobs or programmes?", "answer": "No. It is an enquiry page for discussing travel purposes and available visa-preparation support. Actual programmes or recruitment opportunities need separate confirmation."}
+      {
+        "question": "Can you guarantee an appointment or visa approval?",
+        "answer": "No. Appointment availability and immigration decisions are controlled by the relevant authorities. Available preparation support is confirmed separately."
+      },
+      {
+        "question": "Can I ask about attending a conference?",
+        "answer": "Yes. Share the event, intended activities and dates. Taking part in an event and taking up employment should not be treated as the same purpose."
+      },
+      {
+        "question": "Does this page advertise US jobs or programmes?",
+        "answer": "No. It is an enquiry page for discussing travel purposes and available visa-preparation support. Actual programmes or recruitment opportunities need separate confirmation."
+      }
     ]
   }
 ]

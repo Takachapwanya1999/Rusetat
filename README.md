@@ -9,6 +9,7 @@ Requires Python 3.11+; no third-party build dependencies. Node.js is required fo
 ```powershell
 python scripts/build.py
 python scripts/check.py
+python scripts/check_stamps.py
 node --test scripts/chat.test.cjs
 python -m http.server 4173 --bind 127.0.0.1 --directory dist
 ```
@@ -43,7 +44,7 @@ Draft contact details are retained for presentation and require owner confirmati
 
 ## Imagery
 
-The detailed [design system](design.md) documents the existing website foundation and the new rubber-stamp illustration language. Home keeps its photographic hero; subpages use light-grey introductions with branch-specific compositions and their own deterministic stamp. The frame, caption and scene vary per page while the ink language stays consistent. Existing photos, portraits, flags and the original logo remain in the library and can still appear lower in the page. The first transparent raster specimen and its provenance are in [assets/illustrations](assets/illustrations/README.md).
+The detailed [design system](design.md) documents the existing website foundation and the new rubber-stamp illustration language. Home keeps its photographic hero. Twenty approved page-specific stamps appear in their light-grey branch introductions; the remaining 48 pages use a shared generic Rusetat seal until their unique artwork is approved. The compact seal appears in every footer. Only optimised transparent WebPs in `images/stamps/` ship; PNG masters and review galleries stay in source. See the [stamp backlog and resumption guide](docs/stamp-backlog.md) for every unfinished route and future file. Existing photos, portraits, flags and the original logo remain in the library and can still appear lower in the page. The first transparent raster specimen and its provenance are in [assets/illustrations](assets/illustrations/README.md).
 
 Final images are served locally as WebP with explicit dimensions. `images/generated/` contains five AI-generated illustrative photographs and prompt/source provenance. They do not depict actual staff, clients or completed placements. Stock notes are in `images/stock-provenance.json`. Kariba/Victoria imagery and the logo came with the draft. Confirm rights and geographic representation before public release. Original PNGs remain in source; build output excludes them except the logo.
 
@@ -135,3 +136,5 @@ For each genuine review, add `author`, `rating` (integer 1–5), `date` (display
 The FAQ page composer sends questions into the retained main Ruse iframe using an origin-checked `postMessage` bridge. It never rebuilds chat UI or resets conversations, and does not place question text in URLs/storage. Input is limited to 2,000 characters. A readiness handshake, acknowledgement, timeout and duplicate request IDs preserve the draft on unconfirmed handoffs. FAQ topic links keep all nine existing questions reachable.
 
 The receiver is in `../../services/ruse-intake/infra/dify-question-bridge/`. It is scoped to the exact Ruse route with `brand=rusetat` and excludes assessment mode. Website hosting origins must be explicitly allowed there before adding a new domain. Current allowed origins: localhost port 4173 and the repository GitHub Pages origin.
+
+Re-export stamp art locally with `python scripts/export_stamps.py` when Pillow is available. Normal builds and CI require no image-processing packages; committed WebPs and `content/stamps.json` are the delivery contract.

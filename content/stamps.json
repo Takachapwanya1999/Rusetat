@@ -1,0 +1,158 @@
+{
+  "pages": {
+    "travel": {
+      "file": "images/stamps/travel-d19bbe294571.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 35110,
+      "artwork": "travel"
+    },
+    "visas/south-africa/study": {
+      "file": "images/stamps/study-visa-0bb6510f48eb.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 37970,
+      "artwork": "study-visa"
+    },
+    "visas/south-africa/work/corporate": {
+      "file": "images/stamps/corporate-visa-aacacf70a06c.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 40306,
+      "artwork": "corporate-visa"
+    },
+    "relocation": {
+      "file": "images/stamps/relocation-c9d1249b6f5d.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 36058,
+      "artwork": "relocation"
+    },
+    "travel/destinations/kruger": {
+      "file": "images/stamps/kruger-01ce78be2cc8.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 42140,
+      "artwork": "kruger"
+    },
+    "travel/destinations": {
+      "file": "images/stamps/destinations-2555d6e0fc78.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 36216,
+      "artwork": "destinations"
+    },
+    "travel/corporate": {
+      "file": "images/stamps/corporate-travel-d3d6432f6067.webp",
+      "width": 800,
+      "height": 533,
+      "bytes": 23946,
+      "artwork": "corporate-travel"
+    },
+    "visas": {
+      "file": "images/stamps/visa-support-4cfd6a98b4ea.webp",
+      "width": 800,
+      "height": 533,
+      "bytes": 27566,
+      "artwork": "visa-support"
+    },
+    "visas/south-africa": {
+      "file": "images/stamps/south-africa-visas-b64993adabc4.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 47848,
+      "artwork": "south-africa-visas"
+    },
+    "visas/international": {
+      "file": "images/stamps/international-visas-4e0310113d04.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 42490,
+      "artwork": "international-visas"
+    },
+    "au-pair": {
+      "file": "images/stamps/au-pair-d7feecc39621.webp",
+      "width": 760,
+      "height": 800,
+      "bytes": 39962,
+      "artwork": "au-pair"
+    },
+    "recruitment": {
+      "file": "images/stamps/recruitment-98856e4e9fd0.webp",
+      "width": 770,
+      "height": 800,
+      "bytes": 35320,
+      "artwork": "recruitment"
+    },
+    "about": {
+      "file": "images/stamps/about-rusetat-843970397156.webp",
+      "width": 800,
+      "height": 800,
+      "bytes": 42564,
+      "artwork": "about-rusetat"
+    },
+    "guides": {
+      "file": "images/stamps/guides-469987e3e56b.webp",
+      "width": 800,
+      "height": 533,
+      "bytes": 28884,
+      "artwork": "guides"
+    },
+    "about/contact-us": {
+      "file": "images/stamps/contact-8966cd20cf1d.webp",
+      "width": 786,
+      "height": 800,
+      "bytes": 35058,
+      "artwork": "contact"
+    },
+    "travel/destinations/cape-town": {
+      "file": "images/stamps/cape-town-91d3265a4ce6.webp",
+      "width": 800,
+      "height": 747,
+      "bytes": 39588,
+      "artwork": "cape-town"
+    },
+    "travel/destinations/kariba": {
+      "file": "images/stamps/lake-kariba-2cfcaa21c971.webp",
+      "width": 800,
+      "height": 533,
+      "bytes": 26698,
+      "artwork": "lake-kariba"
+    },
+    "travel/destinations/victoria-falls": {
+      "file": "images/stamps/victoria-falls-3f8b1fbfaf42.webp",
+      "width": 800,
+      "height": 763,
+      "bytes": 45420,
+      "artwork": "victoria-falls"
+    },
+    "travel/destinations/zanzibar": {
+      "file": "images/stamps/zanzibar-2a200651baf2.webp",
+      "width": 800,
+      "height": 663,
+      "bytes": 40648,
+      "artwork": "zanzibar"
+    },
+    "travel/destinations/mauritius": {
+      "file": "images/stamps/mauritius-ea4877140b48.webp",
+      "width": 800,
+      "height": 733,
+      "bytes": 39522,
+      "artwork": "mauritius"
+    }
+  },
+  "default": {
+    "file": "images/stamps/rusetat-brand-default-340325df6559.webp",
+    "width": 800,
+    "height": 533,
+    "bytes": 21174,
+    "artwork": "rusetat-brand"
+  },
+  "footer": {
+    "file": "images/stamps/rusetat-brand-footer-713a05dfb363.webp",
+    "width": 320,
+    "height": 213,
+    "bytes": 7206,
+    "artwork": "rusetat-brand"
+  }
+}

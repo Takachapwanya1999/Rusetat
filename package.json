@@ -5,6 +5,6 @@
   "scripts": {
     "build": "python scripts/build.py",
     "dev": "python -m http.server 4173 --bind 127.0.0.1 --directory dist",
-    "test": "python scripts/check.py && python scripts/check_machine_surface.py && node --test scripts/chat.test.cjs scripts/destination-search.test.cjs scripts/site-search.test.cjs scripts/corporate.test.cjs"
+    "test": "python scripts/check.py && python scripts/check_stamps.py && python scripts/check_machine_surface.py && node --test scripts/chat.test.cjs scripts/destination-search.test.cjs scripts/site-search.test.cjs scripts/corporate.test.cjs"
   }
 }

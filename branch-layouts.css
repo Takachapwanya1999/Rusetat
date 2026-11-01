@@ -7,7 +7,7 @@
 .branch-hero .actions { margin-top: 24px; }
 
 /* Travel: an atlas masthead above photographic destination stories. */
-.atlas-heading { display: grid; grid-template-columns: minmax(0, 1fr) 192px; align-items: end; gap: 64px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.atlas-heading { display: grid; grid-template-columns: minmax(0, 1fr) 240px; align-items: end; gap: 64px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
 .atlas-heading h1 { font-size: clamp(52px, 6.2vw, 88px); margin-bottom: 0; }
 .atlas-intro { padding-top: 32px; max-width: 960px; }
 .atlas-intro .lead { max-width: 800px; }
@@ -17,14 +17,14 @@
 /* Corporate: a wide event title with a separate planning strip beneath. */
 .event-heading { max-width: 1040px; }
 .event-heading h1 { font-size: clamp(52px, 6vw, 80px); }
-.event-intro { display: grid; grid-template-columns: 144px minmax(0, 1fr); gap: 64px; align-items: start; padding-top: 32px; border-top: 1px solid var(--line); }
+.event-intro { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 64px; align-items: start; padding-top: 32px; border-top: 1px solid var(--line); }
 .event-intro .lead { max-width: 800px; }
 
 /* Recruitment: a role brief, with audience pathways and a preparation desk. */
 .recruitment-hero > .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr); gap: 80px; }
 .career-heading h1 { max-width: 800px; font-size: clamp(52px, 5.6vw, 80px); }
 .career-context { padding-top: 40px; }
-.career-mark { width: 160px; margin: 24px 0 0 auto; }
+.career-mark { width: 240px; margin: 24px 0 0 auto; }
 .career-pathways > .wrap { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 80px; }
 .audience-pathways { min-width: 0; }
 .career-pathways .audience-pathway { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); gap: 16px 32px; padding-block: 32px; border-top: 1px solid var(--line); }
@@ -50,7 +50,7 @@
 .exchange-heading { max-width: 880px; margin-inline: auto; text-align: center; }
 .exchange-heading h1 { font-size: clamp(48px, 5.2vw, 72px); }
 .exchange-heading .lead { max-width: 760px; margin-inline: auto; }
-.exchange-mark { width: 144px; margin: 32px auto 0; }
+.exchange-mark { width: 240px; margin: 32px auto 0; }
 .exchange-pathways .pathway-intro { max-width: 640px; margin-bottom: 40px; }
 .exchange-pathways .audience-pathways { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-block: 1px solid var(--line); }
 .exchange-pathways .audience-pathway { display: flex; flex-direction: column; align-items: start; gap: 24px; padding: 40px 48px 40px 0; }
@@ -70,7 +70,7 @@
 .exchange-timeline p { color: var(--secondary); margin-bottom: 0; }
 
 /* About: a letterhead and editorial principles rather than a service grid. */
-.about-hero > .wrap { display: grid; grid-template-columns: 224px minmax(0, 1fr); gap: 64px; }
+.about-hero > .wrap { display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: 64px; }
 .letterhead-mark { border-right: 1px solid var(--line); padding-right: 32px; }
 .letterhead-mark .hero-stamp { margin-top: 40px; }
 .letterhead-copy { max-width: 880px; }
@@ -83,7 +83,7 @@
 
 /* Guides: a magazine index and readable articles, with contents above the copy. */
 .guides-hero .eyebrow { padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-.reading-title { display: grid; grid-template-columns: minmax(0, 1fr) 128px; align-items: start; gap: 64px; }
+.reading-title { display: grid; grid-template-columns: minmax(0, 1fr) 240px; align-items: start; gap: 64px; }
 .reading-title h1 { max-width: 960px; font-size: clamp(48px, 5.2vw, 72px); }
 .reading-deck { max-width: 800px; margin-left: 96px; }
 .reading-deck .lead { max-width: 100%; }
@@ -103,7 +103,7 @@
 .guide-takeaways { background: var(--pale); padding: 32px; border-left: 2px solid var(--deep); }
 
 /* Relocation: arrival milestones; support and policy pages keep their own scale. */
-.relocation-hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 192px; gap: 24px 64px; }
+.relocation-hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 24px 64px; }
 .arrival-heading { grid-column: 1; }
 .arrival-intro { grid-column: 1; }
 .relocation-hero .hero-stamp { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
@@ -112,7 +112,7 @@
 .arrival-stages p { color: var(--secondary); }
 .arrival-scope { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: center; }
 .arrival-scope img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.support-hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 144px; gap: 64px; align-items: start; }
+.support-hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 64px; align-items: start; }
 .service-heading { max-width: 880px; }
 .service-heading h1 { font-size: clamp(48px, 4.8vw, 64px); }
 .service-mark { padding-top: 24px; }
@@ -125,7 +125,7 @@
   .recruitment-hero > .wrap, .career-pathways > .wrap, .career-brief, .exchange-spread, .exchange-process > .wrap { gap: 40px; }
   .career-questions article { grid-template-columns: 1fr; gap: 0; }
   .career-context { padding-top: 24px; }
-  .about-hero > .wrap { grid-template-columns: 160px minmax(0, 1fr); gap: 40px; }
+  .about-hero > .wrap { grid-template-columns: 232px minmax(0, 1fr); gap: 40px; }
   .reading-story.featured { gap: 32px; }
   .arrival-scope { gap: 40px; }
 }
@@ -141,8 +141,8 @@
   .career-stages { margin-top: 32px; }
   .career-stages li::before { margin-bottom: 16px; }
   .about-hero > .wrap { grid-template-columns: 1fr; gap: 24px; }
-  .letterhead-mark { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 16px; }
-  .letterhead-mark .hero-stamp { width: 96px; margin: 0; }
+  .letterhead-mark { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 24px; border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 16px; }
+  .letterhead-mark .hero-stamp { width: 220px; margin: 0; }
   .letterhead-mark .eyebrow { margin-bottom: 0; }
   .principle-list article { gap: 32px; }
   .reading-deck { margin-left: 0; }
@@ -154,20 +154,20 @@
   .branch-hero { padding-block: 40px; }
   .branch-hero h1 { font-size: 44px; }
   .atlas-heading { grid-template-columns: 1fr; gap: 24px; padding-bottom: 24px; }
-  .atlas-heading .hero-stamp { width: 144px; }
+  .atlas-heading .hero-stamp { width: 220px; }
   .atlas-intro { padding-top: 24px; }
   .event-intro { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
-  .event-intro .hero-stamp { width: 112px; }
+  .event-intro .hero-stamp { width: 220px; }
   .career-pathways .audience-pathway { grid-template-columns: 1fr; gap: 16px; padding-block: 24px; }
   .career-pathways .audience-pathway > .text-link { grid-column: 1; }
-  .exchange-mark { width: 112px; margin-top: 24px; }
+  .exchange-mark { width: 220px; margin-top: 24px; }
   .exchange-pathways .audience-pathways { grid-template-columns: 1fr; }
   .exchange-pathways .audience-pathway { padding: 24px 0; gap: 16px; }
   .exchange-pathways .audience-pathway + .audience-pathway { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
   .exchange-pathways .pathway-intro { margin-bottom: 24px; }
   .principle-list article { grid-template-columns: 1fr; gap: 0; padding-block: 24px; }
   .reading-title { grid-template-columns: 1fr; gap: 0; }
-  .reading-title .hero-stamp { width: 96px; margin-bottom: 24px; }
+  .reading-title .hero-stamp { width: 220px; margin-bottom: 24px; }
   .reading-collection { grid-template-columns: 1fr; }
   .reading-story > img { margin-bottom: 24px; }
   .guide-contents { grid-template-columns: 1fr; margin-bottom: 40px; }
@@ -175,7 +175,8 @@
   .guide-article p { font-size: 16px; }
   .guide-takeaways { padding: 24px; }
   .relocation-hero > .wrap, .support-hero > .wrap, .document-hero > .wrap { grid-template-columns: 1fr; gap: 24px; }
-  .relocation-hero .hero-stamp { width: 128px; grid-column: 1; grid-row: auto; }
-  .service-mark, .document-mark { padding-top: 0; width: 96px; }
+  .relocation-hero .hero-stamp { width: 220px; grid-column: 1; grid-row: auto; }
+  .service-mark { padding-top: 0; width: 220px; }
+  .document-mark { padding-top: 0; width: 160px; }
   .arrival-stages li { padding-top: 24px; }
 }

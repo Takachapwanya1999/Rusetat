@@ -440,3 +440,8 @@ These are briefs for future assets, not claims that those illustrations have bee
 This version adds the stamp grammar and first specimen, documents the current website foundation and preserves the existing image system. It does not restyle every page, replace photographs, alter the logo, publish the site or change a private portal.
 
 Future changes should state the problem, affected components/assets, before/after visual evidence and validation. When adding a new stamp, compare it to the existing specimen and update provenance. When changing shared tokens, check all representative page types, not just the homepage. Keep the system coherent by reusing the rules rather than creating a fresh style per request.
+
+
+## Current stamp implementation - 1 November 2026
+
+The approved illustrated family replaces the earlier sparse inline SVG/hash-generated stamps. Bold italic heritage-serif Rusetat lettering, substantial illustrated silhouettes and worn ink use true transparent negative space. Twenty exact route assets and one shared footer/default seal are integrated. Selected artwork is in assets/illustrations/catalogue.json. The [stamp backlog](docs/stamp-backlog.md) owns remaining routes, export rules and resumption steps; its current-state rules supersede contradictory historical sections above.

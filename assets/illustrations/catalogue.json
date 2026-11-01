@@ -1,0 +1,171 @@
+{
+  "pages": [
+    {
+      "id": "travel",
+      "route": "/travel/",
+      "master": "assets/illustrations/review-batch-01/travel-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 1
+    },
+    {
+      "id": "study-visa",
+      "route": "/visas/south-africa/study/",
+      "master": "assets/illustrations/review-batch-01/study-visa-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 1
+    },
+    {
+      "id": "corporate-visa",
+      "route": "/visas/south-africa/work/corporate/",
+      "master": "assets/illustrations/review-batch-01/corporate-visa-master.png",
+      "ink": "#9221B6",
+      "status": "owner-approved",
+      "batch": 1
+    },
+    {
+      "id": "relocation",
+      "route": "/relocation/",
+      "master": "assets/illustrations/review-batch-01/relocation-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 1
+    },
+    {
+      "id": "kruger",
+      "route": "/travel/destinations/kruger/",
+      "master": "assets/illustrations/review-batch-01/kruger-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 1
+    },
+    {
+      "id": "destinations",
+      "route": "/travel/destinations/",
+      "master": "assets/illustrations/review-batch-02/destinations-v2-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 2
+    },
+    {
+      "id": "corporate-travel",
+      "route": "/travel/corporate/",
+      "master": "assets/illustrations/review-batch-02/corporate-travel-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 2
+    },
+    {
+      "id": "visa-support",
+      "route": "/visas/",
+      "master": "assets/illustrations/review-batch-02/visa-support-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 2
+    },
+    {
+      "id": "south-africa-visas",
+      "route": "/visas/south-africa/",
+      "master": "assets/illustrations/review-batch-02/south-africa-visas-v3-master.png",
+      "ink": "#9221B6",
+      "status": "owner-approved",
+      "batch": 2
+    },
+    {
+      "id": "international-visas",
+      "route": "/visas/international/",
+      "master": "assets/illustrations/review-batch-02/international-visas-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 2
+    },
+    {
+      "id": "au-pair",
+      "route": "/au-pair/",
+      "master": "assets/illustrations/review-batch-03/au-pair-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 3
+    },
+    {
+      "id": "recruitment",
+      "route": "/recruitment/",
+      "master": "assets/illustrations/review-batch-03/recruitment-master.png",
+      "ink": "#9221B6",
+      "status": "owner-approved",
+      "batch": 3
+    },
+    {
+      "id": "about-rusetat",
+      "route": "/about/",
+      "master": "assets/illustrations/review-batch-03/about-rusetat-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 3
+    },
+    {
+      "id": "guides",
+      "route": "/guides/",
+      "master": "assets/illustrations/review-batch-03/guides-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 3
+    },
+    {
+      "id": "contact",
+      "route": "/about/contact-us/",
+      "master": "assets/illustrations/review-batch-03/contact-master.png",
+      "ink": "#9221B6",
+      "status": "owner-approved",
+      "batch": 3
+    },
+    {
+      "id": "cape-town",
+      "route": "/travel/destinations/cape-town/",
+      "master": "assets/illustrations/review-batch-04/cape-town-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 4
+    },
+    {
+      "id": "lake-kariba",
+      "route": "/travel/destinations/kariba/",
+      "master": "assets/illustrations/review-batch-04/lake-kariba-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 4
+    },
+    {
+      "id": "victoria-falls",
+      "route": "/travel/destinations/victoria-falls/",
+      "master": "assets/illustrations/review-batch-04/victoria-falls-master.png",
+      "ink": "#9221B6",
+      "status": "owner-approved",
+      "batch": 4
+    },
+    {
+      "id": "zanzibar",
+      "route": "/travel/destinations/zanzibar/",
+      "master": "assets/illustrations/review-batch-04/zanzibar-master.png",
+      "ink": "#0756A3",
+      "status": "owner-approved",
+      "batch": 4
+    },
+    {
+      "id": "mauritius",
+      "route": "/travel/destinations/mauritius/",
+      "master": "assets/illustrations/review-batch-04/mauritius-master.png",
+      "ink": "#092D53",
+      "status": "owner-approved",
+      "batch": 4
+    }
+  ],
+  "shared": {
+    "id": "rusetat-brand",
+    "master": "assets/illustrations/footer/footer-master.png",
+    "ink": "#0756A3",
+    "status": "owner-authorised-integration",
+    "role": "footer and temporary page placeholder"
+  }
+}

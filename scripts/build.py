@@ -9,6 +9,7 @@ from inventory import PAGES
 from sitemap import export
 from presentation import finish_markup, icon
 from hosting import BASE_PATH, hosting_markup
+from stamps import STAMP_SLOT, stamp_markup
 from search_index import search_entry
 from machine_surface import MachineSurface
 
@@ -28,31 +29,10 @@ PHONE = '+27 72 155 5208'
 IMAGES = {'zanzibar':'generated/zanzibar.webp','mauritius':'generated/mauritius.webp','home':'generated/home.webp','consultation':'generated/consultation.webp','people':'generated/people.webp','family':'generated/people.webp','travel':'beach.webp','beach':'beach.webp','cape':'cape.webp','kariba':'kariba.webp','victoria':'victoria.webp','dubai':'dubai.webp','bali':'bali.webp','safari':'safari.webp','study':'study.webp','recruitment':'recruitment.webp','corporate':'corporate.webp'}
 ALTS = {'zanzibar':'Illustrative Zanzibar coast with palms, white sand and a dhow','mauritius':'Illustrative Mauritius lagoon beneath green volcanic mountains','home':'Travellers overlooking a dramatic coast at sunrise','consultation':'A calm consultation with generic application folders','people':'Adults discussing an au pair arrangement in a welcoming home','family':'A welcoming conversation about the next chapter','beach':'A sunlit coastline and clear turquoise water','cape':'Cape Town city and mountain scenery','kariba':'Kariba Dam with water and a green landscape beyond','victoria':'Victoria Falls and rising mist','dubai':'Dubai skyline and modern architecture','bali':'A green Balinese landscape','safari':'An acacia tree on an African plain at sunset','study':'Students working together beside library shelves','recruitment':'Colleagues collaborating in a bright workspace','corporate':'A contemporary space for meetings and collaboration','travel':'A coastline with space to unwind'}
 
-STAMP_CAPTIONS = ('JOURNEY', 'VISAS', 'PREPARATION', 'CONSULTATION', 'ARRIVAL', 'TRAVEL', 'DOCUMENTS', 'NEW BEGINNINGS')
+def stamp(instance='hero'):
+    """Templates reserve a slot; the build resolves artwork by canonical route."""
+    return stamp_markup(footer=True) if instance == 'footer' else STAMP_SLOT
 
-def stamp(title, tag='', instance='hero'):
-    """Deterministic unique stamp illustration for each generated page hero."""
-    filter_id = 'stamp-wear-' + instance
-    plain = esc(title).replace('<br>', ' ')
-    seed = int(hashlib.sha256((plain + '|' + tag).encode('utf-8')).hexdigest()[:8], 16)
-    shape = seed % 4
-    icon = (seed // 7) % 5
-    angle = (seed % 7) - 3
-    caption = STAMP_CAPTIONS[(seed // 11) % len(STAMP_CAPTIONS)]
-    frame = [
-        '<ellipse cx="160" cy="100" rx="145" ry="78" />',
-        '<circle cx="160" cy="100" r="78" />',
-        '<rect x="18" y="24" width="284" height="152" rx="22" />',
-        '<path d="M42 22h236l22 22v112l-22 22H42l-22-22V44z" />'
-    ][shape]
-    icons = [
-        '<rect x="122" y="62" width="45" height="65" rx="4"/><circle cx="145" cy="84" r="13"/><path d="M132 108h26M132 117h19"/>',
-        '<path d="M108 111h104l-10-36h-84zM101 111h118M121 111v16M199 111v16"/>',
-        '<path d="M105 116l36-36 56 36v13h-92zM128 129v-27h30v27M143 83v-15"/>',
-        '<path d="M105 74h110v66H105zM116 88h62M116 103h83M116 118h50"/>',
-        '<path d="M101 73h118M101 73l14 29h83l21-29M115 102l-13 31h116l-17-31M145 73v29M174 73v29"/>'
-    ][icon]
-    return '<div class="hero-stamp" aria-hidden="true"><svg viewBox="0 0 320 200" role="presentation"><defs><filter id="'+filter_id+'" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="inkNoise"/><feDisplacementMap in="SourceGraphic" in2="inkNoise" scale="1.2"/></filter></defs><g class="stamp-ink" filter="url(#'+filter_id+')" transform="rotate('+str(angle)+' 160 100)"><g class="stamp-frame">'+frame+'<path d="M37 45h246M37 155h246"/></g><text x="160" y="53" text-anchor="middle" class="stamp-word">RUSETAT</text><g class="stamp-scene">'+icons+'</g><text x="160" y="165" text-anchor="middle" class="stamp-caption">'+caption+'</text></g></svg></div>'
 
 def url(slug=''):
     from urllib.parse import urlsplit, urlunsplit
@@ -99,7 +79,7 @@ def branch_intro(title, intro, tag, family, actions=''):
     """Distinct branch compositions, sharing only brand tokens and illustration grammar."""
     heading = f'<h1>{title}</h1>'
     lead = '<p class="lead">'+esc(intro)+'</p>'
-    mark = stamp(title, tag)
+    mark = stamp()
     label = eyebrow(tag)
     start = f'<section class="branch-hero {family}-hero" data-hero-layout="{family}"><div class="wrap">'
     if family == 'travel':
@@ -128,8 +108,8 @@ def editorial(title, intro, tag='', key=None, family=None):
         return branch_intro(title, intro, tag, family)
     content=eyebrow(tag)+f'<h1>{title}</h1><p class="lead">{esc(intro)}</p>'
     if key:
-        return '<section class="editorial-hero"><div class="wrap split"><div>'+content+'</div><div class="editorial-stamp-side">'+stamp(title,tag)+'</div></div></section>'
-    return '<section class="editorial-hero"><div class="wrap editorial-hero-inner">'+content+stamp(title,tag)+'</div></section>'
+        return '<section class="editorial-hero"><div class="wrap split"><div>'+content+'</div><div class="editorial-stamp-side">'+stamp()+'</div></div></section>'
+    return '<section class="editorial-hero"><div class="wrap editorial-hero-inner">'+content+stamp()+'</div></section>'
 
 def hero(title, intro, tag, key, primary='Tell us about your plans', target='contact', compact=False):
     if key == 'home':
@@ -473,7 +453,7 @@ def header(homepage=False):
 def footer():
     cols=[('Explore',[('travel','Travel & journeys'),('travel/destinations','Destinations'),('travel/corporate','Corporate & events'),('visas/south-africa','South African visas'),('visas/international','International visas')]),('Your next chapter',[('au-pair','Au Pair'),('recruitment','Recruitment'),('relocation','Relocation'),('guides','Guides & preparation'),('faqs','FAQs')]),('Let’s connect',[('about','About Rusetat'),('how-it-works','How it works'),('about/meet-the-team','Meet the Team'),('about/contact-us','Contact Us'),('sitemap','Full website map')])]
     search = '<section class="footer-search" aria-label="Search the website"><form id="footer-search-form" role="search" action="/sitemap/" data-search-index="'+BASE_PATH+'/search-index.json?v=SEARCH_INDEX_VERSION"><label for="footer-search-query">Search the website</label><div class="footer-search-controls"><input id="footer-search-query" type="search" name="q" placeholder="Search services, destinations or guides" minlength="2" maxlength="120" required aria-describedby="footer-search-help" aria-controls="footer-search-results"><button type="submit">Search</button></div><p id="footer-search-help">Find pages by name or by the information you need.</p></form><p id="footer-search-status" class="footer-search-status" role="status"></p><ol id="footer-search-results" class="footer-search-results" aria-label="Search results" hidden></ol><button id="footer-search-more" class="footer-search-more" type="button" hidden>Show more results</button><a class="footer-search-map" href="/sitemap/">Explore the full website map</a><noscript><p>Enable JavaScript to search, or use the website map.</p></noscript></section>'
-    search = search.replace('<label for="footer-search-query">Search the website</label>', '<div class="footer-search-heading"><label for="footer-search-query">Search the website</label>'+stamp('Travel and new beginnings', 'footer', 'footer')+'</div>')
+    search = search.replace('<label for="footer-search-query">Search the website</label>', '<div class="footer-search-heading"><label for="footer-search-query">Search the website</label>'+stamp('footer')+'</div>')
     brand = '<div class="footer-brand"><a class="footer-logo" href="/"><img src="/images/Rusetat%20logo.png" alt="Rusetat Migration International" width="250" height="80"></a><p>Travel, visas and<br>migration support</p><a class="footer-phone" href="tel:+27721555208">'+PHONE+'<span aria-hidden="true">↗</span></a></div>'
     directory = '<nav class="footer-directory" aria-label="Footer navigation">'+''.join('<div class="footer-col"><h3>'+title+'</h3>'+''.join(a(slug,label,'',False) for slug,label in links)+'</div>' for title,links in cols)+'</nav>'
     legal = '<div class="footer-bottom"><span>© 2026 Rusetat Migration International</span><span>Presentation preview · Arrangements subject to confirmation</span><span>'+a('privacy','Privacy','',False)+' · '+a('terms','Terms','',False)+' · '+a('travel-terms','Travel information','',False)+' · '+a('cookies','Preferences','',False)+'</span></div>'
@@ -490,7 +470,7 @@ def build():
     search_entries = []
     for slug,title,parent,kind in PAGES:
         family = layout_family(slug, kind)
-        body=render(slug,kind)
+        body=render(slug,kind).replace(STAMP_SLOT, stamp_markup(slug))
         search_entries.append(search_entry(title, BASE_PATH+url(slug), body))
         description, machine_head = machine.page_head(slug, title, parent, kind, finish_markup(body))
         asset_version=hashlib.sha256((ROOT/'website.css').read_bytes()+(ROOT/'website.js').read_bytes()+(ROOT/'destination-search.js').read_bytes()+(ROOT/'site-search.js').read_bytes()+(ROOT/'branch-layouts.css').read_bytes()).hexdigest()[:12]

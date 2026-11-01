@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-01",
+  "reference": "WhatsApp Image 2026-11-01 at 09.14.04.jpeg",
+  "productionIntegrated": true,
+  "jobs": [
+    {
+      "slug": "travel",
+      "route": "/travel/",
+      "brief": "Ink #0756A3. Perforated postage rectangle with inner dashed border. Upper scene: globe with orbiting passenger aircraft and two short postal cancellation waves. Large Rusetat below scene, Travel & Migration beneath, compact straight lower caption exactly TRAVEL. All elements fit inside frame.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp, not a sheet. Attached image is STYLE REFERENCE only. Closely match its bold vintage engraved silhouettes, substantial double border, slightly italic bold heritage serif word 'Rusetat', bold secondary line 'Travel & Migration', short compact uppercase service label, restrained real ink wear with tiny transparent pinholes and worn edges. One solid ink colour only, no tonal gradients. True transparent background everywhere not ink, including interior spaces, letter counters and worn holes; NO white backing, paper, checkerboard, shadow, glow, mockup, 3D, official crests, dates or approval claims. A coherent substantial scene, not a tiny monoline icon. Whole frame and ribbon visible with 8% transparent margins. Upright square canvas, at least 1536px on longest edge. Strong legibility at 240\u00e2\u20ac\u201c400px. Same family lettering and border weight as reference.\nPAGE BRIEF: Ink #0756A3. Perforated postage rectangle with inner dashed border. Upper scene: globe with orbiting passenger aircraft and two short postal cancellation waves. Large Rusetat below scene, Travel & Migration beneath, compact straight lower caption exactly TRAVEL. All elements fit inside frame.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-021c8ec5-9920-4a1d-b1b6-f2c0070f4148.png",
+      "status": "owner-approved",
+      "master": "travel-master.png",
+      "webp": "travel-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 409298,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "study-visa",
+      "route": "/visas/south-africa/study/",
+      "brief": "Ink #092D53. Academic shield with double border. Graduation cap above open book in upper half; two modest laurel sprigs flank scene. Large Rusetat below book, Travel & Migration beneath. Short ribbon across shield base reads exactly STUDY VISA, never STUDY ABROAD.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp, not a sheet. Attached image is STYLE REFERENCE only. Closely match its bold vintage engraved silhouettes, substantial double border, slightly italic bold heritage serif word 'Rusetat', bold secondary line 'Travel & Migration', short compact uppercase service label, restrained real ink wear with tiny transparent pinholes and worn edges. One solid ink colour only, no tonal gradients. True transparent background everywhere not ink, including interior spaces, letter counters and worn holes; NO white backing, paper, checkerboard, shadow, glow, mockup, 3D, official crests, dates or approval claims. A coherent substantial scene, not a tiny monoline icon. Whole frame and ribbon visible with 8% transparent margins. Upright square canvas, at least 1536px on longest edge. Strong legibility at 240\u00e2\u20ac\u201c400px. Same family lettering and border weight as reference.\nPAGE BRIEF: Ink #092D53. Academic shield with double border. Graduation cap above open book in upper half; two modest laurel sprigs flank scene. Large Rusetat below book, Travel & Migration beneath. Short ribbon across shield base reads exactly STUDY VISA, never STUDY ABROAD.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-0b7540dd-10eb-4417-8755-1b17bf884b84.png",
+      "status": "owner-approved",
+      "master": "study-visa-master.png",
+      "webp": "study-visa-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 398560,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "corporate-visa",
+      "route": "/visas/south-africa/work/corporate/",
+      "brief": "Ink #9221B6. Broad business shield, double border. Upper scene: three professional adult silhouettes in suits in front of simple city skyline. Large Rusetat below scene, Travel & Migration beneath. Short base ribbon exactly CORPORATE VISA. Clearly distinct shield profile from academic shield.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp, not a sheet. Attached image is STYLE REFERENCE only. Closely match its bold vintage engraved silhouettes, substantial double border, slightly italic bold heritage serif word 'Rusetat', bold secondary line 'Travel & Migration', short compact uppercase service label, restrained real ink wear with tiny transparent pinholes and worn edges. One solid ink colour only, no tonal gradients. True transparent background everywhere not ink, including interior spaces, letter counters and worn holes; NO white backing, paper, checkerboard, shadow, glow, mockup, 3D, official crests, dates or approval claims. A coherent substantial scene, not a tiny monoline icon. Whole frame and ribbon visible with 8% transparent margins. Upright square canvas, at least 1536px on longest edge. Strong legibility at 240\u00e2\u20ac\u201c400px. Same family lettering and border weight as reference.\nPAGE BRIEF: Ink #9221B6. Broad business shield, double border. Upper scene: three professional adult silhouettes in suits in front of simple city skyline. Large Rusetat below scene, Travel & Migration beneath. Short base ribbon exactly CORPORATE VISA. Clearly distinct shield profile from academic shield.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-7ec7ca75-cebf-47a8-b623-7436f6dd9485.png",
+      "status": "owner-approved",
+      "master": "corporate-visa-master.png",
+      "webp": "corporate-visa-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 507758,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "relocation",
+      "route": "/relocation/",
+      "brief": "Ink #0756A3. Scalloped circular seal with inner circular double border. Upper scene: welcoming house, two luggage cases, globe arc above and one broad arrival arrow curving toward right. Large Rusetat in lower centre, Travel & Migration beneath. Short base ribbon exactly RELOCATION.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp, not a sheet. Attached image is STYLE REFERENCE only. Closely match its bold vintage engraved silhouettes, substantial double border, slightly italic bold heritage serif word 'Rusetat', bold secondary line 'Travel & Migration', short compact uppercase service label, restrained real ink wear with tiny transparent pinholes and worn edges. One solid ink colour only, no tonal gradients. True transparent background everywhere not ink, including interior spaces, letter counters and worn holes; NO white backing, paper, checkerboard, shadow, glow, mockup, 3D, official crests, dates or approval claims. A coherent substantial scene, not a tiny monoline icon. Whole frame and ribbon visible with 8% transparent margins. Upright square canvas, at least 1536px on longest edge. Strong legibility at 240\u00e2\u20ac\u201c400px. Same family lettering and border weight as reference.\nPAGE BRIEF: Ink #0756A3. Scalloped circular seal with inner circular double border. Upper scene: welcoming house, two luggage cases, globe arc above and one broad arrival arrow curving toward right. Large Rusetat in lower centre, Travel & Migration beneath. Short base ribbon exactly RELOCATION.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-11a9f720-0185-4505-adeb-4e969764466c.png",
+      "status": "owner-approved",
+      "master": "relocation-master.png",
+      "webp": "relocation-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 422944,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "kruger",
+      "route": "/travel/destinations/kruger/",
+      "brief": "Ink #092D53. Scenic round seal with subtly scalloped edge, double circular border. Upper scene: recognizable elephant silhouette to left, acacia tree to right, flat sun disc behind, sparse ground line. Large Rusetat below scene; Travel & Migration beneath. Lower curved caption exactly KRUGER SAFARI. No ribbon; keep distinct from relocation.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp, not a sheet. Attached image is STYLE REFERENCE only. Closely match its bold vintage engraved silhouettes, substantial double border, slightly italic bold heritage serif word 'Rusetat', bold secondary line 'Travel & Migration', short compact uppercase service label, restrained real ink wear with tiny transparent pinholes and worn edges. One solid ink colour only, no tonal gradients. True transparent background everywhere not ink, including interior spaces, letter counters and worn holes; NO white backing, paper, checkerboard, shadow, glow, mockup, 3D, official crests, dates or approval claims. A coherent substantial scene, not a tiny monoline icon. Whole frame and ribbon visible with 8% transparent margins. Upright square canvas, at least 1536px on longest edge. Strong legibility at 240\u00e2\u20ac\u201c400px. Same family lettering and border weight as reference.\nPAGE BRIEF: Ink #092D53. Scenic round seal with subtly scalloped edge, double circular border. Upper scene: recognizable elephant silhouette to left, acacia tree to right, flat sun disc behind, sparse ground line. Large Rusetat below scene; Travel & Migration beneath. Lower curved caption exactly KRUGER SAFARI. No ribbon; keep distinct from relocation.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-d31017df-0bda-4fec-a52a-d8f204e98aaa.png",
+      "status": "owner-approved",
+      "master": "kruger-master.png",
+      "webp": "kruger-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 404640,
+      "approvedDate": "2026-11-01"
+    }
+  ],
+  "approvedDate": "2026-11-01"
+}

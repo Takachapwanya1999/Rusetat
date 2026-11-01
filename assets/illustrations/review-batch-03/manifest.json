@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-01",
+  "references": [
+    "C:\\Users\\sewar\\repos\\Migration Services Management System\\RUSETAT\\Rusetat\\assets\\illustrations\\review-batch-01\\review-sheet.jpg"
+  ],
+  "productionIntegrated": true,
+  "jobs": [
+    {
+      "slug": "au-pair",
+      "route": "/au-pair/",
+      "brief": "Single ink blue #0756A3. Oval double-border seal. Upper scene: warm welcoming host home with an adult au pair and two children standing together in front, one small suitcase beside adult, simple friendly silhouettes, no detailed faces. This is cultural exchange and childcare, not recruitment/business. Large Rusetat below scene, Travel & Migration beneath, short lower ribbon exactly AU PAIR. Dignified welcoming home scene.",
+      "prompt": "Create ONE new Rusetat illustrated rubber ink stamp. Attached collection is a STYLE REFERENCE only, not a target to reproduce as a sheet. Match approved family: bold engraved silhouettes, substantial double border, slightly italic bold heritage serif word exactly \"Rusetat\", bold secondary line exactly \"Travel & Migration\", compact uppercase service label specified below. Restrained authentic worn ink with tiny transparent pinholes; strong readable lettering and distinct coherent scene. One ink hue only. Actual ALPHA TRANSPARENT background in all unprinted spaces outside and inside frame, letter counters and worn gaps. No white backing, paper, baked checkerboard, gradients, shadows, 3D, glossy effects, dates, official insignia or approval claims. Keep full frame and ribbon visible with 8% transparent margin. Upright canvas. Readable at 240-400 CSS pixels. One stamp only.\nPAGE BRIEF: Single ink blue #0756A3. Oval double-border seal. Upper scene: warm welcoming host home with an adult au pair and two children standing together in front, one small suitcase beside adult, simple friendly silhouettes, no detailed faces. This is cultural exchange and childcare, not recruitment/business. Large Rusetat below scene, Travel & Migration beneath, short lower ribbon exactly AU PAIR. Dignified welcoming home scene.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-2f865a2f-6f4b-43d5-b51a-c3f2b54b7cdf.png",
+      "status": "owner-approved",
+      "master": "au-pair-master.png",
+      "webp": "au-pair-800.webp",
+      "dimensions": [
+        1222,
+        1287
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 428650,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "recruitment",
+      "route": "/recruitment/",
+      "brief": "Single ink purple #9221B6. Tall clipped-corner rectangle with double border. Upper scene: two adult professionals seated across a small interview desk, a clearly recognizable CV document foreground left, modest city office window behind. Bold engraved silhouettes, practical career matching and conversation, not the three standing professionals of Corporate Visa. Large Rusetat below scene, Travel & Migration beneath, lower baseline exactly RECRUITMENT.",
+      "prompt": "Create ONE new Rusetat illustrated rubber ink stamp. Attached collection is a STYLE REFERENCE only, not a target to reproduce as a sheet. Match approved family: bold engraved silhouettes, substantial double border, slightly italic bold heritage serif word exactly \"Rusetat\", bold secondary line exactly \"Travel & Migration\", compact uppercase service label specified below. Restrained authentic worn ink with tiny transparent pinholes; strong readable lettering and distinct coherent scene. One ink hue only. Actual ALPHA TRANSPARENT background in all unprinted spaces outside and inside frame, letter counters and worn gaps. No white backing, paper, baked checkerboard, gradients, shadows, 3D, glossy effects, dates, official insignia or approval claims. Keep full frame and ribbon visible with 8% transparent margin. Upright canvas. Readable at 240-400 CSS pixels. One stamp only.\nPAGE BRIEF: Single ink purple #9221B6. Tall clipped-corner rectangle with double border. Upper scene: two adult professionals seated across a small interview desk, a clearly recognizable CV document foreground left, modest city office window behind. Bold engraved silhouettes, practical career matching and conversation, not the three standing professionals of Corporate Visa. Large Rusetat below scene, Travel & Migration beneath, lower baseline exactly RECRUITMENT.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-ebe2bd9e-ab5b-4f3e-a9e7-e4aca108d78e.png",
+      "status": "owner-approved",
+      "master": "recruitment-master.png",
+      "webp": "recruitment-800.webp",
+      "dimensions": [
+        1230,
+        1278
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 477900,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "about-rusetat",
+      "route": "/about/",
+      "brief": "Single ink navy #092D53. Round double-ring seal with subtle scalloped outer edge. Upper scene: an experienced travel adviser and traveller seated in personal consultation at a small desk with an open route map, small globe beside desk. Focus personal guidance and agency service, not corporate interview or a country landmark. Large Rusetat below scene, Travel & Migration beneath, curved bottom caption exactly ABOUT RUSETAT. Two adult engraved silhouettes without detailed faces.",
+      "prompt": "Create ONE new Rusetat illustrated rubber ink stamp. Attached collection is a STYLE REFERENCE only, not a target to reproduce as a sheet. Match approved family: bold engraved silhouettes, substantial double border, slightly italic bold heritage serif word exactly \"Rusetat\", bold secondary line exactly \"Travel & Migration\", compact uppercase service label specified below. Restrained authentic worn ink with tiny transparent pinholes; strong readable lettering and distinct coherent scene. One ink hue only. Actual ALPHA TRANSPARENT background in all unprinted spaces outside and inside frame, letter counters and worn gaps. No white backing, paper, baked checkerboard, gradients, shadows, 3D, glossy effects, dates, official insignia or approval claims. Keep full frame and ribbon visible with 8% transparent margin. Upright canvas. Readable at 240-400 CSS pixels. One stamp only.\nPAGE BRIEF: Single ink navy #092D53. Round double-ring seal with subtle scalloped outer edge. Upper scene: an experienced travel adviser and traveller seated in personal consultation at a small desk with an open route map, small globe beside desk. Focus personal guidance and agency service, not corporate interview or a country landmark. Large Rusetat below scene, Travel & Migration beneath, curved bottom caption exactly ABOUT RUSETAT. Two adult engraved silhouettes without detailed faces.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-419028a7-14be-4d86-81b1-db883f946879.png",
+      "status": "owner-approved",
+      "master": "about-rusetat-master.png",
+      "webp": "about-rusetat-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 430010,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "guides",
+      "route": "/guides/",
+      "brief": "Single ink navy #092D53. Broad horizontal rounded rectangular double-border stamp with subtle inner dashes. Upper scene: a large open travel guidebook, one folded route map tucked behind its left side, a pen angled along right side. Book pages show sparse short lines, no tiny text. Preparation and useful reading. Large Rusetat below scene, Travel & Migration beneath, short lower caption exactly GUIDES. No graduation cap, laurels or academic shield.",
+      "prompt": "Create ONE new Rusetat illustrated rubber ink stamp. Attached collection is a STYLE REFERENCE only, not a target to reproduce as a sheet. Match approved family: bold engraved silhouettes, substantial double border, slightly italic bold heritage serif word exactly \"Rusetat\", bold secondary line exactly \"Travel & Migration\", compact uppercase service label specified below. Restrained authentic worn ink with tiny transparent pinholes; strong readable lettering and distinct coherent scene. One ink hue only. Actual ALPHA TRANSPARENT background in all unprinted spaces outside and inside frame, letter counters and worn gaps. No white backing, paper, baked checkerboard, gradients, shadows, 3D, glossy effects, dates, official insignia or approval claims. Keep full frame and ribbon visible with 8% transparent margin. Upright canvas. Readable at 240-400 CSS pixels. One stamp only.\nPAGE BRIEF: Single ink navy #092D53. Broad horizontal rounded rectangular double-border stamp with subtle inner dashes. Upper scene: a large open travel guidebook, one folded route map tucked behind its left side, a pen angled along right side. Book pages show sparse short lines, no tiny text. Preparation and useful reading. Large Rusetat below scene, Travel & Migration beneath, short lower caption exactly GUIDES. No graduation cap, laurels or academic shield.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-8c9b4ed5-5d09-4d09-a39a-1a9071953df5.png",
+      "status": "owner-approved",
+      "master": "guides-master.png",
+      "webp": "guides-800.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "webp_bytes": 258844,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "contact",
+      "route": "/about/contact-us/",
+      "brief": "Single ink purple #9221B6. Hexagonal double-border stamp with broad central face and gently clipped corners. Upper scene: friendly agency adviser wearing headset at a small desk, a telephone handset and a simple envelope with one speech bubble as supporting correspondence cues. A single coherent customer support scene, no extra people. Large Rusetat below illustration, Travel & Migration beneath, lower short ribbon exactly CONTACT. No addresses, phone numbers or invented details.",
+      "prompt": "Create ONE new Rusetat illustrated rubber ink stamp. Attached collection is a STYLE REFERENCE only, not a target to reproduce as a sheet. Match approved family: bold engraved silhouettes, substantial double border, slightly italic bold heritage serif word exactly \"Rusetat\", bold secondary line exactly \"Travel & Migration\", compact uppercase service label specified below. Restrained authentic worn ink with tiny transparent pinholes; strong readable lettering and distinct coherent scene. One ink hue only. Actual ALPHA TRANSPARENT background in all unprinted spaces outside and inside frame, letter counters and worn gaps. No white backing, paper, baked checkerboard, gradients, shadows, 3D, glossy effects, dates, official insignia or approval claims. Keep full frame and ribbon visible with 8% transparent margin. Upright canvas. Readable at 240-400 CSS pixels. One stamp only.\nPAGE BRIEF: Single ink purple #9221B6. Hexagonal double-border stamp with broad central face and gently clipped corners. Upper scene: friendly agency adviser wearing headset at a small desk, a telephone handset and a simple envelope with one speech bubble as supporting correspondence cues. A single coherent customer support scene, no extra people. Large Rusetat below illustration, Travel & Migration beneath, lower short ribbon exactly CONTACT. No addresses, phone numbers or invented details.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-facffc64-874e-443b-90b4-ce40047090a2.png",
+      "status": "owner-approved",
+      "master": "contact-master.png",
+      "webp": "contact-800.webp",
+      "dimensions": [
+        1243,
+        1265
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 450346,
+      "approvedDate": "2026-11-01"
+    }
+  ],
+  "approvedDate": "2026-11-01"
+}

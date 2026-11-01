@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Integrated 20 approved transparent page stamps, a shared footer seal and generic placeholders for 48 remaining pages. Added explicit route mapping, content-hashed WebP exports, readable responsive sizing, stamp checks and a complete generation backlog. Masters and review sheets are excluded from published output.
+
 - Introduced distinct branch layouts: atlas-style travel, role-brief recruitment, people-focused Au Pair, editorial About, reading-room guides and arrival milestones for relocation, while retaining the visa guide family and shared branding.
 - Reworked the footer into an editorial brand statement, stamped pale search panel, spacious navigation directory and separate legal strip, retaining its content and search behaviour.
 - Added eight corporate destination examples and six event ideas, with links into the existing brief that preserve entered organisation, dates and attendee details.

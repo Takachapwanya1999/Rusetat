@@ -33,6 +33,7 @@ jobs:
         run: |
           python scripts/build.py
           python scripts/check.py
+          python scripts/check_stamps.py
           python scripts/check_machine_surface.py
       - uses: actions/upload-pages-artifact@v4
         with:

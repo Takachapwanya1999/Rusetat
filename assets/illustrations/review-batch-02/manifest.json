@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-01",
+  "references": [
+    "C:\\Users\\sewar\\OneDrive\\Desktop\\WhatsApp Image 2026-11-01 at 09.14.04.jpeg",
+    "C:\\Users\\sewar\\repos\\Migration Services Management System\\RUSETAT\\Rusetat\\assets\\illustrations\\review-batch-01\\review-sheet.jpg"
+  ],
+  "productionIntegrated": true,
+  "jobs": [
+    {
+      "slug": "destinations",
+      "route": "/travel/destinations/",
+      "brief": "Beach holiday and big city skyline",
+      "prompt": "Edit this Destinations stamp. Preserve the existing hexagonal double border, navy ink #092D53, exact lettering 'Rusetat', 'Travel & Migration', 'DESTINATIONS', bold italic serif typography and restrained authentic worn ink style. Replace ONLY the entire hiking/mountains/forest scene in the upper half with HOLIDAY VACATION imagery: inviting beach foreground with two palms and a beach umbrella with sun lounger, calm sea with a few wave lines, and a LARGE modern coastal CITY SKYLINE of tall buildings clearly visible across the background. Vacation beach plus big city escape, no hikers, mountains or evergreen forest. Compose as a bold engraved single-ink silhouette scene, coherent and readable at 300px. Keep full border and all text uncropped. Genuine alpha transparency in all unprinted areas, including interior, no white backing or paper, no gradients, shadows or 3D. One finished stamp only.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-bb46888d-123b-4ac0-ac0e-3a9a9d86f86a.png",
+      "status": "owner-approved",
+      "master": "destinations-v2-master.png",
+      "webp": "destinations-v2-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 405400,
+      "history": [
+        {
+          "brief": "Single ink navy #092D53. Upright hexagonal stamp with strong outer border and thinner inner border. Upper scene: mountain peaks, winding trail and one small hiker silhouette with backpack and walking stick; sparse evergreen trees. Large Rusetat across lower centre, Travel & Migration beneath, compact lower baseline caption exactly DESTINATIONS. Scene should feel like exploration and discovering places, not another globe-and-plane stamp.",
+          "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp. Reference 1 is the owner's style sheet. Reference 2 is the approved collection, STYLE only: closely maintain its typography, border weight, bold engraved silhouettes, composition clarity, restrained irregular ink impression and worn transparent pinholes. Bold slightly italic heritage serif brand exactly \"Rusetat\"; bold secondary line exactly \"Travel & Migration\"; short compact uppercase service label specified below. One ink hue, no gradients or shading. True transparent background everywhere not ink including interior negative spaces, letter counters and worn holes. NO white backing, paper, baked checkerboard, shadow, glow, 3D, official seal, dates, approval or guarantee. Substantial central scene, not a tiny outline icon. Whole frame visible, 8% clear margin, upright square canvas. Strong legibility at 240-400 CSS px. Match approved family while following the distinct frame and scene below. Output one transparent PNG, not a contact sheet.\nPAGE BRIEF: Single ink navy #092D53. Upright hexagonal stamp with strong outer border and thinner inner border. Upper scene: mountain peaks, winding trail and one small hiker silhouette with backpack and walking stick; sparse evergreen trees. Large Rusetat across lower centre, Travel & Migration beneath, compact lower baseline caption exactly DESTINATIONS. Scene should feel like exploration and discovering places, not another globe-and-plane stamp.",
+          "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-5ec0cb2f-efad-4453-bf97-a761d0a9603f.png",
+          "master": "destinations-master.png",
+          "webp": "destinations-800.webp",
+          "status": "pending-owner-review"
+        }
+      ],
+      "revision": 2,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "corporate-travel",
+      "route": "/travel/corporate/",
+      "brief": "Single ink blue #0756A3. Wide rounded rectangular airport stamp with double border, inner dashed border. Upper scene: passenger aircraft above simplified airport terminal and control tower, with one briefcase integrated at foreground left. Large Rusetat below scene, Travel & Migration beneath; bottom straight caption exactly CORPORATE TRAVEL. No people or business shield; distinct from Corporate Visa.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp. Reference 1 is the owner's style sheet. Reference 2 is the approved collection, STYLE only: closely maintain its typography, border weight, bold engraved silhouettes, composition clarity, restrained irregular ink impression and worn transparent pinholes. Bold slightly italic heritage serif brand exactly \"Rusetat\"; bold secondary line exactly \"Travel & Migration\"; short compact uppercase service label specified below. One ink hue, no gradients or shading. True transparent background everywhere not ink including interior negative spaces, letter counters and worn holes. NO white backing, paper, baked checkerboard, shadow, glow, 3D, official seal, dates, approval or guarantee. Substantial central scene, not a tiny outline icon. Whole frame visible, 8% clear margin, upright square canvas. Strong legibility at 240-400 CSS px. Match approved family while following the distinct frame and scene below. Output one transparent PNG, not a contact sheet.\nPAGE BRIEF: Single ink blue #0756A3. Wide rounded rectangular airport stamp with double border, inner dashed border. Upper scene: passenger aircraft above simplified airport terminal and control tower, with one briefcase integrated at foreground left. Large Rusetat below scene, Travel & Migration beneath; bottom straight caption exactly CORPORATE TRAVEL. No people or business shield; distinct from Corporate Visa.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-8f1f88c4-c396-4d65-ba73-76a8d25c8ec9.png",
+      "status": "owner-approved",
+      "master": "corporate-travel-master.png",
+      "webp": "corporate-travel-800.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "webp_bytes": 271378,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "visa-support",
+      "route": "/visas/",
+      "brief": "Single ink navy #092D53. Horizontal oval rubber stamp with substantial double oval border. Upper scene: closed passport with generic small globe on cover beside two application document sheets and a pen. Large Rusetat across centre below scene, Travel & Migration beneath, bottom interior curved label exactly VISA SUPPORT. No checkmark, approval wording, official emblem or arbitrary government design. Professional consultation and preparation.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp. Reference 1 is the owner's style sheet. Reference 2 is the approved collection, STYLE only: closely maintain its typography, border weight, bold engraved silhouettes, composition clarity, restrained irregular ink impression and worn transparent pinholes. Bold slightly italic heritage serif brand exactly \"Rusetat\"; bold secondary line exactly \"Travel & Migration\"; short compact uppercase service label specified below. One ink hue, no gradients or shading. True transparent background everywhere not ink including interior negative spaces, letter counters and worn holes. NO white backing, paper, baked checkerboard, shadow, glow, 3D, official seal, dates, approval or guarantee. Substantial central scene, not a tiny outline icon. Whole frame visible, 8% clear margin, upright square canvas. Strong legibility at 240-400 CSS px. Match approved family while following the distinct frame and scene below. Output one transparent PNG, not a contact sheet.\nPAGE BRIEF: Single ink navy #092D53. Horizontal oval rubber stamp with substantial double oval border. Upper scene: closed passport with generic small globe on cover beside two application document sheets and a pen. Large Rusetat across centre below scene, Travel & Migration beneath, bottom interior curved label exactly VISA SUPPORT. No checkmark, approval wording, official emblem or arbitrary government design. Professional consultation and preparation.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-e7a8c7b5-100d-434d-b625-63dbc53c51e2.png",
+      "status": "owner-approved",
+      "master": "visa-support-master.png",
+      "webp": "visa-support-800.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "webp_bytes": 236820,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "south-africa-visas",
+      "route": "/visas/south-africa/",
+      "brief": "South Africa landmark vignette: Table Mountain, Union Buildings, springbok; flag and passport foreground",
+      "prompt": "Revise this Rusetat SOUTH AFRICA VISAS stamp. Preserve purple one-ink #9221B6, clipped-corner double frame, ribbon, exact lettering \"Rusetat\", \"Travel & Migration\", \"SOUTH AFRICA VISAS\", bold slightly italic heritage serif typography and subtle worn rubber ink craft. Redesign upper illustration into a compelling SOUTH AFRICAN CULTURAL LANDMARK SCENE behind a smaller South African waving flag and passport. Background within the illustration: unmistakable flat-topped TABLE MOUNTAIN silhouette across the rear; recognizable UNION BUILDINGS with symmetrical long curved colonnaded wings and twin towers in middle ground; one graceful SPRINGBOK antelope with slender curved horns in foreground left. Keep small waving South African flag with its distinctive Y design and one passport foreground right, reduce their size to leave landmarks clearly visible. Compose these as a coherent engraved single-ink country vignette, with intentional negative space; no map. These are illustrative South Africa cues, not a literal geographic view. Strong silhouette and readable at 300px. Do not add tiny decorative objects or food clutter. The word background means illustrated landmark scene ONLY: canvas and all unprinted spaces must remain genuine ALPHA TRANSPARENT, no white/coloured rectangle, no paper, no gradients, no shadow, no glossy effect. All frame edges visible. One finished transparent stamp only.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-e9ba4aae-7b3d-4fbd-a578-d8b85ac39dae.png",
+      "status": "owner-approved",
+      "master": "south-africa-visas-v3-master.png",
+      "webp": "south-africa-visas-v3-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 582380,
+      "history": [
+        {
+          "brief": "Single ink purple #9221B6. Upright clipped-corner rectangular stamp, strong double border. Upper scene: accurate recognizable outline of South Africa behind a passport and a single document sheet; no flag, government crest, stars or approval mark. Large Rusetat below scene, Travel & Migration beneath; short lower ribbon exactly SOUTH AFRICA VISAS. Make the country's outline recognizable; no wider continent outline.",
+          "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp. Reference 1 is the owner's style sheet. Reference 2 is the approved collection, STYLE only: closely maintain its typography, border weight, bold engraved silhouettes, composition clarity, restrained irregular ink impression and worn transparent pinholes. Bold slightly italic heritage serif brand exactly \"Rusetat\"; bold secondary line exactly \"Travel & Migration\"; short compact uppercase service label specified below. One ink hue, no gradients or shading. True transparent background everywhere not ink including interior negative spaces, letter counters and worn holes. NO white backing, paper, baked checkerboard, shadow, glow, 3D, official seal, dates, approval or guarantee. Substantial central scene, not a tiny outline icon. Whole frame visible, 8% clear margin, upright square canvas. Strong legibility at 240-400 CSS px. Match approved family while following the distinct frame and scene below. Output one transparent PNG, not a contact sheet.\nPAGE BRIEF: Single ink purple #9221B6. Upright clipped-corner rectangular stamp, strong double border. Upper scene: accurate recognizable outline of South Africa behind a passport and a single document sheet; no flag, government crest, stars or approval mark. Large Rusetat below scene, Travel & Migration beneath; short lower ribbon exactly SOUTH AFRICA VISAS. Make the country's outline recognizable; no wider continent outline.",
+          "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-fbcceb98-60c3-4103-99d5-3d1aad0f4f5e.png",
+          "master": "south-africa-visas-master.png",
+          "webp": "south-africa-visas-800.webp",
+          "status": "pending-owner-review"
+        },
+        {
+          "brief": "South African flag silhouette replaces geographic map",
+          "prompt": "Edit this South Africa Visas illustrated ink stamp. Change ONLY the geographic MAP in upper-left to a recognizable WAVING SOUTH AFRICAN FLAG on a short flagpole. Remove the map completely. Flag must have the South African flag's distinctive horizontal Y-shaped band and hoist triangle accurately represented as purple ink shapes and TRANSPARENT cutout divisions, a monochrome flag silhouette; not a blank generic flag, not multicolour, no extra emblem. Keep the passport and application document beside the flag. Preserve the clipped-corner rectangular double frame, purple ink #9221B6, bold slightly italic heritage serif exact 'Rusetat', exact secondary line 'Travel & Migration', ribbon exact 'SOUTH AFRICA VISAS', authentic restrained ink wear. Whole border and ribbon visible with transparent margin. One ink only; actual alpha transparency outside and inside all unprinted spaces, letter counters and distress holes. No white paper backing, no gradients, glow, shadows or 3D. One complete stamp on transparent canvas. Match the existing stamp's style and proportions.",
+          "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-69bf413a-393d-47b9-a146-5fddcd57e27e.png",
+          "master": "south-africa-visas-v2-master.png",
+          "webp": "south-africa-visas-v2-800.webp",
+          "status": "revision-pending-owner-review"
+        }
+      ],
+      "revision": 3,
+      "approvedDate": "2026-11-01"
+    },
+    {
+      "slug": "international-visas",
+      "route": "/visas/international/",
+      "brief": "Single ink blue #0756A3. Circular stamp with smooth double border (not scalloped). Upper scene: globe grid behind two overlapping passports and a single dotted route arc connecting two points. Large Rusetat in lower centre; Travel & Migration beneath. Lower interior curved caption exactly INTERNATIONAL VISAS. No airplane; distinguish from Travel postage frame and oval Visa Support. No approval or official markings.",
+      "prompt": "Create ONE separate Rusetat Travel & Migration illustrated rubber ink stamp. Reference 1 is the owner's style sheet. Reference 2 is the approved collection, STYLE only: closely maintain its typography, border weight, bold engraved silhouettes, composition clarity, restrained irregular ink impression and worn transparent pinholes. Bold slightly italic heritage serif brand exactly \"Rusetat\"; bold secondary line exactly \"Travel & Migration\"; short compact uppercase service label specified below. One ink hue, no gradients or shading. True transparent background everywhere not ink including interior negative spaces, letter counters and worn holes. NO white backing, paper, baked checkerboard, shadow, glow, 3D, official seal, dates, approval or guarantee. Substantial central scene, not a tiny outline icon. Whole frame visible, 8% clear margin, upright square canvas. Strong legibility at 240-400 CSS px. Match approved family while following the distinct frame and scene below. Output one transparent PNG, not a contact sheet.\nPAGE BRIEF: Single ink blue #0756A3. Circular stamp with smooth double border (not scalloped). Upper scene: globe grid behind two overlapping passports and a single dotted route arc connecting two points. Large Rusetat in lower centre; Travel & Migration beneath. Lower interior curved caption exactly INTERNATIONAL VISAS. No airplane; distinguish from Travel postage frame and oval Visa Support. No approval or official markings.",
+      "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-92de8c04-01c4-4bb4-a038-977701869265.png",
+      "status": "owner-approved",
+      "master": "international-visas-master.png",
+      "webp": "international-visas-800.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "webp_bytes": 437556,
+      "approvedDate": "2026-11-01"
+    }
+  ],
+  "approvedDate": "2026-11-01"
+}

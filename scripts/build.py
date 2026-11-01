@@ -8,6 +8,7 @@ from pathlib import Path
 from inventory import PAGES
 from sitemap import export
 from presentation import finish_markup, icon
+from hosting import BASE_PATH, hosting_markup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
@@ -310,6 +311,13 @@ def build():
     (OUT/'robots.txt').write_text('User-agent: *\nDisallow: /\n',encoding='utf-8')
     (OUT/'page-inventory.json').write_text(json.dumps([dict(slug=s,title=t,parent=pa,kind=k) for s,t,pa,k in PAGES],indent=2),encoding='utf-8')
     (OUT/'404.html').write_text(finish_markup('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Rusetat</title><link rel="stylesheet" href="/website.css"><main class="wrap section"><span class="eyebrow">A different direction</span><h1>Let’s get you<br>back on track.</h1><p>This page could not be found.</p><a class="button blue" href="/sitemap/">Explore the website ↗</a></main></html>'),encoding='utf-8')
+    # Apply hosting paths once, after all templates and legacy redirects exist.
+    for page in OUT.rglob('*.html'):
+        page.write_text(hosting_markup(page.read_text(encoding='utf-8')), encoding='utf-8')
+    if BASE_PATH:
+        sitemap = OUT/'sitemap.xml'
+        sitemap.write_text(sitemap.read_text(encoding='utf-8').replace(origin+'/', origin+BASE_PATH+'/'), encoding='utf-8')
+    (OUT/'.nojekyll').touch()
     export()
     print(f'Built {len(PAGES)} complete pages in {OUT}')
 

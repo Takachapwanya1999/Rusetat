@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added GitHub Pages build, validation and deployment workflow.
+- Added configurable hosting paths for project sites, including local assets, nested pages, redirects and sitemap URLs.
+- Documented publishing the full generated website independently of ChatGPT Sites.
+
 ## 0.4.0 — 2026-10-31
 
 - Added the five supplied team members and roles with short role-focused biographies.

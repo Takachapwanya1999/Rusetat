@@ -66,7 +66,36 @@
         "question": "Do we need to follow the suggested itinerary?",
         "answer": "No. This is a starting point for a conversation, not a fixed package. We can help shape a different balance of sightseeing, dining, family time and independent exploring."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Cape Town",
+        "South Africa",
+        "Western Cape",
+        "peninsula",
+        "waterfront",
+        "Winelands"
+      ],
+      "activities": [
+        "coastal drives",
+        "mountain scenery",
+        "galleries",
+        "gardens",
+        "food",
+        "wine",
+        "sightseeing"
+      ],
+      "keywords": [
+        "beach",
+        "coast",
+        "city",
+        "mountains",
+        "couples",
+        "family",
+        "corporate retreat"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "kariba",
@@ -135,7 +164,29 @@
         "question": "Can the trip be built around a celebration?",
         "answer": "Yes, you can include a birthday, anniversary or group occasion in your enquiry. Share the size of your party and what you have in mind so that any special requests can be discussed with the relevant suppliers."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Lake Kariba",
+        "Kariba",
+        "Zimbabwe"
+      ],
+      "activities": [
+        "lake outings",
+        "boating",
+        "photography",
+        "relaxation"
+      ],
+      "keywords": [
+        "lake",
+        "houseboat",
+        "lakeside",
+        "family",
+        "groups",
+        "celebrations"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "victoria-falls",
@@ -204,7 +255,26 @@
         "question": "Can we combine Victoria Falls with a safari?",
         "answer": "You can ask about a combined journey. We will consider your available days, route and transfer preferences before discussing options; no safari or transport arrangement is included simply by selecting the destination."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Victoria Falls",
+        "Zimbabwe"
+      ],
+      "activities": [
+        "waterfall sightseeing",
+        "river outings",
+        "adventure",
+        "photography"
+      ],
+      "keywords": [
+        "waterfall",
+        "river",
+        "nature",
+        "scenery"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "zanzibar",
@@ -273,7 +343,27 @@
         "question": "Can Zanzibar be part of a longer trip?",
         "answer": "You can discuss combining the island with another destination. Share the length of your holiday and your starting point so the route can be considered as a whole."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Zanzibar",
+        "Tanzania",
+        "Stone Town"
+      ],
+      "activities": [
+        "swimming",
+        "coastal walks",
+        "culture",
+        "sightseeing"
+      ],
+      "keywords": [
+        "beach",
+        "island",
+        "resort",
+        "relaxation"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "mauritius",
@@ -342,7 +432,28 @@
         "question": "Do we need to book activities before travelling?",
         "answer": "Discuss any experience that is essential to your trip early in the planning process. Other outings can remain optional, depending on availability and the flexibility you prefer."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Mauritius",
+        "Indian Ocean"
+      ],
+      "activities": [
+        "swimming",
+        "scenic drives",
+        "local food",
+        "inland outings"
+      ],
+      "keywords": [
+        "beach",
+        "island",
+        "resort",
+        "family",
+        "couples",
+        "relaxation"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "dubai",
@@ -411,7 +522,29 @@
         "question": "Can visa assistance be discussed separately?",
         "answer": "Yes. Let us know your nationality, current country of residence and travel purpose through the international visa enquiry. Entry requirements and the assistance available need to be considered for your circumstances."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Dubai",
+        "United Arab Emirates",
+        "UAE"
+      ],
+      "activities": [
+        "shopping",
+        "architecture",
+        "galleries",
+        "dining",
+        "desert experiences"
+      ],
+      "keywords": [
+        "city",
+        "desert",
+        "business",
+        "corporate",
+        "leisure"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "bali",
@@ -480,7 +613,27 @@
         "question": "Can the trip be tailored for a couple or a small group?",
         "answer": "Yes. Include your group size, room preferences and shared interests in the enquiry. The suggested journey is a starting point and can be reshaped around the people travelling."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Bali",
+        "Indonesia"
+      ],
+      "activities": [
+        "local art",
+        "food",
+        "culture",
+        "inland outings"
+      ],
+      "keywords": [
+        "beach",
+        "coast",
+        "island",
+        "green landscapes",
+        "relaxation"
+      ],
+      "amenities": []
+    }
   },
   {
     "slug": "kruger",
@@ -549,6 +702,27 @@
         "question": "Can a safari suit a family or corporate group?",
         "answer": "It may, depending on the property, activities and needs of the group. Include the age range, group size and any meeting requirements in your brief so suitability can be discussed before making arrangements."
       }
-    ]
+    ],
+    "search": {
+      "locations": [
+        "Kruger",
+        "Kruger National Park",
+        "South Africa"
+      ],
+      "activities": [
+        "safari",
+        "wildlife viewing",
+        "guided outings"
+      ],
+      "keywords": [
+        "safari",
+        "wildlife",
+        "bush",
+        "nature",
+        "lodge",
+        "family"
+      ],
+      "amenities": []
+    }
   }
 ]

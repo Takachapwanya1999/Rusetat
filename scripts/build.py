@@ -9,6 +9,8 @@ from inventory import PAGES
 from sitemap import export
 from presentation import finish_markup, icon
 from hosting import BASE_PATH, hosting_markup
+from search_index import search_entry
+from machine_surface import MachineSurface
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
@@ -18,12 +20,39 @@ VISAS = json.loads((ROOT/'content/visas.json').read_text(encoding='utf-8'))
 COUNTRIES = json.loads((ROOT/'content/international.json').read_text(encoding='utf-8'))
 GUIDES = json.loads((ROOT/'content/guides.json').read_text(encoding='utf-8'))
 TEAM = json.loads((ROOT/'content/team.json').read_text(encoding='utf-8'))
+CORPORATE = json.loads((ROOT/'content/corporate.json').read_text(encoding='utf-8'))
 DIMENSIONS = json.loads((ROOT/'images/dimensions.json').read_text(encoding='utf-8'))
 CONTENT_SUMMARIES = {d['slug']:d['intro'] for d in VISAS + COUNTRIES}
 EMAIL = 'admin@rusetatmigration.com'
 PHONE = '+27 72 155 5208'
 IMAGES = {'zanzibar':'generated/zanzibar.webp','mauritius':'generated/mauritius.webp','home':'generated/home.webp','consultation':'generated/consultation.webp','people':'generated/people.webp','family':'generated/people.webp','travel':'beach.webp','beach':'beach.webp','cape':'cape.webp','kariba':'kariba.webp','victoria':'victoria.webp','dubai':'dubai.webp','bali':'bali.webp','safari':'safari.webp','study':'study.webp','recruitment':'recruitment.webp','corporate':'corporate.webp'}
 ALTS = {'zanzibar':'Illustrative Zanzibar coast with palms, white sand and a dhow','mauritius':'Illustrative Mauritius lagoon beneath green volcanic mountains','home':'Travellers overlooking a dramatic coast at sunrise','consultation':'A calm consultation with generic application folders','people':'Adults discussing an au pair arrangement in a welcoming home','family':'A welcoming conversation about the next chapter','beach':'A sunlit coastline and clear turquoise water','cape':'Cape Town city and mountain scenery','kariba':'Kariba Dam with water and a green landscape beyond','victoria':'Victoria Falls and rising mist','dubai':'Dubai skyline and modern architecture','bali':'A green Balinese landscape','safari':'An acacia tree on an African plain at sunset','study':'Students working together beside library shelves','recruitment':'Colleagues collaborating in a bright workspace','corporate':'A contemporary space for meetings and collaboration','travel':'A coastline with space to unwind'}
+
+STAMP_CAPTIONS = ('JOURNEY', 'VISAS', 'PREPARATION', 'CONSULTATION', 'ARRIVAL', 'TRAVEL', 'DOCUMENTS', 'NEW BEGINNINGS')
+
+def stamp(title, tag='', instance='hero'):
+    """Deterministic unique stamp illustration for each generated page hero."""
+    filter_id = 'stamp-wear-' + instance
+    plain = esc(title).replace('<br>', ' ')
+    seed = int(hashlib.sha256((plain + '|' + tag).encode('utf-8')).hexdigest()[:8], 16)
+    shape = seed % 4
+    icon = (seed // 7) % 5
+    angle = (seed % 7) - 3
+    caption = STAMP_CAPTIONS[(seed // 11) % len(STAMP_CAPTIONS)]
+    frame = [
+        '<ellipse cx="160" cy="100" rx="145" ry="78" />',
+        '<circle cx="160" cy="100" r="78" />',
+        '<rect x="18" y="24" width="284" height="152" rx="22" />',
+        '<path d="M42 22h236l22 22v112l-22 22H42l-22-22V44z" />'
+    ][shape]
+    icons = [
+        '<rect x="122" y="62" width="45" height="65" rx="4"/><circle cx="145" cy="84" r="13"/><path d="M132 108h26M132 117h19"/>',
+        '<path d="M108 111h104l-10-36h-84zM101 111h118M121 111v16M199 111v16"/>',
+        '<path d="M105 116l36-36 56 36v13h-92zM128 129v-27h30v27M143 83v-15"/>',
+        '<path d="M105 74h110v66H105zM116 88h62M116 103h83M116 118h50"/>',
+        '<path d="M101 73h118M101 73l14 29h83l21-29M115 102l-13 31h116l-17-31M145 73v29M174 73v29"/>'
+    ][icon]
+    return '<div class="hero-stamp" aria-hidden="true"><svg viewBox="0 0 320 200" role="presentation"><defs><filter id="'+filter_id+'" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="inkNoise"/><feDisplacementMap in="SourceGraphic" in2="inkNoise" scale="1.2"/></filter></defs><g class="stamp-ink" filter="url(#'+filter_id+')" transform="rotate('+str(angle)+' 160 100)"><g class="stamp-frame">'+frame+'<path d="M37 45h246M37 155h246"/></g><text x="160" y="53" text-anchor="middle" class="stamp-word">RUSETAT</text><g class="stamp-scene">'+icons+'</g><text x="160" y="165" text-anchor="middle" class="stamp-caption">'+caption+'</text></g></svg></div>'
 
 def url(slug=''):
     from urllib.parse import urlsplit, urlunsplit
@@ -38,7 +67,10 @@ def a(slug, text, cls='text-link', arrow=True):
 
 def image(key, cls='', eager=False):
     width,height = DIMENSIONS[IMAGES[key]]
-    return f'<img class="{cls}" src="/images/{IMAGES[key]}" alt="{esc(ALTS.get(key,"Travel inspiration"))}" width="{width}" height="{height}" loading="{"eager" if eager else "lazy"}" decoding="async"' + (' fetchpriority="high"' if eager else '') + '>'
+    alt = ALTS[key]  # Missing descriptive alternatives fail the build.
+    if IMAGES[key].startswith('generated/') and not alt.startswith('Illustrative'):
+        alt = 'Illustrative scene: ' + alt[0].lower() + alt[1:]
+    return f'<img class="{cls}" src="/images/{IMAGES[key]}" alt="{esc(alt)}" width="{width}" height="{height}" loading="{"eager" if eager else "lazy"}" decoding="async"' + (' fetchpriority="high"' if eager else '') + '>'
 
 def eyebrow(text):
     return f'<span class="eyebrow">{esc(text)}</span>'
@@ -61,27 +93,72 @@ def crumbs(slug):
     while slug:
         p=BY_SLUG[slug]; chain.append(p); slug=p[2]
     chain.reverse()
-    return '<div class="wrap breadcrumb" aria-label="Breadcrumb">'+a('','Home','',False)+''.join('<span aria-hidden="true">/</span>'+ (a(p[0],p[1],'',False) if i<len(chain)-1 else f'<span aria-current="page">{esc(p[1])}</span>') for i,p in enumerate(chain))+'</div>'
+    return '<nav class="wrap breadcrumb" aria-label="Breadcrumb">'+a('','Home','',False)+''.join('<span aria-hidden="true">/</span>'+ (a(p[0],p[1],'',False) if i<len(chain)-1 else f'<span aria-current="page">{esc(p[1])}</span>') for i,p in enumerate(chain))+'</nav>'
 
-def editorial(title, intro, tag='', key=None):
+def branch_intro(title, intro, tag, family, actions=''):
+    """Distinct branch compositions, sharing only brand tokens and illustration grammar."""
+    heading = f'<h1>{title}</h1>'
+    lead = '<p class="lead">'+esc(intro)+'</p>'
+    mark = stamp(title, tag)
+    label = eyebrow(tag)
+    start = f'<section class="branch-hero {family}-hero" data-hero-layout="{family}"><div class="wrap">'
+    if family == 'travel':
+        content = '<div class="atlas-heading"><div>'+label+heading+'</div>'+mark+'</div><div class="atlas-intro">'+lead+actions+'</div>'
+    elif family == 'corporate':
+        content = '<div class="event-heading">'+label+heading+'</div><div class="event-intro">'+mark+'<div>'+lead+actions+'</div></div>'
+    elif family == 'recruitment':
+        content = '<div class="career-heading">'+label+heading+'</div><div class="career-context">'+lead+actions+'<div class="career-mark">'+mark+'</div></div>'
+    elif family == 'au-pair':
+        content = '<div class="exchange-heading">'+label+heading+lead+actions+'</div><div class="exchange-mark">'+mark+'</div>'
+    elif family == 'about':
+        content = '<div class="letterhead-mark">'+label+mark+'</div><div class="letterhead-copy">'+heading+lead+actions+'</div>'
+    elif family == 'guides':
+        content = label+'<div class="reading-title">'+heading+mark+'</div><div class="reading-deck">'+lead+actions+'</div>'
+    elif family == 'relocation':
+        content = '<div class="arrival-heading">'+label+heading+'</div><div class="arrival-intro">'+lead+actions+'</div>'+mark
+    elif family == 'document':
+        content = '<div class="document-heading">'+label+heading+lead+'</div><div class="document-mark">'+mark+'</div>'+actions
+    else:
+        content = '<div class="service-heading">'+label+heading+lead+actions+'</div><div class="service-mark">'+mark+'</div>'
+    return start+content+'</div></section>'
+
+
+def editorial(title, intro, tag='', key=None, family=None):
+    if family:
+        return branch_intro(title, intro, tag, family)
     content=eyebrow(tag)+f'<h1>{title}</h1><p class="lead">{esc(intro)}</p>'
     if key:
-        return '<section class="editorial-hero"><div class="wrap split"><div>'+content+'</div><div>'+image(key,eager=True)+'</div></div></section>'
-    return '<section class="editorial-hero"><div class="wrap">'+content+'</div></section>'
+        return '<section class="editorial-hero"><div class="wrap split"><div>'+content+'</div><div class="editorial-stamp-side">'+stamp(title,tag)+'</div></div></section>'
+    return '<section class="editorial-hero"><div class="wrap editorial-hero-inner">'+content+stamp(title,tag)+'</div></section>'
 
 def hero(title, intro, tag, key, primary='Tell us about your plans', target='contact', compact=False):
-    return f'<section class="hero {"compact" if compact else ""}">'+image(key,eager=True)+'<div class="wrap hero-content">'+eyebrow(tag)+f'<h1>{title}</h1><p class="lead">{esc(intro)}</p><div class="actions">'+a(target,primary,'button')+a('#services' if key=='home' else 'contact','Explore services' if key=='home' else 'Ask a question','text-link')+'</div></div></section>'
+    if key == 'home':
+        return f'<section class="hero {"compact" if compact else ""}">'+image(key,eager=True)+'<div class="wrap hero-content">'+eyebrow(tag)+f'<h1>{title}</h1><p class="lead">{esc(intro)}</p><div class="actions">'+a(target,primary,'button')+a('#services','Explore services','text-link')+'</div></div></section>'
+    actions = '<div class="actions">'+a(target,primary,'button')+a('about/contact-us','Ask a question','text-link')+'</div>'
+    return branch_intro(title, intro, tag, 'corporate' if key == 'corporate' else 'travel', actions)
 
 def cards(items, dark=False):
     return '<div class="cards">'+''.join(f'<article class="card"><h3>{esc(x["title"])}</h3><p>{esc(x["text"])}</p></article>' for x in items)+'</div>'
+
+def principles(items):
+    return '<div class="principle-list">'+''.join('<article><h3>'+esc(item['title'])+'</h3><p>'+esc(item['text'])+'</p></article>' for item in items)+'</div>'
+
 
 def child_cards(slug, descriptions=None):
     descriptions=descriptions or {}
     children=[p for p in PAGES if p[2]==slug]
     return '<div class="cards">'+''.join(f'<a class="card link-card" href="{url(p[0])}"><h3>{esc(p[1])}</h3><p>{esc(descriptions.get(p[0],CONTENT_SUMMARIES.get(p[0],"Find the preparation and support relevant to your plans.")))}</p><span class="text-link">View details <span aria-hidden="true">↗</span></span></a>' for p in children)+'</div>'
 
+def destination_search_text(d):
+    # Search this destination's own story, not itineraries or FAQs proposing other destinations.
+    fields = [d[k] for k in ['name', 'country', 'region', 'eyebrow', 'headline', 'intro', 'mood']]
+    fields += [item[k] for item in d['highlights'] for k in ['title', 'text']]
+    fields += [term for terms in d['search'].values() for term in terms]
+    return ' '.join(fields)
+
+
 def destination_cards(ds, mosaic=False):
-    return f'<div class="destination-grid {"mosaic" if mosaic else ""}">'+''.join(f'<a class="destination-card" href="/travel/destinations/{d["slug"]}/" data-region="{esc(d["region"])}">'+image(d['imageKey'])+f'<div class="destination-info"><span class="label">{esc(d["country"])}</span><span class="arrow" aria-hidden="true">↗</span><h3>{esc(d["name"])}</h3><span class="label">{esc(d["mood"])}</span></div></a>' for d in ds)+'</div>'
+    return f'<div class="destination-grid {"mosaic" if mosaic else ""}">'+''.join(f'<a class="destination-card" href="/travel/destinations/{d["slug"]}/" data-region="{esc(d["region"])}" data-destination-search="{esc(destination_search_text(d))}">'+image(d['imageKey'])+f'<div class="destination-info"><span class="label">{esc(d["country"])}</span><span class="arrow" aria-hidden="true">↗</span><h3>{esc(d["name"])}</h3><span class="label">{esc(d["mood"])}</span></div></a>' for d in ds)+'</div>'
 
 def home():
     s=hero('Travel, visas and<br>life beyond borders','Plan a trip, prepare a visa application or explore a move abroad. Rusetat helps individuals, families and businesses work through the details.','Rusetat Migration International','home','Start an enquiry')
@@ -105,12 +182,12 @@ def travel():
     return s+faq([{'question':'Is this a collection of fixed packages?','answer':'The destinations and suggested itineraries are starting points. Dates, arrangements, availability and a written quotation are discussed for your individual trip.'},{'question':'Can you help with travel and visa preparation together?','answer':'Tell us about both when you enquire. Travel arrangements and immigration requirements are separate, and any application decision remains with the relevant authority.'}])+cta(service='travel')
 
 def destinations():
-    s=editorial('Explore destinations','From Southern African landscapes to island days and city discoveries. Explore a destination, then make the journey your own.','The destination collection')
-    s+='<section class="section paper content-start"><div class="wrap"><div class="filter-bar" aria-label="Filter destinations">'+''.join(f'<button data-filter="{r}" aria-pressed="{"true" if r=="All destinations" else "false"}">{r}</button>' for r in ['All destinations','Southern Africa','Indian Ocean','Further afield'])+'</div><p class="filter-status" id="destination-count" role="status">8 destinations</p>'+destination_cards(DESTINATIONS,True)+'<p class="form-note">Destination stories and suggested journeys are inspiration. Arrangements, pricing and availability are confirmed individually.</p></div></section>'
+    s=editorial('Explore destinations','From Southern African landscapes to island days and city discoveries. Explore a destination, then make the journey your own.','The destination collection', family='travel')
+    s+='<section class="section paper content-start"><div class="wrap"><div class="destination-search"><label for="destination-search">Find your kind of destination</label><div class="destination-search-controls"><input id="destination-search" type="search" placeholder="Try beach, safari, city or desert" aria-describedby="destination-search-help" autocomplete="off"><button type="button" id="destination-clear" hidden>Clear filters</button></div><p id="destination-search-help">Search places, activities or travel interests. Try “beach”, “family” or “Dubai”.</p></div><div class="filter-bar" aria-label="Filter destinations">'+''.join(f'<button data-filter="{r}" aria-pressed="{"true" if r=="All destinations" else "false"}">{r}</button>' for r in ['All destinations','Southern Africa','Indian Ocean','Further afield'])+'</div><p class="filter-status" id="destination-count" role="status">8 destinations</p>'+destination_cards(DESTINATIONS,True)+'<div id="destination-empty" class="destination-empty" hidden><h3>No destinations match yet</h3><p>Try a broader interest or clear the filters to explore every destination.</p></div><p class="form-note">Destination stories and suggested journeys are inspiration. Arrangements, pricing and availability are confirmed individually.</p></div></section>'
     return s+cta('Can’t see your destination?','Tell us where you have in mind. We can discuss whether we can assist with your plans.',service='travel')
 
 def destination(d):
-    s=editorial(esc(d['headline']),d['intro'],d['country']+' · '+d['eyebrow'])
+    s=editorial(esc(d['headline']),d['intro'],d['country']+' · '+d['eyebrow'], family='travel')
     s+='<section class="photo-hero">'+image(d['imageKey'],eager=True)+f'<span class="photo-credit">{esc(d["name"])} · journey inspiration</span></section>'
     s+='<section class="section paper"><div class="wrap split"><div>'+eyebrow('A sense of place')+f'<h2>Make time for<br>{esc(d["name"])}.</h2></div><div><p class="lead">'+esc(d['overview'])+'</p><div class="detail-meta"><div><span class="label">The feeling</span><strong>'+esc(d['mood'])+'</strong></div><div><span class="label">A little inspiration</span><strong>'+esc(d['duration'])+'</strong></div></div></div></div></section>'
     s+=section('Experiences to build your trip around','Discover the possibilities')+cards(d['highlights'])+END
@@ -140,7 +217,7 @@ def visa_detail(d):
 
 def international():
     s=editorial('International visa assistance','Tell us where you are going, your nationality and the purpose of your journey. Start with a destination below and explore the questions to discuss.','International visa enquiries','home')
-    s+=section('Where are you headed?','Explore by destination')+'<div class="link-directory country-directory" id="countries">'+''.join(f'<a class="country-link" href="{url(d["slug"])}"><img class="country-flag" src="/images/flags/{d["countryCode"]}.svg" alt="{esc(d["title"])} flag" width="48" height="36" loading="lazy"><span class="country-name">{esc(d["title"])}</span>{icon("arrow-up-right")}</a>' for d in COUNTRIES)+'</div><p class="form-note">Destinations are enquiry pathways. Specific routes, available assistance and submission arrangements are confirmed for your circumstances.</p>'+END
+    s+=section('Where are you headed?','Explore by destination')+'<div class="link-directory country-directory" id="countries">'+''.join(f'<a class="country-link" href="{url(d["slug"])}"><img class="country-flag" src="/images/flags/{d["countryCode"]}.svg" alt="" aria-hidden="true" width="48" height="36" loading="lazy"><span class="country-name">{esc(d["title"])}</span>{icon("arrow-up-right")}</a>' for d in COUNTRIES)+'</div><p class="form-note">Destinations are enquiry pathways. Specific routes, available assistance and submission arrangements are confirmed for your circumstances.</p>'+END
     return s+cta(service='international')
 
 def country(d):
@@ -163,27 +240,53 @@ def opportunities(slug):
         intro='Professional plans begin with a conversation. Tell us about your experience or your hiring needs, and explore recruitment assistance currently available.' if is_main else ('Share the role, working context and the people you need. Discuss the scope of recruitment support before a search begins.' if is_employer else 'Tell us about your background, skills and the kind of role you are looking for. Start with a clear picture of your goals and available support.')
         tag='Recruitment · People & opportunity';key='recruitment'
         highlights=[{'title':'Start with the context','text':'A role is more than a title. Discuss skills, responsibilities, location and the working environment that would make a match meaningful.'},{'title':'Keep the process clear','text':'Understand the service scope, screening approach and any fees before agreeing to take part. Ask what happens next and who will keep you informed.'},{'title':'Separate work and immigration','text':'An employment discussion is distinct from permission to work. Any visa or immigration preparation requires its own assessment.'}]
-    s=editorial(title,intro,tag,key)
+    family = 'au-pair' if is_au else 'recruitment'
+    s = editorial(title, intro, tag, key, family=family)
+    descriptions = {
+        'au-pair/candidates': 'Learn about preparation, responsibilities and questions before exploring an au pair arrangement.',
+        'au-pair/host-families': 'Discuss household needs, expectations and what welcoming an au pair could involve.',
+        'recruitment/candidates': 'Put your experience, strengths and professional plans into focus.',
+        'recruitment/employers': 'Share your hiring needs and discuss a clearly scoped recruitment brief.'}
     if is_main:
-        s+=section('Find your starting point','Choose your starting point')+child_cards(slug,{'au-pair/candidates':'Learn about preparation, responsibilities and questions before exploring an au pair arrangement.','au-pair/host-families':'Discuss household needs, expectations and what welcoming an au pair could involve.','recruitment/candidates':'Put your experience, strengths and professional plans into focus.','recruitment/employers':'Share your hiring needs and discuss a clearly scoped recruitment brief.'})+END
-    s+=section('What to discuss before you commit','Prepare with purpose',cls='paper')+cards(highlights)+END
-    audience='host family' if is_host else 'au pair candidate' if is_au else 'employer' if is_employer else 'jobseeker'
-    s+='<section class="section dark"><div class="wrap split"><div>'+eyebrow('Clarity before commitment')+'<h2>Understand the process and responsibilities</h2><p class="lead">Available countries, programmes, roles and support are discussed individually. We do not promise a placement, job or visa outcome.</p></div><ol class="process-list"><li><div><h3>Share your circumstances</h3><p>Tell us about your background or needs, your location and what you have in mind.</p></div></li><li><div><h3>Discuss the available support</h3><p>Understand the current offering, responsibilities, costs and practical boundaries.</p></div></li><li><div><h3>Decide with clarity</h3><p>Review the agreed next steps before sharing sensitive documents or making commitments.</p></div></li></ol></div></section>'
-    s+=faq([{'question':'Can I apply directly through this website?','answer':'Start with an enquiry. The team will discuss whether there is a relevant programme or service and explain the process before requesting further information.'},{'question':'Are opportunities or placements guaranteed?','answer':'No. Availability, suitability, selection and any immigration permissions are separate considerations. Ask about the specific scope and terms before committing.'},{'question':'Should I send documents in my first enquiry?','answer':'Please keep the first message brief. Do not include passport numbers, identity documents or sensitive personal information. A suitable sharing process can be discussed later.'}])
-    return s+cta(service='Au Pair' if is_au else 'Recruitment',audience='' if is_main else audience)
+        routes = [page for page in PAGES if page[2] == slug]
+        s += '<section class="section '+('exchange-pathways' if is_au else 'career-pathways')+'"><div class="wrap"><div class="pathway-intro">'+eyebrow('Choose your starting point')+'<h2>Find your starting point</h2></div><div class="audience-pathways">'
+        for route,title,_,_ in routes:
+            s += '<a class="audience-pathway" href="'+url(route)+'"><h3>'+esc(title)+'</h3><p>'+esc(descriptions[route])+'</p><span class="text-link">View details <span aria-hidden="true">↗</span></span></a>'
+        s += '</div></div></section>'
+    else:
+        parent = 'au-pair' if is_au else 'recruitment'
+        s += '<nav class="wrap branch-return" aria-label="Service navigation">'+a(parent, 'All au pair support' if is_au else 'All recruitment support')+'</nav>'
+    notes = ''.join('<article><h3>'+esc(item['title'])+'</h3><p>'+esc(item['text'])+'</p></article>' for item in highlights)
+    if is_au:
+        s += '<section class="section paper"><div class="wrap exchange-spread"><div class="exchange-picture">'+image('people')+'</div><div class="exchange-notes">'+eyebrow('Prepare with purpose')+'<h2>What to discuss before you commit</h2>'+notes+'</div></div></section>'
+    else:
+        s += '<section class="section paper"><div class="wrap career-brief"><div class="career-brief-heading">'+eyebrow('Prepare with purpose')+'<h2>What to discuss before you commit</h2>'+image('recruitment')+'</div><div class="career-questions">'+notes+'</div></div></section>'
+    audience = 'host family' if is_host else 'au pair candidate' if is_au else 'employer' if is_employer else 'jobseeker'
+    steps = [('Share your circumstances', 'Tell us about your background or needs, your location and what you have in mind.'),
+             ('Discuss the available support', 'Understand the current offering, responsibilities, costs and practical boundaries.'),
+             ('Decide with clarity', 'Review the agreed next steps before sharing sensitive documents or making commitments.')]
+    s += '<section class="section '+('exchange-process pale' if is_au else 'career-process')+'"><div class="wrap"><div class="opportunity-process-heading">'+eyebrow('Clarity before commitment')+'<h2>Understand the process and responsibilities</h2><p class="lead">Available countries, programmes, roles and support are discussed individually. We do not promise a placement, job or visa outcome.</p></div><ol class="'+('exchange-timeline' if is_au else 'career-stages')+'">'+''.join('<li><h3>'+esc(title)+'</h3><p>'+esc(text)+'</p></li>' for title,text in steps)+'</ol></div></section>'
+    s += faq([{'question':'Can I apply directly through this website?','answer':'Start with an enquiry. The team will discuss whether there is a relevant programme or service and explain the process before requesting further information.'},{'question':'Are opportunities or placements guaranteed?','answer':'No. Availability, suitability, selection and any immigration permissions are separate considerations. Ask about the specific scope and terms before committing.'},{'question':'Should I send documents in my first enquiry?','answer':'Please keep the first message brief. Do not include passport numbers, identity documents or sensitive personal information. A suitable sharing process can be discussed later.'}])
+    return s+cta(service='Au Pair' if is_au else 'Recruitment', audience='' if is_main else audience)
+
 
 def relocation():
-    return editorial('Prepare for life<br>after arrival','The first weeks in a new place deserve as much thought as the journey. Discuss practical preparation for a more considered start.','Relocation & soft landing','people')+section('A little more prepared.','Before, during & after arrival')+cards([{'title':'Before you leave','text':'Organise travel dates, important records, accommodation questions and the people who need to be part of the plan.'},{'title':'When you arrive','text':'Think through your first journey from the airport, connectivity, local orientation and the practical needs of the first few days.'},{'title':'As you settle in','text':'Explore housing and school-search starting points, daily routines and the questions that help a new place feel more familiar.'}])+END+'<section class="section paper"><div class="wrap narrow">'+eyebrow('A clear scope')+'<h2>Practical guidance.<br>Realistic expectations.</h2><p class="lead">Tell us what you need help with. Specific local arrangements, supplier services and fees are confirmed individually. Orientation is distinct from securing a home, school place or bank account.</p>'+a('guides/moving-with-family','Read our family-move guide')+'</div></section>'+cta(service='Relocation')
+    stages = [('Before you leave','Organise travel dates, important records, accommodation questions and the people who need to be part of the plan.'),('When you arrive','Think through your first journey from the airport, connectivity, local orientation and the practical needs of the first few days.'),('As you settle in','Explore housing and school-search starting points, daily routines and the questions that help a new place feel more familiar.')]
+    s = editorial('Prepare for life<br>after arrival','The first weeks in a new place deserve as much thought as the journey. Discuss practical preparation for a more considered start.','Relocation & soft landing','people', family='relocation')
+    s += section('A little more prepared','Before, during & after arrival')+'<ol class="arrival-stages">'+''.join('<li><h3>'+esc(title)+'</h3><p>'+esc(text)+'</p></li>' for title,text in stages)+'</ol>'+END
+    s += '<section class="section paper"><div class="wrap arrival-scope"><div>'+image('family')+'</div><div>'+eyebrow('A clear scope')+'<h2>Practical guidance.<br>Realistic expectations.</h2><p class="lead">Tell us what you need help with. Specific local arrangements, supplier services and fees are confirmed individually. Orientation is distinct from securing a home, school place or bank account.</p>'+a('guides/moving-with-family','Read our family-move guide')+'</div></div></section>'
+    return s+cta(service='Relocation')
+
 
 def about():
-    return editorial('Travel and migration,<br>with a personal approach','Rusetat Migration International brings a personal approach to travel, visa preparation and the possibilities of a new chapter.','Get to know Rusetat')+'<section class="section paper"><div class="wrap split"><div class="image-frame landscape">'+image('consultation')+'</div><div>'+eyebrow('The person behind the plan')+'<h2>Start with the reason for your journey</h2><p class="muted">Work. Family. Study. A long-awaited trip. We start with the reason you want to move forward, then bring the practical questions into focus.</p><p class="muted">Our migration and visa-assistance foundation sits alongside a wider vision for thoughtful travel, cultural exchange and professional opportunities. The first conversation helps establish what support is relevant and available.</p>'+a('how-it-works','Our approach')+'</div></div></section>'+section('What you should expect from us.','A considered way of working')+cards([{'title':'A personal starting point','text':'Your circumstances matter. We ask questions before assuming a particular route or service.'},{'title':'Clarity about the details','text':'Scope, fees and responsibilities should be understood before a service begins.'},{'title':'Care with the next step','text':'Practical preparation and honest expectations are more useful than promises about outcomes.'}])+END+'<section class="section dark"><div class="wrap"><p class="statement">A good plan should make the world feel a little more open, and the next step a little more manageable.</p></div></section>'+section('Get to know Rusetat','People, contact and approach')+child_cards('about',{'about/meet-the-team':'Learn about the support behind your enquiry and how to work with the team.','about/contact-us':'Find our contact details, prepare an enquiry or arrange a visit to Centurion.','how-it-works':'Understand the steps from your first conversation to an agreed service.'})+END+cta()
+    return editorial('Travel and migration,<br>with a personal approach','Rusetat Migration International brings a personal approach to travel, visa preparation and the possibilities of a new chapter.','Get to know Rusetat', family='about')+'<section class="section paper"><div class="wrap split"><div class="image-frame landscape">'+image('consultation')+'</div><div>'+eyebrow('The person behind the plan')+'<h2>Start with the reason for your journey</h2><p class="muted">Work. Family. Study. A long-awaited trip. We start with the reason you want to move forward, then bring the practical questions into focus.</p><p class="muted">Our migration and visa-assistance foundation sits alongside a wider vision for thoughtful travel, cultural exchange and professional opportunities. The first conversation helps establish what support is relevant and available.</p>'+a('how-it-works','Our approach')+'</div></div></section>'+section('What you should expect from us.','A considered way of working')+principles([{'title':'A personal starting point','text':'Your circumstances matter. We ask questions before assuming a particular route or service.'},{'title':'Clarity about the details','text':'Scope, fees and responsibilities should be understood before a service begins.'},{'title':'Care with the next step','text':'Practical preparation and honest expectations are more useful than promises about outcomes.'}])+END+'<section class="section dark"><div class="wrap"><p class="statement">A good plan should make the world feel a little more open, and the next step a little more manageable.</p></div></section>'+section('Get to know Rusetat','People, contact and approach')+child_cards('about',{'about/meet-the-team':'Learn about the support behind your enquiry and how to work with the team.','about/contact-us':'Find our contact details, prepare an enquiry or arrange a visit to Centurion.','how-it-works':'Understand the steps from your first conversation to an agreed service.'})+END+cta()
 
 def process():
     steps=[('Tell us about your plans','Choose the service that best fits your enquiry. Share the destination, purpose and broad circumstances without sending sensitive documents.'),('Discuss what support fits','The team can clarify the available assistance and the information needed to assess your request. Ask questions about what is included.'),('Review the scope and quotation','Understand charges, responsibilities, supplier arrangements and any relevant terms before agreeing to proceed.'),('Prepare the next steps','Once the scope is agreed, work through the relevant preparation with a clear view of what you and the team need to do.')]
-    return editorial('From enquiry<br>to an agreed plan','A clear process leaves more space for the journey itself. Here is what a useful first conversation can lead to.','How it works')+'<section class="section dark"><div class="wrap split"><div><h2>A thoughtful start.<br>A practical plan.</h2><p class="lead">The details vary by service. The principle stays the same: clarity before commitment.</p></div><ol class="process-list">'+''.join(f'<li><div><h3>{t}</h3><p>{c}</p></div></li>' for t,c in steps)+'</ol></div></section>'+cta()
+    return editorial('From enquiry<br>to an agreed plan','A clear process leaves more space for the journey itself. Here is what a useful first conversation can lead to.','How it works', family='about')+'<section class="section dark"><div class="wrap split"><div><h2>A thoughtful start.<br>A practical plan.</h2><p class="lead">The details vary by service. The principle stays the same: clarity before commitment.</p></div><ol class="process-list">'+''.join(f'<li><div><h3>{t}</h3><p>{c}</p></div></li>' for t,c in steps)+'</ol></div></section>'+cta()
 
 def team():
-    s=editorial('The people behind<br>your plans',TEAM['intro'],'Meet the team')
+    s=editorial('The people behind<br>your plans',TEAM['intro'],'Meet the team', family='about')
     if TEAM['people']:
         s+=section('Meet the Rusetat team','Our people',cls='paper')+'<div class="team-profiles">'
         for person in TEAM['people']:
@@ -198,23 +301,53 @@ def team():
     return s+cta('Have a question for the team?','Tell us what you have in mind and the support you would like to discuss.')
 
 def guide_index():
-    return editorial('Prepare for your trip<br>or your move','Thoughtful starting points for travel, paperwork and a move with the people who matter to you.','The reading room')+'<section class="section paper"><div class="wrap guide-grid">'+''.join('<article class="guide-card">'+image(['beach','consultation','people'][i])+eyebrow(g['eyebrow'])+f'<h3>{esc(g["title"])}</h3><p>{esc(g["intro"])}</p>'+a('guides/'+g['slug'],'Read the guide')+'</article>' for i,g in enumerate(GUIDES))+'</div></section>'+cta()
+    s = editorial('Prepare for your trip<br>or your move','Thoughtful starting points for travel, paperwork and a move with the people who matter to you.','The reading room', family='guides')
+    s += '<section class="section paper"><div class="wrap reading-collection">'
+    for i,g in enumerate(GUIDES):
+        s += '<article class="reading-story '+('featured' if i == 0 else '')+'">'+image(['beach','consultation','people'][i])+'<div>'+eyebrow(g['eyebrow'])+'<h2>'+esc(g['title'])+'</h2><p>'+esc(g['intro'])+'</p>'+a('guides/'+g['slug'],'Read the guide')+'</div></article>'
+    return s+'</div></section>'+cta()
+
 
 def guide(g):
-    return editorial(esc(g['title']),g['intro'],g['eyebrow'])+'<section class="section paper content-start"><div class="wrap reading-layout"><aside class="reading-nav"><p>In this guide</p>'+''.join(f'<a href="#part-{i}">{esc(x["title"])}</a>' for i,x in enumerate(g['sections']))+a('guides','All guides','',False)+'</aside><article class="reading-body">'+''.join(f'<section id="part-{i}"><h2>{esc(x["title"])}</h2><p>{esc(x["text"])}</p></section>' for i,x in enumerate(g['sections']))+'<section><h2>Keep these in mind.</h2><ol class="steps-light">'+''.join('<li>'+esc(x)+'</li>' for x in g['takeaway'])+'</ol></section></article></div></section>'+cta()
+    s = editorial(esc(g['title']),g['intro'],g['eyebrow'], family='guides')
+    s += '<section class="section paper content-start"><div class="wrap guide-reading-room"><nav class="guide-contents" aria-label="In this guide"><p>In this guide</p>'+''.join('<a href="#part-'+str(i)+'">'+esc(item['title'])+'</a>' for i,item in enumerate(g['sections']))+a('guides','All guides','',False)+'</nav><article class="guide-article">'
+    s += ''.join('<section id="part-'+str(i)+'"><h2>'+esc(item['title'])+'</h2><p>'+esc(item['text'])+'</p></section>' for i,item in enumerate(g['sections']))
+    s += '<aside class="guide-takeaways"><h2>Keep these in mind</h2><ol class="steps-light">'+''.join('<li>'+esc(item)+'</li>' for item in g['takeaway'])+'</ol></aside></article></div></section>'
+    return s+cta()
+
 
 def policy(slug):
     sections={
-    'privacy':[('What happens on this website','The enquiry and corporate brief tools prepare a message in your browser. This demonstration website has no enquiry-submission backend. Completing a form does not send it to Rusetat. No passports, identity documents, CVs or other files should be uploaded here.'),('Information you choose to share','When you choose an email or WhatsApp link, your device opens that service. You decide whether to send the prepared details. Your provider may process the message under its own terms. Include only information needed for your enquiry.'),('Browser storage and optional services','The site does not use advertising or analytics cookies. Form answers remain in the current page while you interact and are not intentionally saved to browser storage. Images are served with the website. A map loads only when you choose to load it, connecting to Google Maps.'),('Hosting and outside links','Ordinary hosting can process technical request details such as IP addresses and page paths. Email, WhatsApp and map providers have their own practices. The operating business must confirm its hosting provider, processing arrangements and retention policy before public release.'),('Privacy questions','Use the contact options supplied with the draft and ask for the person responsible for privacy. The contact register and formal business privacy practices require owner review before public launch. This notice describes the implemented preview behaviour and does not certify compliance.')],
+    'privacy':[('What happens on this website','The enquiry and corporate brief tools prepare a message in your browser. This demonstration website has no enquiry-submission backend. Completing a form does not send it to Rusetat. No passports, identity documents, CVs or other files should be uploaded here.'),('Information you choose to share','When you choose an email or WhatsApp link, your device opens that service. You decide whether to send the prepared details. Your provider may process the message under its own terms. Include only information needed for your enquiry.'),('Browser storage and optional services','The site does not use advertising or analytics cookies. Form answers remain in the current page while you interact and are not intentionally saved to browser storage. Images are served with the website. A map loads only when you choose to load it, connecting to Google Maps. Choosing Chat with Ruse or Visa assessment loads the hosted Dify chatbot; messages you enter are processed by that service.'),('Hosting and outside links','Ordinary hosting can process technical request details such as IP addresses and page paths. Email, WhatsApp and map providers have their own practices. The operating business must confirm its hosting provider, processing arrangements and retention policy before public release.'),('Privacy questions','Use the contact options supplied with the draft and ask for the person responsible for privacy. The contact register and formal business privacy practices require owner review before public launch. This notice describes the implemented preview behaviour and does not certify compliance.')],
     'terms':[('Before a service begins','A website enquiry is an invitation to discuss your plans. It is not acceptance of a service, a booking, an appointment or an application. Scope, charges, responsibilities and applicable terms should be provided and agreed separately.'),('Application outcomes','Visa and immigration decisions rest with the relevant authorities. Preparation assistance does not guarantee eligibility, approval or a processing time. General website introductions are not a substitute for current case-specific requirements.'),('Travel and opportunities','Destination stories and itinerary suggestions illustrate possible journeys. Travel availability, suppliers and pricing require a specific quotation. Au pair and recruitment enquiries do not guarantee programmes, placements, employment or permission to work.'),('Review before proceeding','Ask for the written scope, fee treatment, cancellation arrangements and complaint contact before paying or committing. Final contractual terms must be supplied by the operating business; this preview does not invent those commitments.')],
     'travel-terms':[('Inspiration and availability','The destination collection and suggested itineraries are editorial inspiration. They are not live inventory or fixed packages. Dates, services, availability and pricing are confirmed in an individual quotation.'),('Know who provides each service','Before confirming arrangements, ask which services Rusetat provides directly and which are supplied by airlines, accommodation providers, venues or other partners. Confirm supplier conditions and support contacts.'),('Changes, payments and cancellations','Review deposits, payment deadlines, cancellation charges, refund conditions and change fees in the written quotation and supplier terms. No standard charge or refund entitlement is established by this preview.'),('Documents and preparation','Check official entry requirements for your nationality and circumstances. Travel planning and visa decisions are separate. Discuss the risk of making non-refundable commitments before the relevant permissions and arrangements are confirmed.')],
-    'cookies':[('A lighter browsing experience','This website uses locally served images and no intentional analytics or advertising trackers. There is no non-essential cookie consent choice to make for the current preview.'),('Your form answers','The quote and enquiry tools hold answers in the open page to support review and editing. They do not save a form draft to local storage. Downloaded briefs are saved to your device only when you choose Download.'),('Optional map','Google Maps is not embedded until you choose Load map on the contact page. Once loaded, the map provider may process technical details and use its own storage. Reload the page to remove the embedded map.'),('External communication','Selecting email or WhatsApp opens another service. A prepared message is shared only if you choose to send it. Those providers have separate privacy and storage practices.')]
+    'cookies':[('A lighter browsing experience','This website uses locally served images and no intentional analytics or advertising trackers. There is no non-essential cookie consent choice to make for the current preview.'),('Your form answers','The quote and enquiry tools hold answers in the open page to support review and editing. They do not save a form draft to local storage. Downloaded briefs are saved to your device only when you choose Download.'),('Optional map','Google Maps is not embedded until you choose Load map on the contact page. Once loaded, the map provider may process technical details and use its own storage. Reload the page to remove the embedded map.'),('Optional chatbot','The chatbot loads only when you choose Chat with Ruse or Visa assessment. The hosted Dify service may use browser storage to maintain your conversation.'),('External communication','Selecting email or WhatsApp opens another service. A prepared message is shared only if you choose to send it. Those providers have separate privacy and storage practices.')]
     }
-    return editorial(esc(BY_SLUG[slug][1]),'Clear information about this website and the next steps before a service is agreed.','Website information')+'<section class="section paper content-start"><article class="wrap narrow reading-body">'+''.join('<section><h2>'+t+'</h2><p>'+c+'</p></section>' for t,c in sections[slug])+'<p class="form-note">Updated 31 October 2026. Business terms and operational details remain subject to owner review before public release.</p></article></section>'
+    return editorial(esc(BY_SLUG[slug][1]),'Clear information about this website and the next steps before a service is agreed.','Website information', family='document')+'<section class="section paper content-start"><article class="wrap narrow reading-body">'+''.join('<section><h2>'+t+'</h2><p>'+c+'</p></section>' for t,c in sections[slug])+'<p class="form-note">Updated 31 October 2026. Business terms and operational details remain subject to owner review before public release.</p></article></section>'
+
+def corporate_examples():
+    from urllib.parse import urlencode
+    destinations = {d['slug']: d for d in DESTINATIONS}
+    content = section('Places to take your team', 'Corporate destination ideas', '<p>Explore a few ways to bring your people together. Start with an idea, then shape the location and programme around your team.</p>')
+    content += '<div class="corporate-locations">'
+    labels = {'kariba': 'Lake Kariba', 'kruger': 'Kruger & safari'}
+    for example in CORPORATE['locations']:
+        d = destinations[example['destination']]
+        label = labels.get(d['slug'], d['name'])
+        query = urlencode({'destination': d['slug'], 'event': example['event']})
+        content += '<article class="corporate-location">'+image(d['imageKey'])+'<div class="corporate-location-copy"><span class="label">'+esc(d['country'])+'</span><h3>'+esc(label)+'</h3><p class="corporate-location-heading">'+esc(example['heading'])+'</p><p>'+esc(example['description'])+'</p><ul>'+''.join('<li>'+esc(idea)+'</li>' for idea in example['ideas'])+'</ul><div class="corporate-example-actions">'+a('travel/destinations/'+d['slug'],'Explore the destination')+'<a class="text-link" href="/travel/corporate/?'+esc(query,quote=True)+'#quote" data-brief-destination="'+esc(label,quote=True)+'" data-brief-event="'+esc(example['event'],quote=True)+'">'+esc(example['action'])+' <span aria-hidden="true">↗</span></a></div></div></article>'
+    content += '</div><p class="form-note">These are ideas for a tailored enquiry, not fixed packages or confirmed venue partnerships. Meeting facilities, activities, accessibility, group capacity, dates and costs are confirmed in the quotation.</p>'+END
+    content += section('What could your next event look like?', 'Event ideas', '<p>Choose a starting point for the brief, whether you already have a destination or need help choosing.</p>')+'<div class="corporate-event-grid">'
+    for example in CORPORATE['events']:
+        query = urlencode({'event': example['event']})
+        content += '<article class="card corporate-event"><h3>'+esc(example['title'])+'</h3><p>'+esc(example['text'])+'</p><a class="text-link" href="/travel/corporate/?'+esc(query,quote=True)+'#quote" data-brief-event="'+esc(example['event'],quote=True)+'">Start this event brief <span aria-hidden="true">↗</span></a></article>'
+    return content+'</div>'+END
+
 
 def corporate():
     s=hero('Corporate travel,<br>built around your event','Plan the travel around your conference, retreat or team offsite. Build a brief covering your destination, people, arrangements and budget.','Corporate travel · Groups · Events','corporate','Build your event brief','travel/corporate#quote',True)
     s+=section('Travel arrangements that serve your event','Travel with purpose')+cards([{'title':'Meet with purpose','text':'Discuss meeting spaces, accommodation and the travel details that help people arrive ready to focus.'},{'title':'Reconnect as a team','text':'Bring a retreat or offsite into focus with a balance of productive time, shared experiences and rest.'},{'title':'Make room for more','text':'Explore optional leisure extensions around a business journey, with clear boundaries between group and personal arrangements.'}])+END
+    s+=corporate_examples()
     s+='<section class="section pale" id="quote"><div class="wrap quote-layout"><div>'+eyebrow('Request a tailored quotation')+'<h2>Build your event brief</h2><p class="lead">Build your event brief in a few thoughtful steps. Review the details, then choose how to share your request for a tailored quotation.</p><ul class="mini-list"><li>No fixed package to squeeze into</li><li>Space for flexible dates and undecided details</li><li>A clear summary you can edit and download</li></ul><p class="form-note">This tool prepares a request. Pricing, availability and supplier arrangements are confirmed separately.</p></div>'+quote_form()+'</div></section>'
     return s+faq([{'question':'Can we request a quote before choosing a destination?','answer':'Yes. Choose “Help us choose” in the brief and share your goals, departure points, approximate dates and group size.'},{'question':'Will this calculate an instant price?','answer':'No. A meaningful quotation depends on dates, group needs and supplier availability. The brief helps make that conversation more useful.'},{'question':'Can attendees depart from different cities?','answer':'Include the departure cities in the arrangements step. Multiple departure groups can be discussed as part of the quotation.'}])
 
@@ -231,7 +364,7 @@ def field(label,name,kind='text',options=None,required=False,full=False,placehol
 
 def quote_form():
     return '''<form class="quote-form" id="quote-form" novalidate><div class="quote-progress" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span><span></span></div><p class="form-error" role="alert" hidden></p>
-    <section class="quote-step" data-step="0"><span class="step-label">Step 1 of 5 · The purpose</span><h3>Tell us about the event</h3><p class="muted">Start with the reason for bringing people together.</p><div class="form-grid">'''+field('Type of event','event',options=['Team offsite','Conference','Corporate retreat','Incentive trip','Business meeting','Other group event'],required=True,full=True)+field('Organisation or team','organisation',required=True,full=True)+field('What would make this event successful?','goals',kind='textarea',full=True,placeholder='A team reset, planning time, client conversations…')+'''</div></section>
+    <section class="quote-step" data-step="0"><span class="step-label">Step 1 of 5 · The purpose</span><h3>Tell us about the event</h3><p class="muted">Start with the reason for bringing people together.</p><div class="form-grid">'''+field('Type of event','event',options=['Team offsite','Conference','Corporate retreat','Incentive trip','Business meeting','Training or workshop','Staff celebration','Other group event'],required=True,full=True)+field('Organisation or team','organisation',required=True,full=True)+field('What would make this event successful?','goals',kind='textarea',full=True,placeholder='A team reset, planning time, client conversations…')+'''</div></section>
     <section class="quote-step" data-step="1" hidden><span class="step-label">Step 2 of 5 · People & place</span><h3>Destination and dates</h3><p class="muted">It’s fine if some details are still taking shape.</p><div class="form-grid">'''+field('Destination','destination',options=['Help us choose','Cape Town','Lake Kariba','Victoria Falls','Kruger & safari','Zanzibar','Mauritius','Dubai','Bali','Another destination'],required=True,full=True)+field('Other destination / preferences','destinationNotes',full=True)+field('Attendees','attendees',kind='number',required=True)+field('Number of nights','nights',kind='number')+field('Dates or flexible window','dates',required=True,full=True,placeholder='e.g. 12–15 March, or any week in April')+'''</div></section>
     <section class="quote-step" data-step="2" hidden><span class="step-label">Step 3 of 5 · The arrangements</span><h3>Choose your arrangements</h3><p class="muted">Select the arrangements you would like to discuss.</p><div class="choice-grid">'''+''.join(f'<label class="choice"><input type="checkbox" name="arrangements" value="{v}">{v}</label>' for v in ['Flights','Accommodation','Airport transfers','Meeting venue','Catering','Activities','Leisure extensions'])+'''</div><div class="form-grid"><div class="full" data-followup="Flights" hidden>'''+field('Departure cities / groups','departures',placeholder='e.g. Johannesburg and Lusaka')+'''</div><div class="full" data-followup="Accommodation" hidden>'''+field('Room mix and accommodation preferences','rooms',placeholder='e.g. 12 single rooms, central location')+'''</div><div class="full" data-followup="Meeting venue" hidden>'''+field('Meeting setup and equipment','venue',placeholder='e.g. boardroom, breakout space, projector')+'''</div>'''+field('Anything else to plan around?','arrangementNotes',kind='textarea',full=True,placeholder='Keep this brief; individual sensitive needs can be discussed privately.')+'''</div></section>
     <section class="quote-step" data-step="3" hidden><span class="step-label">Step 4 of 5 · Budget & priorities</span><h3>Budget and priorities</h3><p class="muted">A budget range helps frame the options. It’s optional.</p><div class="form-grid">'''+field('Budget range','budget',placeholder='e.g. 80,000–100,000')+field('Currency','currency',options=['ZAR','USD','ZMW','Other'])+field('Budget basis','budgetBasis',options=['Total group budget','Per person budget'],full=True)+field('Your priority','priority',options=['Value for money','Convenience & smooth logistics','A memorable experience','A balance of all three'],full=True)+field('Other priorities','priorities',kind='textarea',full=True)+'''</div></section>
@@ -240,19 +373,33 @@ def quote_form():
     <div class="result-box" id="quote-result" role="status" hidden><h3>Your quote request is ready</h3><p>Choose a channel to review and send it. Nothing has been sent automatically, and no booking has been made.</p><div class="actions"><a class="button blue" id="quote-email" href="mailto:EMAIL">Open email draft ↗</a><button class="button outline" id="quote-download" type="button">Download brief ↓</button><button class="text-link" id="quote-copy" type="button">Copy brief</button><a class="text-link" href="https://wa.me/27721555208" target="_blank" rel="noopener noreferrer">Open WhatsApp ↗</a></div><p class="form-note">For WhatsApp, copy your brief and paste only what you choose to share.</p><p class="copy-status" id="quote-status" aria-live="polite"></p></div></form>'''.replace('EMAIL',EMAIL)
 
 def contact():
-    s=editorial('Talk to Rusetat','A destination, a question or the beginning of a new chapter. Choose your starting point and prepare a short enquiry.','Let’s begin')
+    s=editorial('Talk to Rusetat','A destination, a question or the beginning of a new chapter. Choose your starting point and prepare a short enquiry.','Let’s begin', family='support')
     s+='<section class="section paper content-start"><div class="wrap quote-layout"><div><h2>Choose how to get in touch</h2><p class="muted">Keep your first message simple. The team can discuss the information needed for the next step.</p><div class="contact-card"><span class="label">Call or WhatsApp</span><p><a href="tel:+27721555208">'+PHONE+'</a></p></div><div class="contact-card"><span class="label">Email</span><p><a href="mailto:'+EMAIL+'">'+EMAIL+'</a></p></div><div class="contact-card"><span class="label">Visit by arrangement</span><p>269 Von Willich Avenue<br>Corporate 66 Office Park<br>Centurion, South Africa</p></div><p class="form-note">Please confirm office access and a suitable visiting time before travelling.</p>'+a('travel/corporate#quote','Planning a corporate event?')+'</div><form class="quote-form" id="contact-form"><span class="step-label">Your enquiry</span><h3>Prepare an enquiry</h3><div class="form-grid">'+field('I’m enquiring about','service',options=['Travel','South African visa','International visa','Au Pair','Recruitment','Relocation','Something else'],required=True,full=True)+field('Your name','contactName',required=True)+field('Email','contactEmail',kind='email',required=True)+field('Destination or country','contactDestination',full=True)+'<div class="full" data-contact-group="visa" hidden><div class="form-grid">'+field('Nationality','nationality')+field('Current country','currentCountry')+'</div></div><div class="full" data-contact-group="travel" hidden>'+field('Dates or timeframe','travelDates',placeholder='Flexible dates are welcome')+'</div><div class="full" data-contact-group="audience" hidden>'+field('I am a…','audience',options=['Candidate','Host family','Employer','Still exploring'])+'</div>'+field('Tell us a little more','message',kind='textarea',full=True,required=True,placeholder='Your purpose, broad circumstances or the question you would like to discuss.')+'</div><p class="form-note">No passports, identity numbers, health details or sensitive documents. This prepares a message; it does not submit to a server. Read our <a class="text-link" href="/privacy/">privacy notice</a>.</p><button class="button blue" type="submit">Prepare enquiry <span aria-hidden="true">↗</span></button><div class="result-box" id="contact-result" role="status" hidden><h3>Your enquiry is ready</h3><p>Choose how to share it. Nothing has been sent automatically.</p><div class="actions"><a class="button blue" id="contact-email" href="mailto:'+EMAIL+'">Open email draft ↗</a><button class="button outline" id="contact-copy" type="button">Copy message</button><a class="text-link" href="https://wa.me/27721555208" target="_blank" rel="noopener noreferrer">Open WhatsApp ↗</a></div><p class="copy-status" id="contact-status" aria-live="polite"></p></div></form></div></section>'
     s+='<section class="section pale"><div class="wrap split"><div>'+eyebrow('Find us in Centurion')+'<h2>Visit our Centurion office</h2><p class="muted">Visit by arrangement at Corporate 66 Office Park. Please confirm the office details before setting out.</p></div><div class="map-panel" id="map-panel"><div><p>269 Von Willich Avenue<br>Centurion</p><button class="button outline" id="load-map" type="button">Load Google map ↗</button><p class="form-note">Loading the map connects to Google Maps.</p></div></div></div></section>'
     return s
 
 def faq_page():
     groups=[('Travel',[('Are the destinations fixed packages?','No. They are inspiration for a tailored conversation. Dates, pricing, suppliers and availability are confirmed in your quotation.'),('Can I request a corporate event quote?','Yes. The corporate travel page has an interactive brief for your event, people, arrangements and budget.')]),('Visas & migration',[('Can you guarantee visa approval?','No. Relevant authorities determine eligibility and outcomes. Application assistance supports preparation rather than guaranteeing a decision.'),('How do I choose a visa type?','Start with the service category and read the individual introductions. Discuss your circumstances before deciding which route to prepare for.'),('Should I upload documents here?','No. Keep the first enquiry brief and avoid sensitive information. Discuss an appropriate sharing method with the team.')]),('Au pair & recruitment',[('Are placements or jobs guaranteed?','No. Start with an enquiry about current services, programmes or opportunities. Availability, selection and immigration permission are separate matters.'),('Where can I learn about the process?','The candidate, host-family and employer pages introduce the questions to discuss. Confirm responsibilities, fees and support before committing.')]),('Getting started',[('Does preparing an enquiry send it?','No. The preview prepares a message in your browser. You choose whether to send it using your own email or WhatsApp account.'),('Can I visit the office?','Please contact the team to confirm a suitable time and office access before travelling to Centurion.')])]
-    return editorial('Questions about our services','Find a useful starting point, then bring your own questions into the conversation.','Frequently asked questions')+''.join(faq([{'question':q,'answer':an} for q,an in items],esc(t)) for t,items in groups)+cta()
+    return editorial('Questions about our services','Find a useful starting point, then bring your own questions into the conversation.','Frequently asked questions', family='support')+''.join(faq([{'question':q,'answer':an} for q,an in items],esc(t)) for t,items in groups)+cta()
 
 def sitemap_page():
     def branch(parent):
         return '<ul class="tree-list">'+''.join(f'<li><a href="{url(s)}">{esc(t)}<code>{url(s)}</code></a>'+ (branch(s) if any(p[2]==s for p in PAGES) else '')+'</li>' for s,t,pa,k in PAGES if pa==parent)+'</ul>'
-    return editorial('The complete<br>Rusetat website',f'Explore the full {len(PAGES)}-page website. Every destination, visa type and supporting page appears below.','The complete website map')+'<section class="section paper content-start"><div class="wrap"><div class="site-search"><label for="sitemap-search">Find a page</label><input id="sitemap-search" type="search" placeholder="Search pages"></div>'+branch(None)+'<p id="sitemap-empty" class="no-results" role="status" hidden>No matching pages. Try a destination, visa type or service.</p></div></section>'
+    return editorial('The complete<br>Rusetat website',f'Explore the full {len(PAGES)}-page website. Every destination, visa type and supporting page appears below.','The complete website map', family='support')+'<section class="section paper content-start"><div class="wrap"><div class="site-search"><label for="sitemap-search">Find a page</label><input id="sitemap-search" type="search" placeholder="Search pages"></div>'+branch(None)+'<p id="sitemap-empty" class="no-results" role="status" hidden>No matching pages. Try a destination, visa type or service.</p></div></section>'
+
+def layout_family(slug, kind):
+    if kind == 'home': return 'home'
+    if kind == 'corporate': return 'corporate'
+    if slug.startswith('travel'): return 'travel'
+    if slug.startswith('visas'): return 'visas'
+    if slug.startswith('recruitment'): return 'recruitment'
+    if slug.startswith('au-pair'): return 'au-pair'
+    if kind == 'relocation': return 'relocation'
+    if kind in {'about', 'team', 'process'}: return 'about'
+    if kind in {'guides', 'guide'}: return 'guides'
+    if kind == 'policy': return 'document'
+    return 'support'
+
 
 def render(slug,kind):
     if kind=='home':return home()
@@ -286,34 +433,46 @@ def header(homepage=False):
 
 def footer():
     cols=[('Explore',[('travel','Travel & journeys'),('travel/destinations','Destinations'),('travel/corporate','Corporate & events'),('visas/south-africa','South African visas'),('visas/international','International visas')]),('Your next chapter',[('au-pair','Au Pair'),('recruitment','Recruitment'),('relocation','Relocation'),('guides','Guides & preparation'),('faqs','FAQs')]),('Let’s connect',[('about','About Rusetat'),('how-it-works','How it works'),('about/meet-the-team','Meet the Team'),('about/contact-us','Contact Us'),('sitemap','Full website map')])]
-    return '<footer class="site-footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a href="/"><img src="/images/Rusetat%20logo.png" alt="Rusetat Migration International" width="250" height="80"></a><p>Travel, visas and<br>migration support</p><a href="tel:+27721555208" style="font-size:13px">'+PHONE+'</a></div>'+''.join('<div class="footer-col"><h3>'+t+'</h3>'+''.join(a(s,n,'',False) for s,n in links)+'</div>' for t,links in cols)+'</div><div class="footer-bottom"><span>© 2026 Rusetat Migration International</span><span>Presentation preview · Arrangements subject to confirmation</span><span>'+a('privacy','Privacy','',False)+' · '+a('terms','Terms','',False)+' · '+a('travel-terms','Travel information','',False)+' · '+a('cookies','Preferences','',False)+'</span></div></div></footer><div class="contact-dock"><section class="dock-panel" id="dock-panel" aria-label="Contact Rusetat" hidden><h3>Contact Rusetat</h3><p>Choose how you would like to begin.</p><a href="/about/contact-us/">Prepare an enquiry ↗</a><a href="https://wa.me/27721555208?text=Hello%20Rusetat%2C%20I%20would%20like%20to%20discuss%20your%20services." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a><a href="/faqs/">Find a quick answer ↗</a></section><button class="dock-toggle" aria-expanded="false" aria-controls="dock-panel">Contact <span aria-hidden="true">↗</span></button></div>'
+    search = '<section class="footer-search" aria-label="Search the website"><form id="footer-search-form" role="search" action="/sitemap/" data-search-index="'+BASE_PATH+'/search-index.json?v=SEARCH_INDEX_VERSION"><label for="footer-search-query">Search the website</label><div class="footer-search-controls"><input id="footer-search-query" type="search" name="q" placeholder="Search services, destinations or guides" minlength="2" maxlength="120" required aria-describedby="footer-search-help" aria-controls="footer-search-results"><button type="submit">Search</button></div><p id="footer-search-help">Find pages by name or by the information you need.</p></form><p id="footer-search-status" class="footer-search-status" role="status"></p><ol id="footer-search-results" class="footer-search-results" aria-label="Search results" hidden></ol><button id="footer-search-more" class="footer-search-more" type="button" hidden>Show more results</button><a class="footer-search-map" href="/sitemap/">Explore the full website map</a><noscript><p>Enable JavaScript to search, or use the website map.</p></noscript></section>'
+    search = search.replace('<label for="footer-search-query">Search the website</label>', '<div class="footer-search-heading"><label for="footer-search-query">Search the website</label>'+stamp('Travel and new beginnings', 'footer', 'footer')+'</div>')
+    brand = '<div class="footer-brand"><a class="footer-logo" href="/"><img src="/images/Rusetat%20logo.png" alt="Rusetat Migration International" width="250" height="80"></a><p>Travel, visas and<br>migration support</p><a class="footer-phone" href="tel:+27721555208">'+PHONE+'<span aria-hidden="true">↗</span></a></div>'
+    directory = '<nav class="footer-directory" aria-label="Footer navigation">'+''.join('<div class="footer-col"><h3>'+title+'</h3>'+''.join(a(slug,label,'',False) for slug,label in links)+'</div>' for title,links in cols)+'</nav>'
+    legal = '<div class="footer-bottom"><span>© 2026 Rusetat Migration International</span><span>Presentation preview · Arrangements subject to confirmation</span><span>'+a('privacy','Privacy','',False)+' · '+a('terms','Terms','',False)+' · '+a('travel-terms','Travel information','',False)+' · '+a('cookies','Preferences','',False)+'</span></div>'
+    footer_html = '<footer class="site-footer"><div class="wrap"><div class="footer-top">'+brand+search+'</div>'+directory+legal+'</div></footer>'
+    return footer_html + '<div class="contact-dock"><section class="dock-panel" id="dock-panel" aria-label="Contact Rusetat" hidden><div id="dock-options"><h3>Contact Rusetat</h3><p>Choose how you would like to begin.</p><button class="dock-option" type="button" data-chat-entry="main">Chat with Ruse <span aria-hidden="true">↗</span></button><button class="dock-option" type="button" data-chat-entry="assessment">Visa assessment <span aria-hidden="true">↗</span></button><a href="/about/contact-us/">Prepare an enquiry ↗</a><a href="https://wa.me/27721555208?text=Hello%20Rusetat%2C%20I%20would%20like%20to%20discuss%20your%20services." target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a><a href="/faqs/">Find a quick answer ↗</a></div><div class="dock-chat" id="dock-chat" hidden><div class="dock-chat-header"><button type="button" id="dock-back" aria-label="Back to contact options">← Back</button><div class="dock-chat-identity"><img src="/images/Rusetat%20logo.png" alt="Rusetat Migration International" width="100" height="32"><strong id="dock-chat-title">Chat with Ruse</strong></div><button type="button" id="dock-close" aria-label="Close chat">×</button></div><div class="dock-chat-body"><p class="dock-chat-status" id="dock-chat-status" role="status">Opening Ruse…</p><div class="dock-chat-frame" id="dock-chat-frame"></div></div><div class="dock-chat-help" aria-label="Other ways to get help"><a id="dock-chat-external" aria-label="Open main chat full screen in a new tab" title="Opens this chat mode in a new tab; the current conversation may not carry over" href="https://dify.banyalabs.com/chat/DmZ7bob5QDWu8hiz" target="_blank" rel="noopener noreferrer">Full screen (new tab)</a><a href="/about/contact-us/">Contact our team</a></div></div></section><button class="dock-toggle" aria-expanded="false" aria-controls="dock-panel">Contact <span aria-hidden="true">↗</span></button></div>'
 
 def build():
+    machine = MachineSurface(ROOT, OUT, PAGES, BASE_PATH)
     OUT.mkdir(exist_ok=True)
     shutil.copytree(ROOT/'images',OUT/'images',dirs_exist_ok=True,ignore=shutil.ignore_patterns('*.png','*provenance*'))
     shutil.copy2(ROOT/'images/Rusetat logo.png',OUT/'images/Rusetat logo.png')
-    for file in ['website.css','website.js','redirect.js']:
+    for file in ['website.css','branch-layouts.css','website.js','destination-search.js','site-search.js','redirect.js']:
         shutil.copy2(ROOT/file,OUT/file)
+    search_entries = []
     for slug,title,parent,kind in PAGES:
+        family = layout_family(slug, kind)
         body=render(slug,kind)
-        description=title+' — thoughtful travel planning, visa application preparation and new possibilities with Rusetat Migration International.'
-        asset_version=hashlib.sha256((ROOT/'website.css').read_bytes()+(ROOT/'website.js').read_bytes()).hexdigest()[:12]
-        html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#092d53"><meta name="robots" content="noindex,nofollow"><meta name="description" content="'+esc(description)+'"><title>'+esc(title)+' | Rusetat Migration International</title><link rel="icon" href="/images/Rusetat%20logo.png"><link rel="stylesheet" href="/website.css?v=ASSET_VERSION"><script src="/website.js?v=ASSET_VERSION" defer></script></head><body>'+header(kind=='home')+'<main id="main">'+('' if kind=='home' else crumbs(slug))+body+'</main>'+footer()+'</body></html>'
+        search_entries.append(search_entry(title, BASE_PATH+url(slug), body))
+        description, machine_head = machine.page_head(slug, title, parent, kind, finish_markup(body))
+        asset_version=hashlib.sha256((ROOT/'website.css').read_bytes()+(ROOT/'website.js').read_bytes()+(ROOT/'destination-search.js').read_bytes()+(ROOT/'site-search.js').read_bytes()+(ROOT/'branch-layouts.css').read_bytes()).hexdigest()[:12]
+        html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#092d53">'+machine_head+'<meta name="description" content="'+esc(description)+'"><title>'+esc(title)+' | Rusetat Migration International</title><link rel="icon" href="/images/Rusetat%20logo.png"><link rel="stylesheet" href="/website.css?v=ASSET_VERSION"><link rel="stylesheet" href="/branch-layouts.css?v=ASSET_VERSION">'+('<script src="/destination-search.js?v=ASSET_VERSION" defer></script>' if kind=='destinations' else '')+'<script src="/website.js?v=ASSET_VERSION" defer></script><script src="/site-search.js?v=ASSET_VERSION" defer></script></head><body>'+header(kind=='home')+'<main id="main" data-layout-family="'+family+'">'+('' if kind=='home' else crumbs(slug))+body+'</main>'+footer()+'</body></html>'
         html=finish_markup(html.replace('ASSET_VERSION',asset_version))
         target=OUT/slug/'index.html';target.parent.mkdir(parents=True,exist_ok=True);target.write_text(html,encoding='utf-8')
     for old,new in [('corporate.html','travel/corporate'),('privacy.html','privacy'),('contact/index.html','about/contact-us')]:
         target=OUT/old
         target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Continue to Rusetat</title><link rel="canonical" href="{url(new)}"><script src="/redirect.js" defer></script><noscript><meta http-equiv="refresh" content="0;url={url(new)}"></noscript></head><body><a href="{url(new)}">Continue to {esc(BY_SLUG[new][1])}</a></body></html>',encoding='utf-8')
-    site_config=json.loads((ROOT/'content/site.json').read_text(encoding='utf-8'))
-    origin=os.environ.get('SITE_ORIGIN',site_config['origin']).rstrip('/')
+    origin = machine.origin
+    machine.write()
     (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+esc(origin+url(p[0]))+'</loc></url>' for p in PAGES)+'</urlset>',encoding='utf-8')
-    (OUT/'robots.txt').write_text('User-agent: *\nDisallow: /\n',encoding='utf-8')
     (OUT/'page-inventory.json').write_text(json.dumps([dict(slug=s,title=t,parent=pa,kind=k) for s,t,pa,k in PAGES],indent=2),encoding='utf-8')
-    (OUT/'404.html').write_text(finish_markup('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Rusetat</title><link rel="stylesheet" href="/website.css"><main class="wrap section"><span class="eyebrow">A different direction</span><h1>Let’s get you<br>back on track.</h1><p>This page could not be found.</p><a class="button blue" href="/sitemap/">Explore the website ↗</a></main></html>'),encoding='utf-8')
+    (OUT/'404.html').write_text(finish_markup('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Page not found | Rusetat</title><link rel="stylesheet" href="/website.css"><main class="wrap section"><span class="eyebrow">A different direction</span><h1>Let’s get you<br>back on track.</h1><p>This page could not be found.</p><a class="button blue" href="/sitemap/">Explore the website ↗</a></main></html>'),encoding='utf-8')
+    search_json = json.dumps(search_entries, ensure_ascii=False, separators=(',', ':'))
+    (OUT/'search-index.json').write_text(search_json, encoding='utf-8')
+    search_version = hashlib.sha256(search_json.encode('utf-8')).hexdigest()[:12]
     # Apply hosting paths once, after all templates and legacy redirects exist.
     for page in OUT.rglob('*.html'):
-        page.write_text(hosting_markup(page.read_text(encoding='utf-8')), encoding='utf-8')
+        page.write_text(hosting_markup(page.read_text(encoding='utf-8').replace('SEARCH_INDEX_VERSION', search_version)), encoding='utf-8')
     if BASE_PATH:
         sitemap = OUT/'sitemap.xml'
         sitemap.write_text(sitemap.read_text(encoding='utf-8').replace(origin+'/', origin+BASE_PATH+'/'), encoding='utf-8')

@@ -14,7 +14,75 @@ dockToggle?.addEventListener('click', () => {
   const open = dockToggle.getAttribute('aria-expanded') !== 'true';
   dockToggle.setAttribute('aria-expanded', String(open));
   dockPanel.hidden = !open;
-  if (open) dockPanel.querySelector('a')?.focus();
+  if (open) dockPanel.querySelector(dockPanel.classList.contains('chat-open') ? '#dock-back' : '[data-chat-entry]')?.focus();
+});
+const dockOptions = document.querySelector('#dock-options');
+const dockChat = document.querySelector('#dock-chat');
+const dockFrames = document.querySelector('#dock-chat-frame');
+let activeChatEntry = 'main';
+const chatFrames = new Map();
+const chatStatus = document.querySelector('#dock-chat-status');
+const chatExternal = document.querySelector('#dock-chat-external');
+const frameTimers = new Map();
+
+function showChatStatus(entry) {
+  if (entry !== activeChatEntry) return;
+  const state = chatFrames.get(entry)?.dataset.state;
+  chatStatus.hidden = state === 'loaded';
+  chatStatus.textContent = state === 'waiting'
+    ? 'Taking longer than expected. You can open Ruse separately or contact our team below.'
+    : 'Opening Ruse…';
+}
+document.querySelectorAll('[data-chat-entry]').forEach(button => {
+  button.addEventListener('click', () => {
+    activeChatEntry = button.dataset.chatEntry;
+    const label = activeChatEntry === 'assessment' ? 'Visa assessment' : 'Chat with Ruse';
+    if (!chatFrames.has(activeChatEntry)) {
+      const frame = document.createElement('iframe');
+      frame.title = label;
+      frame.dataset.state = 'loading';
+      const chatUrl = new URL('https://dify.banyalabs.com/chat/DmZ7bob5QDWu8hiz');
+      chatUrl.searchParams.set('brand', 'rusetat');
+      if (activeChatEntry === 'assessment') chatUrl.searchParams.set('entry', 'assessment');
+      frame.src = chatUrl.href;
+      frame.allow = 'microphone; clipboard-write';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.addEventListener('load', () => {
+        clearTimeout(frameTimers.get(frame.dataset.entry));
+        // A cross-origin load event confirms navigation, not chatbot health.
+        frame.dataset.state = 'loaded';
+        showChatStatus(frame.dataset.entry);
+      });
+      frame.dataset.entry = activeChatEntry;
+      dockFrames.append(frame);
+      chatFrames.set(activeChatEntry, frame);
+      const entry = activeChatEntry;
+      frameTimers.set(entry, setTimeout(() => {
+        if (frame.dataset.state === 'loaded') return;
+        frame.dataset.state = 'waiting';
+        showChatStatus(entry);
+      }, 15000));
+    }
+    chatFrames.forEach((frame, entry) => { frame.hidden = entry !== activeChatEntry; });
+    chatExternal.href = chatFrames.get(activeChatEntry).src;
+    chatExternal.setAttribute('aria-label', `Open ${label} full screen in a new tab`);
+    showChatStatus(activeChatEntry);
+    document.querySelector('#dock-chat-title').textContent = label;
+    dockOptions.hidden = true;
+    dockChat.hidden = false;
+    dockPanel.classList.add('chat-open');
+    document.querySelector('#dock-back').focus();
+  });
+});
+document.querySelector('#dock-back')?.addEventListener('click', () => {
+  dockChat.hidden = true;
+  dockOptions.hidden = false;
+  dockPanel.classList.remove('chat-open');
+  dockOptions.querySelector(`[data-chat-entry="${activeChatEntry}"]`).focus();
+});
+document.querySelector('#dock-close')?.addEventListener('click', () => {
+  dockToggle.click();
+  dockToggle.focus();
 });
 document.addEventListener('keydown', event => {
   if (event.key === 'Tab' && menuButton?.getAttribute('aria-expanded') === 'true') {
@@ -49,16 +117,7 @@ document.addEventListener('click', event => {
   }
 });
 
-document.querySelectorAll('[data-filter]').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach(control => control.setAttribute('aria-pressed', String(control === button)));
-    document.querySelectorAll('[data-region]').forEach(card => {
-      card.hidden = button.dataset.filter !== 'All destinations' && card.dataset.region !== button.dataset.filter;
-    });
-    const count = [...document.querySelectorAll('[data-region]')].filter(card => !card.hidden).length;
-    document.querySelector('#destination-count').textContent = `${count} ${count === 1 ? 'destination' : 'destinations'}`;
-  });
-});
+globalThis.RusetatDestinationSearch?.init(document);
 
 const search = document.querySelector('#sitemap-search');
 search?.addEventListener('input', () => {
@@ -95,6 +154,15 @@ function value(form, name) {
   return control && 'value' in control ? control.value.trim() : '';
 }
 
+function chooseCorporateExample(form, example) {
+  const selections = [['event', example.briefEvent], ['destination', example.briefDestination]]
+    .filter(([, selected]) => selected);
+  if (!selections.length || selections.some(([name, selected]) =>
+    ![...form.elements.namedItem(name).options].some(option => option.value === selected))) return false;
+  selections.forEach(([name, selected]) => { form.elements.namedItem(name).value = selected; });
+  return true;
+}
+
 const quoteForm = document.querySelector('#quote-form');
 if (quoteForm) {
   const steps = [...quoteForm.querySelectorAll('.quote-step')];
@@ -107,6 +175,16 @@ if (quoteForm) {
   const summary = document.querySelector('#quote-review');
   let step = 0;
   let brief = '';
+
+  document.querySelectorAll('[data-brief-event]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (!chooseCorporateExample(quoteForm, link.dataset)) return;
+      event.preventDefault();
+      quoteForm.dispatchEvent(new Event('change', { bubbles: true }));
+      showStep(0);
+    });
+  });
 
   function selectedArrangements() {
     return [...quoteForm.querySelectorAll('[name="arrangements"]:checked')].map(control => control.value);
@@ -208,6 +286,8 @@ if (quoteForm) {
     const option = labels[destination] || destination;
     if ([...quoteForm.elements.destination.options].some(item => item.value === option)) quoteForm.elements.destination.value = option;
   }
+  const eventType = new URLSearchParams(location.search).get('event');
+  if (eventType) chooseCorporateExample(quoteForm, { briefEvent: eventType });
 }
 
 const contactForm = document.querySelector('#contact-form');

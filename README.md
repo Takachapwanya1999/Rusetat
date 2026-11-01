@@ -4,11 +4,12 @@ A responsive 69-page presentation website for Rusetat Migration International. T
 
 ## Run locally
 
-Requires Python 3.11+; no third-party build dependencies. Node.js is optional for npm aliases.
+Requires Python 3.11+; no third-party build dependencies. Node.js is required for the chat interaction check and optional npm aliases.
 
 ```powershell
 python scripts/build.py
 python scripts/check.py
+node --test scripts/chat.test.cjs
 python -m http.server 4173 --bind 127.0.0.1 --directory dist
 ```
 
@@ -16,6 +17,12 @@ Open http://127.0.0.1:4173/. With npm, use `npm run build`, `npm test` and `npm 
 
 ## Content and hierarchy
 
+- [Branch layout families](docs/branch-layouts.md): travel, visas, corporate, recruitment, Au Pair, About, guides and relocation have distinct compositions within the shared brand. `branch-layouts.css` owns those differences.
+- `content/corporate.json`: corporate destination and event examples. Each example links into the event brief; dates, facilities and supplier availability are confirmed separately. These examples also enter website search and the readable agent surface on build.
+- [Dual-surface readiness](docs/dual-surface-readiness.md): canonical domain `rusetatmigration.org`, structured metadata, readable versions of all pages, agent catalogue and explicit preview/production crawler controls. Default builds remain noindex; use `SITE_INDEXABLE=true` only for the public release.
+- Every footer includes [website search](docs/site-search.md), covering page titles, headings and main content. Its public index regenerates on build; no external search service or visitor-query tracking is used.
+- Destination search matches places, travel interests and activities, with region filters and spelling variants. Edit the `search` fields in `content/destinations.json`; see [search behaviour and checks](docs/destination-search.md). Add amenities only after confirmation.
+- [Chat placement recommendations](docs/chat-placement-plan.md) describe useful contextual entry points into the existing shared panel.
 - `scripts/inventory.py`: authoritative page hierarchy. Every route needs a renderer; no empty fallback pages.
 - `scripts/build.py`: shared templates, navigation and editorial sections.
 - `content/destinations.json`: eight individual destinations.
@@ -32,9 +39,11 @@ Add a page to the inventory and its substantive content/renderer, then build and
 
 The corporate brief has five stages, conditional questions, back/edit navigation, review, email draft, copy and text download. Destination pages can preselect the corporate destination. Contact adapts to travel, visas and opportunity enquiries. Both forms run in the current page, do not persist answers and do not submit to a backend. Email/WhatsApp sharing is a deliberate visitor action. No booking, appointment, job or placement is confirmed by this website.
 
-Draft contact details are retained for presentation and require owner confirmation before public release. Maps connect to Google only after selection. There is no live Dify embed or WhatsApp Business API integration: WhatsApp links open the agency chat; FAQs provide quick answers.
+Draft contact details are retained for presentation and require owner confirmation before public release. Maps connect to Google only after selection. The shared contact widget offers Chat with Ruse and Visa assessment, opening the hosted Dify chatbot in a responsive panel above the contact button. Chat loads only after selection; Back returns to contact options and Close minimises it without removing the loaded frames. Visa assessment uses `?entry=assessment` to select the assessment entry. WhatsApp links open the agency chat; FAQs provide quick answers.
 
 ## Imagery
+
+The detailed [design system](design.md) documents the existing website foundation and the new rubber-stamp illustration language. Home keeps its photographic hero; subpages use light-grey introductions with branch-specific compositions and their own deterministic stamp. The frame, caption and scene vary per page while the ink language stays consistent. Existing photos, portraits, flags and the original logo remain in the library and can still appear lower in the page. The first transparent raster specimen and its provenance are in [assets/illustrations](assets/illustrations/README.md).
 
 Final images are served locally as WebP with explicit dimensions. `images/generated/` contains five AI-generated illustrative photographs and prompt/source provenance. They do not depict actual staff, clients or completed placements. Stock notes are in `images/stock-provenance.json`. Kariba/Victoria imagery and the logo came with the draft. Confirm rights and geographic representation before public release. Original PNGs remain in source; build output excludes them except the logo.
 
@@ -83,3 +92,32 @@ python scripts/check.py
 ```
 
 For the ordinary local server, remove `SITE_BASE_PATH` and rebuild. `SITE_ORIGIN` is the domain only; the builder appends the path. Environment examples are documentation, not automatically loaded settings. `dist/` stays ignored because Actions generates it. The demo remains marked noindex and its enquiry forms prepare messages without sending to a backend.
+
+
+## Chat branding status
+
+The corner panel uses the supplied Rusetat logo and the website's shared colour,
+font and radius tokens. Iframe URLs request `brand=rusetat`; this is a scoped
+frontend theme flag, not an API credential. The inner document cannot inherit
+website CSS across domains. The corresponding Dify theme package is at
+`../../services/ruse-intake/infra/dify-website-theme/`. It is prepared locally,
+not deployed or visually verified against the hosted frontend. Full inner-chat
+branding is still pending that build and browser QA; the flag alone does not
+change the live Dify app.
+
+The panel now includes a quiet loading state and persistent links to open the
+chat separately or contact the team. After 15 seconds without an iframe load,
+it offers those alternatives. A cross-origin load event does not prove that the
+chat service is healthy; the links therefore remain visible after loading.
+On phones the panel uses the available dynamic viewport and safe-area spacing.
+Switching entries or closing the panel retains the two conversation frames.
+
+Before building the hosted theme, run `node sync-tokens.cjs --check` in its
+directory. Use `node sync-tokens.cjs` to copy the 12 shared website tokens after
+a design change. See [chat integration status](docs/chat-integration-status.md)
+for verification and remaining release work.
+
+Both modes have a **Full screen (new tab)** link. The prepared hosted theme now
+supports branded standalone tabs with the supplied logo and mode heading, but
+remains undeployed. The link opens the selected mode; exact active-conversation
+transfer is not implemented. Assessment can start again in the new tab.

@@ -1,0 +1,24 @@
+{
+  "assets": [
+    {
+      "file": "rusetat-travel-migration-stamp.png",
+      "created": "2026-11-01",
+      "method": "AI-generated using the built-in imagegen tool",
+      "purpose": "Initial Rusetat rubber-stamp design-system specimen",
+      "dimensions": { "width": 1536, "height": 1024 },
+      "format": "RGBA PNG",
+      "transparentBackground": true,
+      "intendedInk": "#092D53",
+      "colourNote": "Generated raster approximates the target ink; not an exact spot-colour master.",
+      "text": ["RUSETAT", "TRAVEL & MIGRATION"],
+      "sourceReferences": [],
+      "generationSource": "exec-f5c0327a-73c9-41d2-8b08-22fc6cfcc10b.png",
+      "brief": "One authentic airport/passport rubber ink impression, transparent background, deep navy single ink, horizontal oval double-line border, restrained broken edges/dry patches/pinholes. Minimal monoline closed passport with neutral globe and small plane rising right. RUSETAT on top arc; TRAVEL & MIGRATION on bottom arc. Consistent sturdy condensed uppercase sans serif, mechanically set and legible. Generous transparent margin. No dates, identifiers, approval labels, government insignia, flags, crowns, official seals, photographic content, gradients, shadow, 3D, ornate decoration, heavy grunge, paper background or physical stamp tool.",
+      "review": {
+        "status": "Initial specimen visually checked; final placement review required",
+        "checked": ["Exact lettering", "Minimal scene", "Restrained ink wear", "Complete frame", "Alpha channel", "Appearance composited on white"],
+        "notClaimed": ["Official immigration stamp", "Government approval", "Editable font master", "Integration into website templates"]
+      }
+    }
+  ]
+}

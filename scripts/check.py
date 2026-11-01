@@ -25,7 +25,7 @@ class Page(HTMLParser):
         if tag in ['img','script','link']:
             src=a.get('src') or a.get('href')
             if src:self.assets.append(src)
-        if tag=='img' and not a.get('alt'):self.missing_alt+=1
+        if tag=='img' and ('alt' not in a or (not a['alt'].strip() and a.get('aria-hidden')!='true' and a.get('role')!='presentation')):self.missing_alt+=1
     def handle_endtag(self,tag):
         if tag=='main':self.main=False
 

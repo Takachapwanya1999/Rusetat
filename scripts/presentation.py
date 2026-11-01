@@ -43,6 +43,9 @@ class Presentation(HTMLParser):
         self.parts.append(self.get_starttag_text())
 
     def handle_data(self, data):
+        if any(tag in {'script', 'style'} for tag, _ in self.context):
+            self.parts.append(data)
+            return
         short = any(tag in {'h1','h2','h3','button'} or classes & SHORT_CLASSES for tag,classes in self.context)
         if short:
             data=re.sub(r'\.(\s*)$', r'\1', data)

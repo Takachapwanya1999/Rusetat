@@ -413,3 +413,14 @@ if (ruseQuestionForm) {
     });
   });
 }
+
+// Keep contact details available without opening a chat.
+document.querySelector('#dock-copy-phone')?.addEventListener('click', async (event) => {
+  const status = document.querySelector('#dock-copy-status');
+  try {
+    await navigator.clipboard.writeText(event.currentTarget.dataset.phone);
+    status.textContent = 'Phone number copied.';
+  } catch {
+    status.textContent = 'Copy unavailable. Select and copy the phone number above.';
+  }
+});

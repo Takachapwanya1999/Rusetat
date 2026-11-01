@@ -20,3 +20,7 @@ Existing AI-generated and stock photography provenance remains in `images/genera
 ## Country flags
 
 The international visa directory uses SVG flags from [flag-icons by lipis and contributors](https://github.com/lipis/flag-icons), licensed under MIT. The 12 required 4:3 flags are stored locally in `images/flags/`; the pinned upstream revision, original URLs and checksums are recorded in `images/flags/provenance.json`. The upstream license is retained as `images/flags/LICENSE.txt`. No CDN or flag package is required at runtime.
+
+## WhatsApp brand icon
+
+The locally vendored WhatsApp SVG comes from Font Awesome Free Brands 7.3.1 (https://github.com/FortAwesome/Font-Awesome/blob/7.3.1/svgs/brands/whatsapp.svg). Icons are licensed CC BY 4.0; the upstream license is retained in assets/icons/FONT-AWESOME-LICENSE.txt. Rendered in WhatsApp green. No font pack, JavaScript library or remote CDN is loaded. Brand trademarks belong to their respective owners.

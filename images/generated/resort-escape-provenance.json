@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-01",
+  "prompt": "Photorealistic editorial travel photograph, portrait 4:5 composition, for the Rusetat travel agency website section 'Travel at your own pace'. An inviting tropical beachfront resort escape viewed from a shaded natural timber terrace: comfortable cream upholstered sun loungers and one broad cream beach umbrella in the foreground, an elegant clear turquoise infinity pool in the middle ground flowing visually toward a soft white sand beach and calm blue ocean. Lush palms and tasteful tropical gardens frame the sides. A relaxed adult couple in the distance near the far pool edge, naturally enjoying the view, small in the composition, candid rather than posing, believable anatomy. Warm late-afternoon sunlight, airy welcoming holiday atmosphere, rich natural colours, refined but attainable comfort, no sterile empty architectural render. Camera at terrace eye level, realistic materials and reflections, gentle depth, crisp sophisticated travel magazine photography. Strong composition readable in a narrow vertical website crop. Keep the main pool, umbrella and sea in the central safe area; bottom 15 percent simple terrace detail for a small HTML caption overlay. No text, logos, watermarks, borders, graphics, fake resort branding or recognizable actual property. This is an illustrative resort scene, not a claim of a specific hotel or booked holiday.",
+  "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-a78ed879-313b-4460-a550-3badbb7d9f6c.png",
+  "tool": "built-in imagegen",
+  "usage": "Homepage Travel at your own pace section",
+  "description": "Illustrative resort, not a named property or actual customer holiday",
+  "master": "resort-escape-master.png",
+  "delivery": "resort-escape.webp",
+  "dimensions": [
+    1122,
+    1402
+  ],
+  "bytes": 302006
+}

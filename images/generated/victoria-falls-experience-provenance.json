@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-01",
+  "tool": "built-in imagegen (user-approved fallback from Higgsfield)",
+  "prompt": "Create a natural candid travel photograph strongly inspired by the attached Victoria Falls photo. Portrait 4:5. Two adult African women travellers and an adult African male local guide enjoying a natural rock pool at Victoria Falls, immense waterfall gorge and rising spray behind. Use DIFFERENT people, poses, swimwear patterns and composition from the reference, while retaining its documentary travel energy and spectacular location atmosphere. The travellers converse and laugh spontaneously, the guide alongside them on a broad rock shelf, small natural gestures rather than posing at camera. Unbranded everyday swimwear and simple dark guide swim shirt, no lettering or logos. Realistically moving water around waist/chest, tactile wet rocks and sparkling ripples foreground; broad waterfall curtain and sheer gorge visible behind, mist, green riverbanks and softly clouded bright sky. Natural daylight, real skin texture, believable anatomy, convincing hands and water interaction. Authentic holiday photograph taken during an experience, not a staged luxury campaign. No resort architecture, infinity pool, loungers, artificial HDR, cinematic teal/orange grading, beauty retouching, text or watermark. Keep all three people and their faces in central crop-safe zone, sufficient waterfall behind them, visually usable in a centre 5:4 mobile crop too. No stunt pose leaning over edge. Do not reproduce exact reference faces. An illustrative generated travel scene, not a photograph of actual agency clients.",
+  "source": "C:\\Users\\sewar\\.codex\\generated_images\\01a195f5-0c19-7013-94d6-dacaa809dc10\\exec-748d585e-3883-4429-95a9-6de11bc42782.png",
+  "reference": "design-previews/references/victoria-falls-experience.png",
+  "usage": "Homepage Travel at your own pace section",
+  "note": "Illustrative generated travel scene; not actual agency clients or a confirmed excursion.",
+  "dimensions": [
+    1122,
+    1402
+  ],
+  "bytes": 291216
+}

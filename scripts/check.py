@@ -3,6 +3,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from inventory import PAGES
+from hosting import BASE_PATH
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist'
@@ -42,7 +43,12 @@ for slug,p in parsed.items():
     for href in p.links+p.assets:
         u=urlsplit(href)
         if u.scheme or u.netloc:continue
-        path=unquote(u.path).lstrip('/')
+        local_path=unquote(u.path)
+        if BASE_PATH and local_path.startswith('/'):
+            if not local_path.startswith(BASE_PATH+'/'):
+                errors.append(f'{slug}: URL escapes hosting path {href}');continue
+            local_path=local_path[len(BASE_PATH):]
+        path=local_path.lstrip('/')
         target=OUT/path if path else OUT/slug
         if not Path(path).suffix:target=target/'index.html'
         if not target.exists():errors.append(f'{slug}: broken local target {href}');continue
@@ -51,7 +57,7 @@ for slug,p in parsed.items():
             if unquote(u.fragment) not in other.ids:errors.append(f'{slug}: missing fragment {href}')
 for slug,title,parent,kind in PAGES:
     if parent and parent in parsed:
-        expected='/'+slug+'/'
+        expected=BASE_PATH+'/'+slug+'/'
         if expected not in parsed[parent].body_links:errors.append(f'{slug}: missing body link from parent {parent}')
 if errors:
     print('\n'.join(errors));raise SystemExit(1)

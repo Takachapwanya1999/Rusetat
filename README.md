@@ -61,3 +61,25 @@ About Rusetat links from its body and navigation to `/about/meet-the-team/`, `/a
 `content/team.json` holds the team introduction, support-role copy and an optional `people` array. The current roster is Carol (Director), Alettar and Antony (Admin), Alaska (Legal Consultant), and TK (Software Developer), as supplied for this demo. Their portraits are generated illustrations, labelled together beneath the profile grid. No ages are included in page content. Replace the illustrative portraits with approved staff photographs when available; each `people` record has `name`, `role`, `portrait`, `portraitAlt` and `bio`.
 
 The international visa directory uses 12 real 4:3 SVG flag assets served from `images/flags/`. They come from one MIT-licensed flag-icons collection, with a pinned upstream revision, source URLs and hashes recorded in `images/flags/provenance.json`. Each international record has its ISO country code in `countryCode`. No emoji, CDN or runtime flag dependency is used.
+
+## Host on GitHub Pages
+
+The complete site source, content and local images live in this repository. ChatGPT Sites is optional; building and hosting the site requires no connection to it. The root `index.html` is the supplied reference draft; publish the generated `dist/` directory instead.
+
+1. Commit these changes on `chore/github-pages-hosting`, push that branch, and merge it into `main`.
+2. In GitHub, open **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+3. Run **Actions → Publish Rusetat to GitHub Pages → Run workflow** on `main`, or push a change to `main`.
+4. Open the website address reported by the successful deployment. For this repository the default project address is `https://takachapwanya1999.github.io/Rusetat/`.
+
+The workflow builds and checks all pages before uploading `dist/`. It derives the domain and project path from GitHub Pages settings, so links, images, redirects and the XML sitemap also work under `/Rusetat/` or on a configured custom domain. Pull requests run build checks without deploying. No packages, credentials or database are needed. GitHub Pages must be enabled before the workflow configuration step can succeed.
+
+To preview the project path locally in PowerShell:
+
+```powershell
+$env:SITE_ORIGIN = 'https://takachapwanya1999.github.io'
+$env:SITE_BASE_PATH = '/Rusetat'
+python scripts/build.py
+python scripts/check.py
+```
+
+For the ordinary local server, remove `SITE_BASE_PATH` and rebuild. `SITE_ORIGIN` is the domain only; the builder appends the path. Environment examples are documentation, not automatically loaded settings. `dist/` stays ignored because Actions generates it. The demo remains marked noindex and its enquiry forms prepare messages without sending to a backend.

@@ -121,3 +121,17 @@ Both modes have a **Full screen (new tab)** link. The prepared hosted theme now
 supports branded standalone tabs with the supplied logo and mode heading, but
 remains undeployed. The link opens the selected mode; exact active-conversation
 transfer is not implemented. Assessment can start again in the new tab.
+
+## Homepage FAQ and Google reviews
+
+The homepage has three native accordion questions and buttons opening the existing Ruse chat and visa assessment in the corner panel. The chatbot service and published flow are unchanged.
+
+`content/google-reviews.json` configures the testimonials section. Keep `reviews` empty until real reviews are available; the site shows an honest invitation for feedback without ratings or fabricated testimonials. Set `profileUrl` to the confirmed Google Business Profile / Maps link to enable the Google link. This is a manually curated source, not a live Google API feed.
+
+For each genuine review, add `author`, `rating` (integer 1–5), `date` (display date), `text` (exact original review), and `sourceUrl` (direct HTTPS Google review link) to `reviews`. Preserve attribution and wording; verify each against its source before publication. The build rejects missing authors/text, invalid ratings and non-Google source links. Rebuild with `npm run build` and verify with `npm test` after adding reviews. No API key or new dependency is needed.
+
+## FAQ question handoff
+
+The FAQ page composer sends questions into the retained main Ruse iframe using an origin-checked `postMessage` bridge. It never rebuilds chat UI or resets conversations, and does not place question text in URLs/storage. Input is limited to 2,000 characters. A readiness handshake, acknowledgement, timeout and duplicate request IDs preserve the draft on unconfirmed handoffs. FAQ topic links keep all nine existing questions reachable.
+
+The receiver is in `../../services/ruse-intake/infra/dify-question-bridge/`. It is scoped to the exact Ruse route with `brand=rusetat` and excludes assessment mode. Website hosting origins must be explicitly allowed there before adding a new domain. Current allowed origins: localhost port 4173 and the repository GitHub Pages origin.

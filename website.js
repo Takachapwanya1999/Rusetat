@@ -35,6 +35,8 @@ function showChatStatus(entry) {
 }
 document.querySelectorAll('[data-chat-entry]').forEach(button => {
   button.addEventListener('click', () => {
+    dockPanel.hidden = false;
+    dockToggle.setAttribute('aria-expanded', 'true');
     activeChatEntry = button.dataset.chatEntry;
     const label = activeChatEntry === 'assessment' ? 'Visa assessment' : 'Chat with Ruse';
     if (!chatFrames.has(activeChatEntry)) {
@@ -80,6 +82,12 @@ document.querySelector('#dock-back')?.addEventListener('click', () => {
   dockPanel.classList.remove('chat-open');
   dockOptions.querySelector(`[data-chat-entry="${activeChatEntry}"]`).focus();
 });
+document.querySelector('#dock-options-close')?.addEventListener('click', () => {
+  dockPanel.hidden = true;
+  dockToggle.setAttribute('aria-expanded', 'false');
+  dockToggle.focus();
+});
+
 document.querySelector('#dock-close')?.addEventListener('click', () => {
   dockToggle.click();
   dockToggle.focus();
@@ -111,7 +119,7 @@ matchMedia('(min-width: 901px)').addEventListener('change', event => {
   if (event.matches && menuButton?.getAttribute('aria-expanded') === 'true') menuButton.click();
 });
 document.addEventListener('click', event => {
-  if (dockPanel && !dockPanel.hidden && !event.target.closest('.contact-dock')) {
+  if (dockPanel && !dockPanel.hidden && !event.target.closest('.contact-dock') && !event.target.closest('[data-chat-entry]') && !event.target.closest('#ruse-question-form')) {
     dockPanel.hidden = true;
     dockToggle.setAttribute('aria-expanded', 'false');
   }
@@ -345,3 +353,63 @@ document.querySelector('#load-map')?.addEventListener('click', () => {
   frame.src = 'https://maps.google.com/maps?q=269%20Von%20Willich%20Avenue%20Centurion&t=&z=15&ie=UTF8&iwloc=&output=embed';
   document.querySelector('#map-panel').replaceChildren(frame);
 });
+
+// FAQ composer hands off to the existing, retained main-chat iframe.
+const ruseQuestionForm = document.querySelector('#ruse-question-form');
+if (ruseQuestionForm) {
+  const input = ruseQuestionForm.querySelector('textarea');
+  const submit = ruseQuestionForm.querySelector('[type="submit"]');
+  const status = document.querySelector('#ruse-question-status');
+  const origin = 'https://dify.banyalabs.com';
+  let pending;
+  let poll;
+  let timeout;
+  let lastAttempt;
+  const finish = message => {
+    clearInterval(poll);
+    clearTimeout(timeout);
+    pending = undefined;
+    submit.disabled = false;
+    input.readOnly = false;
+    status.textContent = message;
+  };
+  window.addEventListener('message', event => {
+    const frame = chatFrames.get('main');
+    if (!pending || event.origin !== origin || event.source !== frame?.contentWindow
+      || event.data?.channel !== 'rusetat-question-v1') return;
+    if (event.data.type === 'ready' && !pending.dispatched) {
+      pending.dispatched = true;
+      clearInterval(poll);
+      frame.contentWindow.postMessage({channel: 'rusetat-question-v1', type: 'question', id: pending.id, text: pending.text}, origin);
+    } else if (event.data.id === pending.id && event.data.type === 'accepted') {
+      input.value = '';
+      lastAttempt = undefined;
+      finish('Your question is in the Ruse chat. Continue the conversation there.');
+    } else if (event.data.id === pending.id && ['busy', 'failed'].includes(event.data.type)) {
+      finish('Ruse is not ready for another question. Check the chat panel before trying again. Your question is still here.');
+    }
+  });
+  ruseQuestionForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const text = input.value.trim();
+    if (pending || !text || text.length > 2000 || !ruseQuestionForm.reportValidity()) return;
+    // A retry of an uncertain handoff reuses its ID so the child cannot send twice.
+    pending = lastAttempt?.text === text ? {...lastAttempt, dispatched: false} : {id: crypto.randomUUID(), text, dispatched: false};
+    lastAttempt = {...pending};
+    submit.disabled = true;
+    input.readOnly = true;
+    status.textContent = 'Opening Ruse and handing over your question…';
+    dockOptions.querySelector('[data-chat-entry="main"]').click();
+    const hello = () => chatFrames.get('main')?.contentWindow?.postMessage({channel: 'rusetat-question-v1', type: 'hello'}, origin);
+    poll = setInterval(hello, 500);
+    timeout = setTimeout(() => finish('We could not confirm the handoff. Your question is still here. Check the Ruse chat before retrying, or ask directly in its message box.'), 25000);
+    hello();
+  });
+  document.querySelectorAll('[data-ruse-question]').forEach(button => {
+    button.addEventListener('click', () => {
+      input.value = button.dataset.ruseQuestion;
+      input.focus();
+      ruseQuestionForm.requestSubmit();
+    });
+  });
+}

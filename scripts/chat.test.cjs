@@ -35,7 +35,10 @@ test('chat entries retain frames, isolate loading state and keep direct help ava
     setTimeout: fn => { timers.set(++timerId, fn); return timerId; },
     clearTimeout: id => timers.delete(id),
   });
+  elements.get('#dock-panel').hidden = true;
   main.click();
+  assert.equal(elements.get('#dock-panel').hidden, false, 'Homepage entry opens the chat panel');
+  assert.equal(elements.get('.dock-toggle').getAttribute('aria-expanded'), 'true');
   const frames = elements.get('#dock-chat-frame').children;
   const status = elements.get('#dock-chat-status');
   assert.equal(frames.length, 1);

@@ -49,3 +49,7 @@
 - Added five generated editorial photographs, locally served stock photography and provenance files.
 - Added build and catalogue checks. Supplied original draft files remain preserved as the design reference.
 - Demo is noindex; enquiry tools prepare messages without automatic submission.
+
+## 2026-11-01
+- Added homepage FAQ with three accordions and Ruse AI chat / assessment actions.
+- Added configurable, attributed Google review cards with an honest empty state until real reviews are supplied.

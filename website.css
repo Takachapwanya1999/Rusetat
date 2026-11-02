@@ -78,10 +78,10 @@ em { font-style: normal; }
 /* Shared navigation */
 .topbar { min-height: 36px; display: flex; align-items: center; background: var(--accent); color: #fff; font-size: 12px; }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.site-header { position: relative; z-index: 30; width: min(1280px, calc(100% - 48px)); margin: 24px auto; background: var(--deep); color: #fff; border: 1px solid var(--light-line); border-radius: var(--radius); }
-.site-header.over { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); margin: 0; background: var(--deep); }
+.site-header { position: relative; z-index: 30; width: 100%; margin: 0; background: var(--deep); color: #fff; border: 0; border-bottom: 1px solid var(--light-line); border-radius: 0; }
+.site-header.over { position: absolute; top: 0; left: 0; margin: 0; background: var(--deep); }
 
-.site-header .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: none; min-height: 80px; padding: 8px 24px; gap: 24px; }
+.site-header .header-inner { display: flex; align-items: center; justify-content: space-between; width: min(1280px, calc(100% - 48px)); margin-inline: auto; min-height: 80px; padding: 8px 0; gap: 24px; }
 .brand img { width: 208px; height: 64px; object-fit: contain; }
 .nav { display: flex; align-items: center; gap: 24px; font-size: 14px; }
 .nav-item { position: relative; }
@@ -481,9 +481,7 @@ body:has(input:focus, textarea:focus, select:focus) .contact-dock { visibility: 
   .editorial-hero-inner > .hero-stamp { grid-column: 1; grid-row: auto; width: min(220px, 68vw); margin: 24px 0 0; }
   .editorial-stamp-side .hero-stamp { width: min(220px, 68vw); margin-left: 0; }
   .wrap { width: calc(100% - 48px); }
-  .site-header { width: calc(100% - 32px); margin-block: 16px; }
-  .site-header.over { top: 16px; }
-  .site-header .header-inner { padding: 8px 16px; gap: 12px; }
+  .site-header .header-inner { width: calc(100% - 32px); padding: 8px 0; gap: 12px; }
   .topbar a, .topbar .wrap > span:last-child { display: none; }
   .brand img { width: min(176px, 44vw); height: 56px; }
   .header-inner { gap: 16px; }

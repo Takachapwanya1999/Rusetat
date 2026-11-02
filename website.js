@@ -424,3 +424,11 @@ document.querySelector('#dock-copy-phone')?.addEventListener('click', async (eve
     status.textContent = 'Copy unavailable. Select and copy the phone number above.';
   }
 });
+
+const siteHeader = document.querySelector('.site-header');
+if (siteHeader) {
+  const updateHeader = () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 16);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('pageshow', updateHeader);
+}

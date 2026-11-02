@@ -25,7 +25,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+html { scroll-behavior: smooth; scroll-padding-top: 112px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 body.menu-open { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
@@ -78,8 +78,12 @@ em { font-style: normal; }
 /* Shared navigation */
 .topbar { min-height: 36px; display: flex; align-items: center; background: var(--accent); color: #fff; font-size: 12px; }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.site-header { position: relative; z-index: 30; width: 100%; margin: 0; background: var(--deep); color: #fff; border: 0; border-bottom: 1px solid var(--light-line); border-radius: 0; }
-.site-header.over { position: absolute; top: 0; left: 0; margin: 0; background: var(--deep); }
+.site-header { position: sticky; top: 0; z-index: 30; width: 100%; margin: 0; background: var(--deep); color: #fff; border: 0; border-bottom: 1px solid var(--light-line); border-radius: 0; transition: background 180ms ease; }
+.site-header.over { position: fixed; top: 0; left: 0; margin: 0; background: var(--deep); }
+
+@supports (backdrop-filter: blur(12px)) {
+  .site-header.is-scrolled { background: rgb(9 45 83 / 90%); backdrop-filter: blur(12px); }
+}
 
 .site-header .header-inner { display: flex; align-items: center; justify-content: space-between; width: min(1280px, calc(100% - 48px)); margin-inline: auto; min-height: 80px; padding: 8px 0; gap: 24px; }
 .brand img { width: 208px; height: 64px; object-fit: contain; }

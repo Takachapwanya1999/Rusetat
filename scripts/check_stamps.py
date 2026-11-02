@@ -35,7 +35,9 @@ def main():
         assert STAMP_SLOT not in text, f'Unresolved stamp slot: {slug}'
         page = StampPage(text)
         expected = []
-        if kind != 'home':
+        if kind == 'home':
+            expected.append(STAMPS['default'])
+        else:
             art = STAMPS['pages'].get(slug, STAMPS['default'])
             expected.append(art)
             placeholder = slug not in STAMPS['pages']
